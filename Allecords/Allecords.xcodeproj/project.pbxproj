@@ -45,6 +45,8 @@
 		783656852BB8651D004FFA09 /* AllecordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllecordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		783656892BB8651D004FFA09 /* AllecordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITests.swift; sourceTree = "<group>"; };
 		7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../../../Boostcamp/[Project]OpenList/iOS10-OpenList/client/Projects/OpenList/OpenList/Fonts/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../../../Boostcamp/[Project]OpenList/iOS10-OpenList/client/Projects/OpenList/OpenList/Fonts/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +97,8 @@
 		783656672BB8651A004FFA09 /* Allecords */ = {
 			isa = PBXGroup;
 			children = (
-				783656682BB8651A004FFA09 /* AppDelegate.swift */,
-				7836566A2BB8651A004FFA09 /* SceneDelegate.swift */,
+				789EEA8A2BB8794100B99871 /* App */,
 				7836566C2BB8651A004FFA09 /* ViewController.swift */,
-				783656712BB8651D004FFA09 /* Assets.xcassets */,
-				783656762BB8651D004FFA09 /* Info.plist */,
 			);
 			path = Allecords;
 			sourceTree = "<group>";
@@ -119,6 +118,35 @@
 				7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */,
 			);
 			path = AllecordsUITests;
+			sourceTree = "<group>";
+		};
+		789EEA8A2BB8794100B99871 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				783656682BB8651A004FFA09 /* AppDelegate.swift */,
+				7836566A2BB8651A004FFA09 /* SceneDelegate.swift */,
+				789EEA8B2BB8797800B99871 /* Resources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		789EEA8B2BB8797800B99871 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				783656762BB8651D004FFA09 /* Info.plist */,
+				783656712BB8651D004FFA09 /* Assets.xcassets */,
+				789EEA8C2BB87BD400B99871 /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		789EEA8C2BB87BD400B99871 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */,
+				789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
