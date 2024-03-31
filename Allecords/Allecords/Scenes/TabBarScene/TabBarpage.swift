@@ -14,34 +14,34 @@ enum TabBarpage: String, CaseIterable {
 	
 	init?(index: Int) {
 		switch index {
-			case 0: self = .homeTab
-			case 1: self = .chatTab
-			case 2: self = .myPageTab
-			default: return nil
+		case 0: self = .homeTab
+		case 1: self = .chatTab
+		case 2: self = .myPageTab
+		default: return nil
 		}
 	}
 	
 	func pageTitleValue() -> String {
 		switch self {
-			case .homeTab: return "홈"
-			case .chatTab: return "채팅"
-			case .myPageTab: return "마이페이지"
+		case .homeTab: return "홈"
+		case .chatTab: return "채팅"
+		case .myPageTab: return "마이페이지"
 		}
 	}
 	
 	func pageorderNumber() -> Int {
 		switch self {
-			case .homeTab: return 0
-			case .chatTab: return 1
-			case .myPageTab: return 2
+		case .homeTab: return 0
+		case .chatTab: return 1
+		case .myPageTab: return 2
 		}
 	}
 	
 	func tabIconName() -> String {
 		switch self {
-			case .homeTab: return "house"
-			case .chatTab: return "bubble"
-			case .myPageTab: return "person.circle"
+		case .homeTab: return "house"
+		case .chatTab: return "bubble"
+		case .myPageTab: return "person.circle"
 		}
 	}
 }

@@ -16,5 +16,4 @@ struct HomeBuilder: HomeBuilderProtocol {
 		let homeViewModel = HomeViewModel()
 		return HomeViewController(viewModel: homeViewModel)
 	}
-	
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 final class TabBarViewController: UITabBarController {
-	
 	private let homeBuilderable: HomeBuilderProtocol
 	
 	init(homeBuilderable: HomeBuilderProtocol) {
@@ -47,9 +46,8 @@ final class TabBarViewController: UITabBarController {
 		selectedIndex = TabBarpage.homeTab.pageorderNumber()
 		view.backgroundColor = .background
 		tabBar.backgroundColor = .background
-		tabBar.tintColor = .primary
+		tabBar.tintColor = .primary1
 	}
-	
 }
 
 private extension TabBarViewController {
@@ -65,6 +63,5 @@ private extension TabBarViewController {
 			image: .init(systemName: page.tabIconName()),
 			tag: page.pageorderNumber()
 		)
-			
 	}
 }

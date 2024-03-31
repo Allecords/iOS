@@ -28,10 +28,8 @@ final class DependencyContainer: DependencyContainerProtocol {
 
 // MARK: Allocator for DependencyContainer
 final class DependenciesAllocator {
-	
 	static func allocate() -> DependencyContainerProtocol {
 		let session = CustomSession()
 		return DependencyContainer(session: session)
 	}
-	
 }

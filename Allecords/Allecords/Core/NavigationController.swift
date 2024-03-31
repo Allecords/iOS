@@ -27,16 +27,13 @@ protocol NavigationControllerProtocol {
 }
 
 final class AllecordsNavigationController: UINavigationController {
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		isNavigationBarHidden = false
 	}
-	
 }
 
 extension AllecordsNavigationController: NavigationControllerProtocol {
-	
 	func push(viewController: UIViewController, animated: Bool) {
 		self.pushViewController(viewController, animated: animated)
 	}
@@ -48,5 +45,4 @@ extension AllecordsNavigationController: NavigationControllerProtocol {
 	func dismiss(completion: (() -> Void)?, animated: Bool) {
 		self.dismiss(animated: animated, completion: completion)
 	}
-	
 }

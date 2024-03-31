@@ -14,18 +14,15 @@ State == HomeState,
 Output == AnyPublisher<State, Never> { }
 
 final class HomeViewModel {
-	
 }
 
 extension HomeViewModel: HomeViewModelable {
-	
 	func transform(_ input: Input) -> Output {
 		let viewLoad = viewLoad(input)
 		return Publishers.MergeMany(
 			viewLoad
 		).eraseToAnyPublisher()
 	}
-	
 }
 
 private extension HomeViewModel {

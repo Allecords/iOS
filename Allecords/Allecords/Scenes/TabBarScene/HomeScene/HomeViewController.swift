@@ -12,7 +12,6 @@ protocol HomeRoutingLogic: AnyObject {
 }
 
 final class HomeViewController: UIViewController {
-	
 	private var viewModel: any HomeViewModelable
 	
 	init(viewModel: any HomeViewModelable) {
@@ -27,7 +26,6 @@ final class HomeViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .primary
+		view.backgroundColor = .primary1
 	}
-	
 }

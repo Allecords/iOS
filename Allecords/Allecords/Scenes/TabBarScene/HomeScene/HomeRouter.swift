@@ -13,7 +13,6 @@ final class HomeRouter {
 }
 
 extension HomeRouter: HomeRoutingLogic {
-
 	func showDetailScene() {
 		// 아래의 코드는 builder에서 build한 코드가 들어가야함
 		let detailViewController = UIViewController()

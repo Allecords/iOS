@@ -13,7 +13,6 @@ protocol AppRouterProtocol {
 }
 
 final class AppRouter: AppRouterProtocol {
-	
 	private var window: UIWindow
 	private var tabBarBuilder: TabBarBuilderProtocol
 	
@@ -26,12 +25,11 @@ final class AppRouter: AppRouterProtocol {
 	}
 	
 	func showTapFlow() {
-		let tabBarController = TabBarBuilder().build() as! TabBarViewController
+		let tabBarController = TabBarBuilder().build() as? TabBarViewController
 		window.rootViewController = tabBarController
 	}
 	
 	func showLoginFlow() {
 		// After login
 	}
-
 }

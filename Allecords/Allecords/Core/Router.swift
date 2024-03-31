@@ -8,7 +8,6 @@
 import Foundation
 
 protocol Router: AnyObject {
-	
 	var dependencies: DependencyContainerProtocol { get }
 	
 	var navigationController: NavigationControllerProtocol { get }
