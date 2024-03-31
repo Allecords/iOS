@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MyPageViewController.swift
 //  Allecords
 //
 //  Created by Hoon on 3/31/24.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class MyPageViewController: UIViewController {
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .red
+		view.backgroundColor = .primaryLight
 	}
-
-
+	
 }
-

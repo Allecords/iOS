@@ -14,6 +14,23 @@
 		783656802BB8651D004FFA09 /* AllecordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836567F2BB8651D004FFA09 /* AllecordsTests.swift */; };
 		7836568A2BB8651D004FFA09 /* AllecordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783656892BB8651D004FFA09 /* AllecordsUITests.swift */; };
 		7836568C2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */; };
+		789EEA962BB87F2D00B99871 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA952BB87F2D00B99871 /* HomeViewController.swift */; };
+		789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA972BB87F4500B99871 /* ChatViewController.swift */; };
+		789EEA9A2BB87F6400B99871 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA992BB87F6400B99871 /* MyPageViewController.swift */; };
+		789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA9B2BB8802600B99871 /* TabBarViewController.swift */; };
+		789EEAA12BB881EE00B99871 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAA02BB881EE00B99871 /* ViewModelable.swift */; };
+		789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAA22BB8827000B99871 /* TabBarpage.swift */; };
+		789EEAA72BB8863700B99871 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAA62BB8863700B99871 /* HomeViewModel.swift */; };
+		789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAAE2BB993F600B99871 /* NavigationController.swift */; };
+		789EEAB12BB9955400B99871 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAB02BB9955400B99871 /* Router.swift */; };
+		789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAB22BB9957700B99871 /* DependencyContainer.swift */; };
+		789EEAB52BB9977B00B99871 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAB42BB9977B00B99871 /* AppRouter.swift */; };
+		789EEAB72BB99A4000B99871 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAB62BB99A4000B99871 /* HomeRouter.swift */; };
+		789EEAB92BB99A8100B99871 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAB82BB99A8100B99871 /* HomeBuilder.swift */; };
+		789EEABB2BB99CFE00B99871 /* HomeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEABA2BB99CFE00B99871 /* HomeInput.swift */; };
+		789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEABE2BB99F8200B99871 /* Publisher+Operator.swift */; };
+		789EEAC22BB9A47D00B99871 /* libAllecordsNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */; };
+		789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAC32BB9A92600B99871 /* TabBarBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +62,25 @@
 		783656852BB8651D004FFA09 /* AllecordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllecordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		783656892BB8651D004FFA09 /* AllecordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITests.swift; sourceTree = "<group>"; };
 		7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../../../Boostcamp/[Project]OpenList/iOS10-OpenList/client/Projects/OpenList/OpenList/Fonts/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../../../Boostcamp/[Project]OpenList/iOS10-OpenList/client/Projects/OpenList/OpenList/Fonts/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		789EEA952BB87F2D00B99871 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		789EEA972BB87F4500B99871 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		789EEA992BB87F6400B99871 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		789EEA9B2BB8802600B99871 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		789EEAA02BB881EE00B99871 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
+		789EEAA22BB8827000B99871 /* TabBarpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarpage.swift; sourceTree = "<group>"; };
+		789EEAA62BB8863700B99871 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		789EEAAE2BB993F600B99871 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		789EEAB02BB9955400B99871 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		789EEAB22BB9957700B99871 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		789EEAB42BB9977B00B99871 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		789EEAB62BB99A4000B99871 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		789EEAB82BB99A8100B99871 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		789EEABA2BB99CFE00B99871 /* HomeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInput.swift; sourceTree = "<group>"; };
+		789EEABE2BB99F8200B99871 /* Publisher+Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Operator.swift"; sourceTree = "<group>"; };
+		789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAllecordsNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		789EEAC32BB9A92600B99871 /* TabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789EEAC22BB9A47D00B99871 /* libAllecordsNetwork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +116,7 @@
 				7836567E2BB8651D004FFA09 /* AllecordsTests */,
 				783656882BB8651D004FFA09 /* AllecordsUITests */,
 				783656662BB8651A004FFA09 /* Products */,
+				789EEAC02BB9A47D00B99871 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,11 +133,11 @@
 		783656672BB8651A004FFA09 /* Allecords */ = {
 			isa = PBXGroup;
 			children = (
-				783656682BB8651A004FFA09 /* AppDelegate.swift */,
-				7836566A2BB8651A004FFA09 /* SceneDelegate.swift */,
+				789EEABC2BB99F6300B99871 /* Extension */,
+				789EEA9F2BB881DD00B99871 /* Core */,
+				789EEA902BB87E8D00B99871 /* Scenes */,
+				789EEA8A2BB8794100B99871 /* App */,
 				7836566C2BB8651A004FFA09 /* ViewController.swift */,
-				783656712BB8651D004FFA09 /* Assets.xcassets */,
-				783656762BB8651D004FFA09 /* Info.plist */,
 			);
 			path = Allecords;
 			sourceTree = "<group>";
@@ -119,6 +157,120 @@
 				7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */,
 			);
 			path = AllecordsUITests;
+			sourceTree = "<group>";
+		};
+		789EEA8A2BB8794100B99871 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				783656682BB8651A004FFA09 /* AppDelegate.swift */,
+				7836566A2BB8651A004FFA09 /* SceneDelegate.swift */,
+				789EEA8B2BB8797800B99871 /* Resources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		789EEA8B2BB8797800B99871 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				783656762BB8651D004FFA09 /* Info.plist */,
+				783656712BB8651D004FFA09 /* Assets.xcassets */,
+				789EEA8C2BB87BD400B99871 /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		789EEA8C2BB87BD400B99871 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */,
+				789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		789EEA902BB87E8D00B99871 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				789EEA912BB87EB300B99871 /* TabBarScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		789EEA912BB87EB300B99871 /* TabBarScene */ = {
+			isa = PBXGroup;
+			children = (
+				789EEA922BB87ED800B99871 /* HomeScene */,
+				789EEA932BB87EE500B99871 /* ChatScene */,
+				789EEA942BB87EF400B99871 /* MyPageScene */,
+				789EEA9B2BB8802600B99871 /* TabBarViewController.swift */,
+				789EEAC32BB9A92600B99871 /* TabBarBuilder.swift */,
+				789EEAA22BB8827000B99871 /* TabBarpage.swift */,
+			);
+			path = TabBarScene;
+			sourceTree = "<group>";
+		};
+		789EEA922BB87ED800B99871 /* HomeScene */ = {
+			isa = PBXGroup;
+			children = (
+				789EEA952BB87F2D00B99871 /* HomeViewController.swift */,
+				789EEAA62BB8863700B99871 /* HomeViewModel.swift */,
+				789EEABA2BB99CFE00B99871 /* HomeInput.swift */,
+				789EEAB62BB99A4000B99871 /* HomeRouter.swift */,
+				789EEAB82BB99A8100B99871 /* HomeBuilder.swift */,
+			);
+			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		789EEA932BB87EE500B99871 /* ChatScene */ = {
+			isa = PBXGroup;
+			children = (
+				789EEA972BB87F4500B99871 /* ChatViewController.swift */,
+			);
+			path = ChatScene;
+			sourceTree = "<group>";
+		};
+		789EEA942BB87EF400B99871 /* MyPageScene */ = {
+			isa = PBXGroup;
+			children = (
+				789EEA992BB87F6400B99871 /* MyPageViewController.swift */,
+			);
+			path = MyPageScene;
+			sourceTree = "<group>";
+		};
+		789EEA9F2BB881DD00B99871 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				789EEAA02BB881EE00B99871 /* ViewModelable.swift */,
+				789EEAB02BB9955400B99871 /* Router.swift */,
+				789EEAB42BB9977B00B99871 /* AppRouter.swift */,
+				789EEAB22BB9957700B99871 /* DependencyContainer.swift */,
+				789EEAAE2BB993F600B99871 /* NavigationController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		789EEABC2BB99F6300B99871 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				789EEABD2BB99F6D00B99871 /* Combine+ */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		789EEABD2BB99F6D00B99871 /* Combine+ */ = {
+			isa = PBXGroup;
+			children = (
+				789EEABE2BB99F8200B99871 /* Publisher+Operator.swift */,
+			);
+			path = "Combine+";
+			sourceTree = "<group>";
+		};
+		789EEAC02BB9A47D00B99871 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +403,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				7836566D2BB8651A004FFA09 /* ViewController.swift in Sources */,
+				789EEAB52BB9977B00B99871 /* AppRouter.swift in Sources */,
+				789EEABB2BB99CFE00B99871 /* HomeInput.swift in Sources */,
+				789EEAB72BB99A4000B99871 /* HomeRouter.swift in Sources */,
+				789EEAB12BB9955400B99871 /* Router.swift in Sources */,
+				789EEA9A2BB87F6400B99871 /* MyPageViewController.swift in Sources */,
+				789EEAB92BB99A8100B99871 /* HomeBuilder.swift in Sources */,
+				789EEAA12BB881EE00B99871 /* ViewModelable.swift in Sources */,
 				783656692BB8651A004FFA09 /* AppDelegate.swift in Sources */,
+				789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */,
+				789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */,
+				789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */,
 				7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */,
+				789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */,
+				789EEAA72BB8863700B99871 /* HomeViewModel.swift in Sources */,
+				789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */,
+				789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */,
+				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
+				789EEA962BB87F2D00B99871 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +585,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3ZYNC2J93W;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Allecords/Info.plist;
+				INFOPLIST_FILE = Allecords/App/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -448,7 +616,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3ZYNC2J93W;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Allecords/Info.plist;
+				INFOPLIST_FILE = Allecords/App/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
