@@ -5,6 +5,8 @@
 //  Created by Hoon on 3/31/24.
 //
 
+//  filter tag, imageView -> Collection View?, "New" icon in imageView, Detail of imageView, scrollable
+
 import UIKit
 
 protocol HomeRoutingLogic: AnyObject {
@@ -12,8 +14,15 @@ protocol HomeRoutingLogic: AnyObject {
 }
 
 final class HomeViewController: UIViewController {
+    // MARK: - UI Components
+    private var collectionView: UICollectionView!
+    
+    // MARK: - Properties
 	private var viewModel: any HomeViewModelable
+    private var products: [ProductCell.Product] = []
 	
+    
+    // MARK: - Initializer
 	init(viewModel: any HomeViewModelable) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
@@ -24,8 +33,101 @@ final class HomeViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+    // MARK: - HomeView LifeCycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .primary1
+		view.backgroundColor = .white
+        setViewAttribute()
+        setViewHierachies()
+        setViewConstraints()
 	}
+}
+
+// MARK: - UI Configure
+private extension HomeViewController {
+    enum FilterTextConstant {
+        
+    }
+    
+    enum CellLayoutConstant {
+        static let itemsPerRow: CGFloat = 3
+        static let sectionInsets = UIEdgeInsets(top: 10.0, left: 8.0, bottom: 10.0, right: 8.0)
+        static let cellHeight: CGFloat = 200
+    }
+    
+    func setViewAttribute() {
+        setCollectionView()
+        loadTestData()
+        collectionView.reloadData()
+    }
+    
+    func setCollectionView() {
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = .clear
+        collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func createLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        let paddingSpace = CellLayoutConstant.sectionInsets.left * (CellLayoutConstant.itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / CellLayoutConstant.itemsPerRow
+        
+        layout.itemSize = CGSize(width: widthPerItem, height: CellLayoutConstant.cellHeight)
+        layout.sectionInset = CellLayoutConstant.sectionInsets
+        layout.minimumLineSpacing = CellLayoutConstant.sectionInsets.left
+        layout.minimumInteritemSpacing = CellLayoutConstant.sectionInsets.left
+        return layout
+    }
+    
+    private func loadTestData() {
+        products = ProductCell().createSampleProducts()
+    }
+    
+    func setViewHierachies() {
+        [
+            collectionView
+            
+        ].forEach { $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+    }
+    
+    func setViewConstraints() {
+        let safeArea = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
+        let product = products[indexPath.row]
+        cell.configure(with: product)
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 선택된 상품의 isNew 값을 false로 변경
+        let product = products[indexPath.row]
+        product.isNew = false 
+
+        // 변경 사항을 적용하기 위해 collectionView 리로드
+        collectionView.reloadItems(at: [indexPath])
+    }
 }

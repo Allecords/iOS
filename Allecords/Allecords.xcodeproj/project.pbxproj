@@ -31,6 +31,7 @@
 		789EEAC22BB9A47D00B99871 /* libAllecordsNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */; };
 		789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAC32BB9A92600B99871 /* TabBarBuilder.swift */; };
 		789EEAE02BB9CAF400B99871 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 789EEADF2BB9CAF400B99871 /* .swiftlint.yml */; };
+		8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570F5AE2BBFE472009D1772 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAllecordsNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		789EEAC32BB9A92600B99871 /* TabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBuilder.swift; sourceTree = "<group>"; };
 		789EEADF2BB9CAF400B99871 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		8570F5AE2BBFE472009D1772 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				789EEABA2BB99CFE00B99871 /* HomeInput.swift */,
 				789EEAB62BB99A4000B99871 /* HomeRouter.swift */,
 				789EEAB82BB99A8100B99871 /* HomeBuilder.swift */,
+				8570F5AE2BBFE472009D1772 /* ProductCell.swift */,
 			);
 			path = HomeScene;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */,
 				789EEAA72BB8863700B99871 /* HomeViewModel.swift in Sources */,
 				789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */,
+				8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */,
 				789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */,
 				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
 				789EEA962BB87F2D00B99871 /* HomeViewController.swift in Sources */,
