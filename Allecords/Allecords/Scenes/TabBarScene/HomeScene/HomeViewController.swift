@@ -62,23 +62,25 @@ private extension HomeViewController {
     }
     
     func setCollectionView() {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
         collectionView.backgroundColor = .clear
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
-    func createLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        let paddingSpace = CellLayoutConstant.sectionInsets.left * (CellLayoutConstant.itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / CellLayoutConstant.itemsPerRow
+    func createCompositionalLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        layout.itemSize = CGSize(width: widthPerItem, height: CellLayoutConstant.cellHeight)
-        layout.sectionInset = CellLayoutConstant.sectionInsets
-        layout.minimumLineSpacing = CellLayoutConstant.sectionInsets.left
-        layout.minimumInteritemSpacing = CellLayoutConstant.sectionInsets.left
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalWidth(1/2))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 3)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 8
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
     
@@ -125,7 +127,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 선택된 상품의 isNew 값을 false로 변경
         let product = products[indexPath.row]
-        product.isNew = false 
+        product.isNew = false
 
         // 변경 사항을 적용하기 위해 collectionView 리로드
         collectionView.reloadItems(at: [indexPath])
