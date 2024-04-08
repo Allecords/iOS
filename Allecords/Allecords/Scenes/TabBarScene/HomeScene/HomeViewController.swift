@@ -130,11 +130,14 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as? ProductCell else {
+            return UICollectionViewCell()
+        }
         let product = products[indexPath.row]
         cell.configure(with: product)
         return cell
     }
+
 }
 
 // MARK: - UICollectionViewDelegate
