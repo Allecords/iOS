@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductCell: UICollectionViewCell {
+final class ProductCell: UICollectionViewCell {
     static let identifier = "ProductCell"
     
     private let imageView = UIImageView()
@@ -60,6 +60,32 @@ class ProductCell: UICollectionViewCell {
 
 extension ProductCell {
     private func setupLayout() {
+        enum ImageViewConstant {
+            static let topPadding: CGFloat = 10
+            static let leadPadding: CGFloat = 10
+            static let trailPdding: CGFloat = -10
+        }
+        
+        enum NewLabelConstant {
+            static let topPadding: CGFloat = 5
+            static let leadPadding: CGFloat = 5
+            static let width: CGFloat = 40
+            static let height: CGFloat = 20
+        }
+        
+        enum NameLabelConstant {
+            static let topPadding: CGFloat = 5
+            static let leadPadding: CGFloat = 10
+            static let trailPdding: CGFloat = -10
+        }
+        
+        enum PriceLabelConstant {
+            static let topPadding: CGFloat = 5
+            static let leadPadding: CGFloat = 10
+            static let trailPdding: CGFloat = -10
+            static let bottomPadding: CGFloat = -10
+        }
+        
         // ImageView 설정
         imageView.backgroundColor = .lightGray
         imageView.contentMode = .scaleAspectFill
@@ -94,27 +120,27 @@ extension ProductCell {
         // Auto Layout 제약 조건 설정
         NSLayoutConstraint.activate([
             // ImageView 제약 조건
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: ImageViewConstant.topPadding),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ImageViewConstant.leadPadding),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ImageViewConstant.trailPdding),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             
             // New Label 제약 조건
-            newLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 5),
-            newLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 5),
-            newLabel.widthAnchor.constraint(equalToConstant: 40),
-            newLabel.heightAnchor.constraint(equalToConstant: 20),
+            newLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: NewLabelConstant.topPadding),
+            newLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: NewLabelConstant.leadPadding),
+            newLabel.widthAnchor.constraint(equalToConstant: NewLabelConstant.width),
+            newLabel.heightAnchor.constraint(equalToConstant: NewLabelConstant.height),
 
             // NameLabel 제약 조건
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: NameLabelConstant.topPadding),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: NameLabelConstant.leadPadding),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: NameLabelConstant.trailPdding),
 
             // PriceLabel 제약 조건
-            priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            priceLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10)
+            priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: PriceLabelConstant.topPadding),
+            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: PriceLabelConstant.leadPadding),
+            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: PriceLabelConstant.trailPdding),
+            priceLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: PriceLabelConstant.bottomPadding)
         ])
     }
 

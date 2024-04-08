@@ -15,7 +15,7 @@ protocol HomeRoutingLogic: AnyObject {
 
 final class HomeViewController: UIViewController {
     // MARK: - UI Components
-    private var collectionView: UICollectionView!
+    private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
     // MARK: - Properties
 	private var viewModel: any HomeViewModelable
@@ -49,10 +49,16 @@ private extension HomeViewController {
         
     }
     
-    enum CellLayoutConstant {
-        static let itemsPerRow: CGFloat = 3
-        static let sectionInsets = UIEdgeInsets(top: 10.0, left: 8.0, bottom: 10.0, right: 8.0)
-        static let cellHeight: CGFloat = 200
+    enum CollectionViewLayoutConstant {
+        static let itemSizeWidth: CGFloat = 1
+        static let itemSizeHeight: CGFloat = 1
+        static let groupSizeWidth: CGFloat = 1/3
+        static let groupSizeHeight: CGFloat = 1/4
+        static let sectionInternalSpacing: CGFloat = 8
+        static let sectionContentInsetsTop: CGFloat = 10
+        static let sectionContentInsetsLead: CGFloat = 10
+        static let sectionContentInsetsBottom: CGFloat = 10
+        static let sectionContentInsetsTrail: CGFloat = 10
     }
     
     func setViewAttribute() {
@@ -62,26 +68,35 @@ private extension HomeViewController {
     }
     
     func setCollectionView() {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
-        collectionView.backgroundColor = .clear
-        collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.identifier)
+        collectionView.backgroundColor = .background
+        collectionView.register(
+            ProductCell.self,
+            forCellWithReuseIdentifier: ProductCell.identifier
+        )
+        
+        let layout: UICollectionViewCompositionalLayout = {
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(CollectionViewLayoutConstant.itemSizeWidth),
+                heightDimension: .fractionalHeight(CollectionViewLayoutConstant.itemSizeHeight)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                    
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(CollectionViewLayoutConstant.groupSizeWidth),
+                heightDimension: .fractionalHeight(CollectionViewLayoutConstant.groupSizeHeight)
+            )
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 3)
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = CollectionViewLayoutConstant.sectionInternalSpacing
+            section.contentInsets = NSDirectionalEdgeInsets(top: CollectionViewLayoutConstant.sectionContentInsetsTop, leading: CollectionViewLayoutConstant.sectionContentInsetsLead, bottom: CollectionViewLayoutConstant.sectionContentInsetsBottom, trailing: CollectionViewLayoutConstant.sectionContentInsetsTrail)
+            
+            return UICollectionViewCompositionalLayout(section: section)
+        }()
+        collectionView.collectionViewLayout = layout
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    func createCompositionalLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalWidth(1/2))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 3)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 8
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-        
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func loadTestData() {
