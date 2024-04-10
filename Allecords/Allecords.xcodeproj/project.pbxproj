@@ -37,6 +37,8 @@
 		789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAE82BC00A9700B99871 /* UIFont+.swift */; };
 		789EEAEB2BC00B2400B99871 /* AllecordsNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAEA2BC00B2400B99871 /* AllecordsNavigationBar.swift */; };
 		789EEAED2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */; };
+		789EEAEE2BC3CB1600B99871 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */; };
+		789EEAEF2BC3CB1800B99871 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -421,7 +423,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				789EEAE02BB9CAF400B99871 /* .swiftlint.yml in Resources */,
+				789EEAEE2BC3CB1600B99871 /* NotoSansCJKkr-Regular.otf in Resources */,
 				783656722BB8651D004FFA09 /* Assets.xcassets in Resources */,
+				789EEAEF2BC3CB1800B99871 /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

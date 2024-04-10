@@ -8,6 +8,7 @@
 import UIKit
 
 enum AllecordsNavigationItemType {
+	case logo
 	case crawling
 	case allecords
 	case search
@@ -17,10 +18,21 @@ enum AllecordsNavigationItemType {
 extension AllecordsNavigationItemType {
 	var image: UIImage? {
 		switch self {
+		case .logo: return .favicon
 		case .crawling: return nil
 		case .allecords: return nil
 		case .search: return .init(systemName: "magnifyingglass")
 		case .bell: return .init(systemName: "bell")
+		}
+	}
+	
+	var string: String? {
+		switch self {
+			case .logo: return nil
+			case .crawling: return "알라딘"
+			case .allecords: return "올레코즈"
+			case .search: return nil
+			case .bell: return nil
 		}
 	}
 }
@@ -33,6 +45,28 @@ final class AllecordsNavigationBarItem: UIButton {
 		super.init(frame: .zero)
 		setImage(type.image, for: .normal)
 		imageView?.tintColor = .primary1
+	}
+	
+	@available(*, unavailable)
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+}
+
+final class AllecordsTypeNavigationBarItem: UIButton {
+	internal private(set) var type: AllecordsNavigationItemType
+	
+	init(type: AllecordsNavigationItemType) {
+		self.type = type
+		super.init(frame: .zero)
+		if type == .logo {
+			setImage(type.image, for: .normal)
+		} else {
+			setTitle(type.string, for: .normal)
+			setTitleColor(.primary1, for: .normal)
+			titleLabel?.font = .notoSansCJKkr(type: .medium, size: .medium)
+		}
+		backgroundColor = .background
 	}
 	
 	@available(*, unavailable)
