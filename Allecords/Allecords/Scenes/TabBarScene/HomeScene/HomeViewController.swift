@@ -60,6 +60,7 @@ private extension HomeViewController {
 	}
 	
 	func setViewAttribute() {
+		navigationBar.delegate = self
 		setCollectionView()
 		loadTestData()
 		collectionView.reloadData()
@@ -154,5 +155,26 @@ extension HomeViewController: UICollectionViewDelegate {
 		
 		// 변경 사항을 적용하기 위해 collectionView 리로드
 		collectionView.reloadItems(at: [indexPath])
+	}
+}
+
+extension HomeViewController: AllecordsNavigationBarDelegate {
+	func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) {
+		return
+	}
+	
+	func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBarItem item: AllecordsNavigationBarItem) {
+		switch item.type {
+		case .allecords:
+			debugPrint("allecord data")
+		case .crawling:
+			debugPrint("crawling data")
+		case .search:
+			debugPrint("search button")
+		case .bell:
+			debugPrint("route to bell")
+		case .logo:
+			debugPrint("logo tapped")
+		}
 	}
 }

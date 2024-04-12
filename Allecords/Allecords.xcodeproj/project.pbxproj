@@ -31,7 +31,6 @@
 		789EEAC22BB9A47D00B99871 /* libAllecordsNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */; };
 		789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAC32BB9A92600B99871 /* TabBarBuilder.swift */; };
 		789EEAE02BB9CAF400B99871 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 789EEADF2BB9CAF400B99871 /* .swiftlint.yml */; };
-		8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570F5AE2BBFE472009D1772 /* ProductCell.swift */; };
 		789EEAE42BC0088900B99871 /* AllecordsNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAE32BC0088900B99871 /* AllecordsNavigationItem.swift */; };
 		789EEAE72BC00A7F00B99871 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAE62BC00A7F00B99871 /* UIImage+Resize.swift */; };
 		789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAE82BC00A9700B99871 /* UIFont+.swift */; };
@@ -39,6 +38,7 @@
 		789EEAED2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */; };
 		789EEAEE2BC3CB1600B99871 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */; };
 		789EEAEF2BC3CB1800B99871 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */; };
+		8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570F5AE2BBFE472009D1772 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,12 +89,12 @@
 		789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAllecordsNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		789EEAC32BB9A92600B99871 /* TabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBuilder.swift; sourceTree = "<group>"; };
 		789EEADF2BB9CAF400B99871 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		8570F5AE2BBFE472009D1772 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		789EEAE32BC0088900B99871 /* AllecordsNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsNavigationItem.swift; sourceTree = "<group>"; };
 		789EEAE62BC00A7F00B99871 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		789EEAE82BC00A9700B99871 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		789EEAEA2BC00B2400B99871 /* AllecordsNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsNavigationBar.swift; sourceTree = "<group>"; };
 		789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+SafeAreaHeight.swift"; sourceTree = "<group>"; };
+		8570F5AE2BBFE472009D1772 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,12 +227,12 @@
 		789EEA922BB87ED800B99871 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
+				789EEAF02BC93A6E00B99871 /* View */,
 				789EEA952BB87F2D00B99871 /* HomeViewController.swift */,
 				789EEAA62BB8863700B99871 /* HomeViewModel.swift */,
 				789EEABA2BB99CFE00B99871 /* HomeInput.swift */,
 				789EEAB62BB99A4000B99871 /* HomeRouter.swift */,
 				789EEAB82BB99A8100B99871 /* HomeBuilder.swift */,
-				8570F5AE2BBFE472009D1772 /* ProductCell.swift */,
 			);
 			path = HomeScene;
 			sourceTree = "<group>";
@@ -315,6 +315,14 @@
 				789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		789EEAF02BC93A6E00B99871 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8570F5AE2BBFE472009D1772 /* ProductCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
