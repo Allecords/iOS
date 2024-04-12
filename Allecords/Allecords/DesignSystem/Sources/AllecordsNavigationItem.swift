@@ -28,11 +28,11 @@ extension AllecordsNavigationItemType {
 	
 	var string: String? {
 		switch self {
-			case .logo: return nil
-			case .crawling: return "알라딘"
-			case .allecords: return "올레코즈"
-			case .search: return nil
-			case .bell: return nil
+		case .logo: return nil
+		case .crawling: return "알라딘"
+		case .allecords: return "올레코즈"
+		case .search: return nil
+		case .bell: return nil
 		}
 	}
 }

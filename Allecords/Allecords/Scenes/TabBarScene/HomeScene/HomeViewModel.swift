@@ -14,7 +14,6 @@ State == HomeState,
 Output == AnyPublisher<State, Never> { }
 
 final class HomeViewModel {
-    
 }
 
 extension HomeViewModel: HomeViewModelable {
