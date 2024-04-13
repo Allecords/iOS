@@ -8,7 +8,6 @@
 import Foundation
 
 struct ProductResponseDTO: Decodable {
-	let id: Int
 	let title: String
 	let artist: String
 	let url: String
@@ -16,7 +15,6 @@ struct ProductResponseDTO: Decodable {
 	let price: String
 	
 	enum CodingKeys: String, CodingKey {
-		case id
 		case title
 		case artist
 		case url

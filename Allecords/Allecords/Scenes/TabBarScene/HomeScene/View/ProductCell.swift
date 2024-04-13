@@ -15,23 +15,10 @@ final class ProductCell: UICollectionViewCell {
 	private let priceLabel = UILabel()
 	private let newLabel = UILabel()
 	
-	class Product {
-		var name: String
-		var price: String
-		var image: UIImage
-		var isNew: Bool
-		
-		init(name: String, price: String, image: UIImage, isNew: Bool) {
-			self.name = name
-			self.price = price
-			self.image = image
-			self.isNew = isNew
-		}
-	}
-	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		// UI 컴포넌트 초기화 및 레이아웃 설정
+		setAttributes()
 		setupLayout()
 	}
 	
@@ -39,53 +26,18 @@ final class ProductCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func createSampleProducts() -> [Product] {
-		let product1 = Product(name: "상품 1", price: "10,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product2 = Product(name: "상품 2", price: "20,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product3 = Product(name: "상품 3", price: "30,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product4 = Product(name: "상품 4", price: "40,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product5 = Product(name: "상품 5", price: "50,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product6 = Product(name: "상품 6", price: "60,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product7 = Product(name: "상품 7", price: "70,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product8 = Product(name: "상품 8", price: "80,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product9 = Product(name: "상품 9", price: "90,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product10 = Product(name: "상품 10", price: "100,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product11 = Product(name: "상품 11", price: "110,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product12 = Product(name: "상품 12", price: "120,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		let product13 = Product(name: "상품 13", price: "130,000", image: UIImage(named: "placeholder") ?? UIImage(), isNew: true)
-		
-		return [product1, product2, product3, product4, product5, product6, product7, product8, product9, product10, product11, product12, product13]
+	func configure(with product: Product) {
+		if let imageUrl = URL(string: product.imgUrl) {
+			imageView.loadImage(from: imageUrl.absoluteString)
+		}
+		nameLabel.text = product.title
+		priceLabel.text = product.price + " 원"
+		newLabel.isHidden = false
 	}
 }
 
 extension ProductCell {
-	private func setupLayout() {
-		enum ImageViewConstant {
-			static let topPadding: CGFloat = 10
-			static let leadPadding: CGFloat = 10
-			static let trailPdding: CGFloat = -10
-		}
-		
-		enum NewLabelConstant {
-			static let topPadding: CGFloat = 5
-			static let leadPadding: CGFloat = 5
-			static let width: CGFloat = 40
-			static let height: CGFloat = 20
-		}
-		
-		enum NameLabelConstant {
-			static let topPadding: CGFloat = 5
-			static let leadPadding: CGFloat = 10
-			static let trailPdding: CGFloat = -10
-		}
-		
-		enum PriceLabelConstant {
-			static let topPadding: CGFloat = 5
-			static let leadPadding: CGFloat = 10
-			static let trailPdding: CGFloat = -10
-			static let bottomPadding: CGFloat = -10
-		}
-		
+	private func setAttributes() {
 		// ImageView 설정
 		imageView.backgroundColor = .lightGray
 		imageView.contentMode = .scaleAspectFill
@@ -116,13 +68,15 @@ extension ProductCell {
 		priceLabel.textAlignment = .left
 		priceLabel.translatesAutoresizingMaskIntoConstraints = false
 		contentView.addSubview(priceLabel)
-		
+	}
+	
+	private func setupLayout() {
 		// Auto Layout 제약 조건 설정
 		NSLayoutConstraint.activate([
 			// ImageView 제약 조건
 			imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: ImageViewConstant.topPadding),
 			imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ImageViewConstant.leadPadding),
-			imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ImageViewConstant.trailPdding),
+			imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ImageViewConstant.trailPadding),
 			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
 			
 			// New Label 제약 조건
@@ -146,12 +100,56 @@ extension ProductCell {
 			)
 		])
 	}
-	
-	func configure(with product: Product) {
-		imageView.image = product.image
-		nameLabel.text = product.name
-		priceLabel.text = product.price + " 원"
+}
+
+fileprivate extension UIImageView {
+	func loadImage(from urlString: String, completion: (() -> Void)? = nil) {
+		guard let url = URL(string: urlString) else {
+			completion?()
+			return
+		}
 		
-		newLabel.isHidden = !product.isNew
+		let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
+			guard let data = data, error == nil else {
+				completion?()
+				return
+			}
+			
+			DispatchQueue.main.async {
+				if let image = UIImage(data: data) {
+					self?.image = image
+					completion?()
+				}
+			}
+		}
+		task.resume()
+	}
+}
+
+extension ProductCell {
+	enum ImageViewConstant {
+		static let topPadding: CGFloat = 10
+		static let leadPadding: CGFloat = 10
+		static let trailPadding: CGFloat = -10
+	}
+	
+	enum NewLabelConstant {
+		static let topPadding: CGFloat = 5
+		static let leadPadding: CGFloat = 5
+		static let width: CGFloat = 40
+		static let height: CGFloat = 20
+	}
+	
+	enum NameLabelConstant {
+		static let topPadding: CGFloat = 5
+		static let leadPadding: CGFloat = 10
+		static let trailPdding: CGFloat = -10
+	}
+	
+	enum PriceLabelConstant {
+		static let topPadding: CGFloat = 5
+		static let leadPadding: CGFloat = 10
+		static let trailPdding: CGFloat = -10
+		static let bottomPadding: CGFloat = -10
 	}
 }

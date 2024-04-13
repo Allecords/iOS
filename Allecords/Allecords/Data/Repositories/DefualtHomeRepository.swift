@@ -8,7 +8,6 @@
 import AllecordsNetwork
 import Foundation
 
-
 final class DefaultHomeRepository {
 	private let session: CustomSession
 	
@@ -35,7 +34,6 @@ extension DefaultHomeRepository: HomeRepository {
 		let productResponseDTO = try JSONDecoder().decode([ProductResponseDTO].self, from: data)
 		let products = productResponseDTO.map {
 			Product(
-				id: $0.id,
 				title: $0.title,
 				artist: $0.artist,
 				url: $0.url,

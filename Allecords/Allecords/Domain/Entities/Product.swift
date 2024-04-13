@@ -8,7 +8,6 @@
 import Foundation
 
 struct Product {
-	let id: Int
 	let title: String
 	let artist: String
 	let url: String
