@@ -53,6 +53,7 @@ final class TabBarViewController: UITabBarController {
 private extension TabBarViewController {
 	func makeTabNavigationController(of scene: UIViewController) -> UINavigationController {
 		let tabNavigationController = UINavigationController(rootViewController: scene)
+		tabNavigationController.isNavigationBarHidden = true
 		tabNavigationController.interactivePopGestureRecognizer?.isEnabled = true
 		return tabNavigationController
 	}
