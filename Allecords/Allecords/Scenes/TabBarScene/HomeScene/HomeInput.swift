@@ -6,13 +6,13 @@
 //
 
 import Combine
-import Foundation
 
 struct HomeInput {
-	let viewLoad: PassthroughSubject<Void, Never>
+	let viewLoad: PassthroughSubject<Int, Never>
 }
 
 enum HomeState {
 	case none
-	case viewLoad
+	case load(_ products: [Product])
+	case error(_ error: Error)
 }

@@ -18,6 +18,7 @@
 		789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B322BCA5CBC0088511B /* HomeRepository.swift */; };
 		789D6B382BCA5CBC0088511B /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B342BCA5CBC0088511B /* HomeUseCase.swift */; };
 		789D6B392BCA5CBC0088511B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B362BCA5CBC0088511B /* Product.swift */; };
+		789D6B3B2BCA5D170088511B /* Future+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B3A2BCA5D170088511B /* Future+.swift */; };
 		789EEA962BB87F2D00B99871 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA952BB87F2D00B99871 /* HomeViewController.swift */; };
 		789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA972BB87F4500B99871 /* ChatViewController.swift */; };
 		789EEA9A2BB87F6400B99871 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA992BB87F6400B99871 /* MyPageViewController.swift */; };
@@ -79,6 +80,7 @@
 		789D6B322BCA5CBC0088511B /* HomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
 		789D6B342BCA5CBC0088511B /* HomeUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 		789D6B362BCA5CBC0088511B /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		789D6B3A2BCA5D170088511B /* Future+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Future+.swift"; sourceTree = "<group>"; };
 		789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../../../Boostcamp/[Project]OpenList/iOS10-OpenList/client/Projects/OpenList/OpenList/Fonts/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../../../Boostcamp/[Project]OpenList/iOS10-OpenList/client/Projects/OpenList/OpenList/Fonts/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		789EEA952BB87F2D00B99871 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				789EEABE2BB99F8200B99871 /* Publisher+Operator.swift */,
+				789D6B3A2BCA5D170088511B /* Future+.swift */,
 			);
 			path = "Combine+";
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */,
 				789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */,
 				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
+				789D6B3B2BCA5D170088511B /* Future+.swift in Sources */,
 				789EEA962BB87F2D00B99871 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

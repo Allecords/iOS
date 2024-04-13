@@ -20,6 +20,7 @@ final class HomeViewController: UIViewController {
 	// MARK: - Properties
 	private var viewModel: any HomeViewModelable
 	private var products: [ProductCell.Product] = []
+	private let viewLoad: PassthroughSubject<Int, Never> = .init()
 	
 	// MARK: - Initializer
 	init(viewModel: any HomeViewModelable) {
@@ -39,6 +40,7 @@ final class HomeViewController: UIViewController {
 		setViewAttribute()
 		setViewHierachies()
 		setViewConstraints()
+		
 	}
 }
 
