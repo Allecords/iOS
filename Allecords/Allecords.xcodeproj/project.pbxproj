@@ -85,6 +85,8 @@
 		789D6B3C2BCA5E6D0088511B /* ViewBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBindable.swift; sourceTree = "<group>"; };
 		789D6B3F2BCC29450088511B /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		789D6B402BCC29470088511B /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../../../Boostcamp/[Project]OpenList/iOS10-OpenList/client/Projects/OpenList/OpenList/Fonts/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../../../Boostcamp/[Project]OpenList/iOS10-OpenList/client/Projects/OpenList/OpenList/Fonts/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		789EEA952BB87F2D00B99871 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		789EEA972BB87F4500B99871 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		789EEA992BB87F6400B99871 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				789D6B3F2BCC29450088511B /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Font;
+			name = Font;
 			sourceTree = "<group>";
 		};
 		789EEA8A2BB8794100B99871 /* App */ = {
@@ -276,6 +279,16 @@
 				789D6B3E2BCC29370088511B /* Font */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		789EEA8C2BB87BD400B99871 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				789EEA8E2BB87C6500B99871 /* NotoSansCJKkr-Regular.otf */,
+				789D6B3E2BCC29370088511B /* Font */,
+				789EEA8D2BB87C6000B99871 /* NotoSansCJKkr-Medium.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		789EEA902BB87E8D00B99871 /* Scenes */ = {
