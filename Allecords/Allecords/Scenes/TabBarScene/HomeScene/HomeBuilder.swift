@@ -5,6 +5,7 @@
 //  Created by Hoon on 3/31/24.
 //
 
+import AllecordsNetwork
 import UIKit
 
 protocol HomeBuilderProtocol {
@@ -13,7 +14,10 @@ protocol HomeBuilderProtocol {
 
 struct HomeBuilder: HomeBuilderProtocol {
 	func build() -> UIViewController {
-		let homeViewModel = HomeViewModel()
+		let session = CustomSession()
+		let homeRepository = DefaultHomeRepository(session: session)
+		let homeUseCase = DefaultHomeUseCase(homeRepository: homeRepository)
+		let homeViewModel = HomeViewModel(homeUseCase: homeUseCase)
 		return HomeViewController(viewModel: homeViewModel)
 	}
 }

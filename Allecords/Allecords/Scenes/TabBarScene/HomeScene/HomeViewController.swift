@@ -7,6 +7,7 @@
 
 //  filter tag, imageView -> Collection View?, "New" icon in imageView, Detail of imageView, scrollable
 
+import Combine
 import UIKit
 
 protocol HomeRoutingLogic: AnyObject {
@@ -19,7 +20,9 @@ final class HomeViewController: UIViewController {
 	private let navigationBar = AllecordsNavigationBar(leftItems: [.crawling, .allecords], rightItems: [.search, .bell])
 	// MARK: - Properties
 	private var viewModel: any HomeViewModelable
-	private var products: [ProductCell.Product] = []
+	private var products: [Product] = []
+	private var cancellables: Set<AnyCancellable> = []
+	private let viewLoad: PassthroughSubject<Int, Never> = .init()
 	
 	// MARK: - Initializer
 	init(viewModel: any HomeViewModelable) {
@@ -39,7 +42,40 @@ final class HomeViewController: UIViewController {
 		setViewAttribute()
 		setViewHierachies()
 		setViewConstraints()
+		bind()
+		viewLoad.send(1)
 	}
+}
+
+extension HomeViewController: ViewBindable {
+	typealias State = HomeState
+	typealias OutputError = Error
+	
+	func bind() {
+		let input = HomeInput(
+			viewLoad: viewLoad
+		)
+		let output = viewModel.transform(input)
+		output
+			.receive(on: DispatchQueue.main)
+			.withUnretained(self)
+			.sink { (owner, state) in owner.render(state) }
+			.store(in: &cancellables)
+	}
+	
+	func render(_ state: HomeState) {
+		switch state {
+		case .error(let error):
+			handleError(error)
+		case .load(let products):
+			self.products = products
+			collectionView.reloadData()
+		case .none:
+			break
+		}
+	}
+	
+	func handleError(_ error: OutputError) {}
 }
 
 // MARK: - UI Configure
@@ -62,8 +98,6 @@ private extension HomeViewController {
 	func setViewAttribute() {
 		navigationBar.delegate = self
 		setCollectionView()
-		loadTestData()
-		collectionView.reloadData()
 	}
 	
 	func setCollectionView() {
@@ -103,10 +137,6 @@ private extension HomeViewController {
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
 	}
 	
-	private func loadTestData() {
-		products = ProductCell().createSampleProducts()
-	}
-	
 	func setViewHierachies() {
 		view.addSubview(navigationBar)
 		[
@@ -117,7 +147,6 @@ private extension HomeViewController {
 	}
 	
 	func setViewConstraints() {
-		let safeArea = view.safeAreaLayoutGuide
 		NSLayoutConstraint.activate([
 			collectionView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
 			collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -149,10 +178,6 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		// 선택된 상품의 isNew 값을 false로 변경
-		let product = products[indexPath.row]
-		product.isNew = false
-		
 		// 변경 사항을 적용하기 위해 collectionView 리로드
 		collectionView.reloadItems(at: [indexPath])
 	}
