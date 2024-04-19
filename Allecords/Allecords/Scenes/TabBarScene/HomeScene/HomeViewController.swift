@@ -7,6 +7,7 @@
 
 //  filter tag, imageView -> Collection View?, "New" icon in imageView, Detail of imageView, scrollable
 
+import AllecordsNetwork
 import Combine
 import UIKit
 
@@ -18,14 +19,20 @@ final class HomeViewController: UIViewController {
 	// MARK: - UI Components
 	private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
 	private let navigationBar = AllecordsNavigationBar(leftItems: [.crawling, .allecords], rightItems: [.search, .bell])
+  
 	// MARK: - Properties
 	private var viewModel: any HomeViewModelable
 	private var products: [Product] = []
 	private var cancellables: Set<AnyCancellable> = []
+  // private let router: HomeRoutingLogic
 	private let viewLoad: PassthroughSubject<Int, Never> = .init()
 	
 	// MARK: - Initializer
-	init(viewModel: any HomeViewModelable) {
+	init(
+    // router: HomeRoutingLogic,
+    viewModel: any HomeViewModelable
+  ) {
+    // self.router = router
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -38,7 +45,7 @@ final class HomeViewController: UIViewController {
 	// MARK: - HomeView LifeCycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .white
+		view.backgroundColor = .systemBackground
 		setViewAttribute()
 		setViewHierachies()
 		setViewConstraints()
@@ -47,6 +54,7 @@ final class HomeViewController: UIViewController {
 	}
 }
 
+// MARK: - Bind Methods
 extension HomeViewController: ViewBindable {
 	typealias State = HomeState
 	typealias OutputError = Error
@@ -80,8 +88,10 @@ extension HomeViewController: ViewBindable {
 
 // MARK: - UI Configure
 private extension HomeViewController {
+  /* This textConstant is for filter
 	enum FilterTextConstant {
 	}
+   */
 	
 	enum CollectionViewLayoutConstant {
 		static let itemSizeWidth: CGFloat = 1
@@ -175,11 +185,17 @@ extension HomeViewController: UICollectionViewDataSource {
 	}
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - UI Delegate
 extension HomeViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		// 변경 사항을 적용하기 위해 collectionView 리로드
-		collectionView.reloadItems(at: [indexPath])
+    let product: Product = products[indexPath.row]
+    let session = CustomSession()
+    let homeDetailRepository = DefaultHomeRepository(session: session)
+    let homeDetailUseCase = DefaultHomeUseCase(homeRepository: homeDetailRepository)
+    let viewModel = HomeDetailViewModel(homeDetailUseCase: homeDetailUseCase, product: product)
+    let detailVC = HomeDetailViewController(viewModel: viewModel)
+    navigationController?.pushViewController(detailVC, animated: true)
+		// collectionView.reloadItems(at: [indexPath])
 	}
 }
 

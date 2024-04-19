@@ -19,7 +19,8 @@ final class ProductCell: UICollectionViewCell {
 		super.init(frame: frame)
 		// UI 컴포넌트 초기화 및 레이아웃 설정
 		setAttributes()
-		setupLayout()
+		setViewHierachies()
+    setViewConstraints()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -37,40 +38,78 @@ final class ProductCell: UICollectionViewCell {
 }
 
 extension ProductCell {
+  enum ImageViewConstant {
+    static let topPadding: CGFloat = 10
+    static let leadPadding: CGFloat = 10
+    static let trailPadding: CGFloat = -10
+  }
+  
+  enum NewLabelConstant {
+    static let topPadding: CGFloat = 5
+    static let leadPadding: CGFloat = 5
+    static let width: CGFloat = 40
+    static let height: CGFloat = 20
+  }
+  
+  enum NameLabelConstant {
+    static let topPadding: CGFloat = 5
+    static let leadPadding: CGFloat = 10
+    static let trailPdding: CGFloat = -10
+  }
+  
+  enum PriceLabelConstant {
+    static let topPadding: CGFloat = 5
+    static let leadPadding: CGFloat = 10
+    static let trailPdding: CGFloat = -10
+    static let bottomPadding: CGFloat = -10
+  }
+
 	private func setAttributes() {
-		// ImageView 설정
-		imageView.backgroundColor = .lightGray
-		imageView.contentMode = .scaleAspectFill
-		imageView.layer.cornerRadius = 5
-		imageView.clipsToBounds = true
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		contentView.addSubview(imageView)
-		
-		// New Label 설정
-		newLabel.text = "New"
-		newLabel.textColor = .white
-		newLabel.backgroundColor = .primary1
-		newLabel.font = UIFont.boldSystemFont(ofSize: 12)
-		newLabel.textAlignment = .center
-		newLabel.layer.cornerRadius = 10
-		newLabel.layer.masksToBounds = true
-		newLabel.translatesAutoresizingMaskIntoConstraints = false
-		contentView.addSubview(newLabel)
-		
-		// NameLabel 설정
-		nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-		nameLabel.textAlignment = .left
-		nameLabel.translatesAutoresizingMaskIntoConstraints = false
-		contentView.addSubview(nameLabel)
-		
-		// PriceLabel 설정
-		priceLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-		priceLabel.textAlignment = .left
-		priceLabel.translatesAutoresizingMaskIntoConstraints = false
-		contentView.addSubview(priceLabel)
+    setImageView()
+    setNewLabel()
+    setNewLabel()
+    setPriceLabel()
 	}
+  
+  func setImageView() {
+    imageView.backgroundColor = .lightGray
+    imageView.contentMode = .scaleAspectFill
+    imageView.layer.cornerRadius = 5
+    imageView.clipsToBounds = true
+  }
+  
+  func setNewLabel() {
+    newLabel.text = "New"
+    newLabel.textColor = .white
+    newLabel.backgroundColor = .primary1
+    newLabel.font = UIFont.boldSystemFont(ofSize: 12)
+    newLabel.textAlignment = .center
+    newLabel.layer.cornerRadius = 10
+    newLabel.layer.masksToBounds = true
+  }
+  
+  func setNameLabel() {
+    nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+    nameLabel.textAlignment = .left
+  }
+  
+  func setPriceLabel() {
+    priceLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+    priceLabel.textAlignment = .left
+  }
+  
+  private func setViewHierachies() {
+    [
+      imageView,
+      newLabel,
+      nameLabel,
+      priceLabel
+    ].forEach { $0.translatesAutoresizingMaskIntoConstraints = false
+      contentView.addSubview($0)
+    }
+  }
 	
-	private func setupLayout() {
+	private func setViewConstraints() {
 		// Auto Layout 제약 조건 설정
 		NSLayoutConstraint.activate([
 			// ImageView 제약 조건
@@ -102,7 +141,7 @@ extension ProductCell {
 	}
 }
 
-fileprivate extension UIImageView {
+extension UIImageView {
 	func loadImage(from urlString: String, completion: (() -> Void)? = nil) {
 		guard let url = URL(string: urlString) else {
 			completion?()
@@ -123,33 +162,5 @@ fileprivate extension UIImageView {
 			}
 		}
 		task.resume()
-	}
-}
-
-extension ProductCell {
-	enum ImageViewConstant {
-		static let topPadding: CGFloat = 10
-		static let leadPadding: CGFloat = 10
-		static let trailPadding: CGFloat = -10
-	}
-	
-	enum NewLabelConstant {
-		static let topPadding: CGFloat = 5
-		static let leadPadding: CGFloat = 5
-		static let width: CGFloat = 40
-		static let height: CGFloat = 20
-	}
-	
-	enum NameLabelConstant {
-		static let topPadding: CGFloat = 5
-		static let leadPadding: CGFloat = 10
-		static let trailPdding: CGFloat = -10
-	}
-	
-	enum PriceLabelConstant {
-		static let topPadding: CGFloat = 5
-		static let leadPadding: CGFloat = 10
-		static let trailPdding: CGFloat = -10
-		static let bottomPadding: CGFloat = -10
 	}
 }

@@ -99,6 +99,13 @@ extension AllecordsNavigationBar {
 // MARK: - UI 관련 메서드
 private extension AllecordsNavigationBar {
 	// MARK: View Attributes
+  enum DivisionLineLayoutConstant {
+    static let topPadding: CGFloat = 20
+    static let leadPadding: CGFloat = 10
+    static let trailPadding: CGFloat = -10
+    static let height: CGFloat = 1
+  }
+  
 	func setViewAttributes() {
 		backgroundColor = .background
 		setLeftViewAttributes()
