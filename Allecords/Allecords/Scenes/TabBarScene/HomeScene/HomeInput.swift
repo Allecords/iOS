@@ -8,11 +8,11 @@
 import Combine
 
 struct HomeInput {
-	let viewLoad: PassthroughSubject<Int, Never>
+  let viewLoad: PassthroughSubject<Int, Never>
 }
 
 enum HomeState {
-	case none
-	case load(_ products: [Product])
-	case error(_ error: Error)
+  case none
+  case load(_ products: [Product])
+  case error(_ error: Error)
 }
