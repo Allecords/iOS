@@ -45,6 +45,11 @@
 		789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAE82BC00A9700B99871 /* UIFont+.swift */; };
 		789EEAEB2BC00B2400B99871 /* AllecordsNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAEA2BC00B2400B99871 /* AllecordsNavigationBar.swift */; };
 		789EEAED2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */; };
+		85078D6F2BD40E4A00068060 /* ProductDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D6A2BD40E4A00068060 /* ProductDetailAction.swift */; };
+		85078D702BD40E4A00068060 /* ProductDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D6B2BD40E4A00068060 /* ProductDetailRouter.swift */; };
+		85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D6C2BD40E4A00068060 /* ProductDetailViewController.swift */; };
+		85078D722BD40E4A00068060 /* ProductDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D6D2BD40E4A00068060 /* ProductDetailBuilder.swift */; };
+		85078D732BD40E4A00068060 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D6E2BD40E4A00068060 /* ProductDetailViewModel.swift */; };
 		8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570F5AE2BBFE472009D1772 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +113,11 @@
 		789EEAE82BC00A9700B99871 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		789EEAEA2BC00B2400B99871 /* AllecordsNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsNavigationBar.swift; sourceTree = "<group>"; };
 		789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+SafeAreaHeight.swift"; sourceTree = "<group>"; };
+		85078D6A2BD40E4A00068060 /* ProductDetailAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailAction.swift; sourceTree = "<group>"; };
+		85078D6B2BD40E4A00068060 /* ProductDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRouter.swift; sourceTree = "<group>"; };
+		85078D6C2BD40E4A00068060 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		85078D6D2BD40E4A00068060 /* ProductDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailBuilder.swift; sourceTree = "<group>"; };
+		85078D6E2BD40E4A00068060 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		8570F5AE2BBFE472009D1772 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +312,7 @@
 		789EEA922BB87ED800B99871 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
+				85078D692BD40DB000068060 /* ProductDetailScene */,
 				789EEAF02BC93A6E00B99871 /* View */,
 				789EEA952BB87F2D00B99871 /* HomeViewController.swift */,
 				789EEAA62BB8863700B99871 /* HomeViewModel.swift */,
@@ -400,6 +411,18 @@
 				8570F5AE2BBFE472009D1772 /* ProductCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		85078D692BD40DB000068060 /* ProductDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				85078D6C2BD40E4A00068060 /* ProductDetailViewController.swift */,
+				85078D6E2BD40E4A00068060 /* ProductDetailViewModel.swift */,
+				85078D6A2BD40E4A00068060 /* ProductDetailAction.swift */,
+				85078D6B2BD40E4A00068060 /* ProductDetailRouter.swift */,
+				85078D6D2BD40E4A00068060 /* ProductDetailBuilder.swift */,
+			);
+			path = ProductDetailScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -558,6 +581,11 @@
 				789EEAED2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift in Sources */,
 				789EEAB52BB9977B00B99871 /* AppRouter.swift in Sources */,
 				789EEABB2BB99CFE00B99871 /* HomeInput.swift in Sources */,
+				85078D6F2BD40E4A00068060 /* ProductDetailAction.swift in Sources */,
+				85078D702BD40E4A00068060 /* ProductDetailRouter.swift in Sources */,
+				85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */,
+				85078D722BD40E4A00068060 /* ProductDetailBuilder.swift in Sources */,
+				85078D732BD40E4A00068060 /* ProductDetailViewModel.swift in Sources */,
 				789EEAB72BB99A4000B99871 /* HomeRouter.swift in Sources */,
 				789EEAB12BB9955400B99871 /* Router.swift in Sources */,
 				789EEA9A2BB87F6400B99871 /* MyPageViewController.swift in Sources */,
