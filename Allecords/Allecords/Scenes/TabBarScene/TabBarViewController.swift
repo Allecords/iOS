@@ -8,9 +8,9 @@
 import UIKit
 
 final class TabBarViewController: UITabBarController {
-	private let homeBuilderable: HomeBuilderProtocol
+	private let homeBuilderable: BetweenBuilderProtocol
 	
-	init(homeBuilderable: HomeBuilderProtocol) {
+	init(homeBuilderable: BetweenBuilderProtocol) {
 		self.homeBuilderable = homeBuilderable
 		super.init(nibName: nil, bundle: nil)
 	}

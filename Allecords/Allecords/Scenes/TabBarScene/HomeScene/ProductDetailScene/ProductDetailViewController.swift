@@ -5,8 +5,8 @@
 //  Created by 이숲 on 4/20/24.
 //
 
-import UIKit
 import Combine
+import UIKit
 
 protocol ProductDetailRoutingLogic: AnyObject {
   func showDetailScene()
@@ -21,7 +21,6 @@ final class ProductDetailViewController: UIViewController {
   private let priceLabel = UILabel()
   private let productDescriptionLabel = UILabel()
   private let divisionLine = UIView()
-  
   
   // MARK: - Properties
   private var navigationBar = AllecordsNavigationBar(leftItems: [.crawling, .allecords], rightItems: [.search, .bell])
@@ -80,7 +79,7 @@ extension ProductDetailViewController: ViewBindable {
     switch state {
     case .error(let error):
       handleError(error)
-    case .load(_):
+		case .load:
       break
     case .none:
       break
@@ -93,7 +92,6 @@ extension ProductDetailViewController: ViewBindable {
 // MARK: - UI Configure
 private extension ProductDetailViewController {
   enum ImageViewConstant {
-    
   }
   
   enum ProductNameLabelConstant {
@@ -140,7 +138,12 @@ private extension ProductDetailViewController {
   }
   
   func setNagivationBar() {
-    navigationBar = AllecordsNavigationBar(isBackButtonHidden: false, backButtonTitle: "", leftItems: [], rightItems: [.search, .bell])
+    navigationBar = AllecordsNavigationBar(
+			isBackButtonHidden: false,
+			backButtonTitle: "",
+			leftItems: [],
+			rightItems: [.search, .bell]
+		)
     navigationBar.delegate = self
   }
   
@@ -171,7 +174,6 @@ private extension ProductDetailViewController {
     productDescriptionLabel.textColor = .gray
     productDescriptionLabel.font = UIFont.systemFont(ofSize: 18)
     productDescriptionLabel.numberOfLines = 0
-
   }
   
   func setDivisionLine() {
@@ -210,29 +212,67 @@ private extension ProductDetailViewController {
       imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
       
-      productNameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ProductNameLabelConstant.topPadding),
-      productNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: ProductNameLabelConstant.leadPadding),
-      productNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: ProductNameLabelConstant.trailPadding),
+      productNameLabel.topAnchor.constraint(
+				equalTo: imageView.bottomAnchor,
+				constant: ProductNameLabelConstant.topPadding
+			),
+      productNameLabel.leadingAnchor.constraint(
+				equalTo: view.leadingAnchor,
+				constant: ProductNameLabelConstant.leadPadding
+			),
+      productNameLabel.trailingAnchor.constraint(
+				equalTo: view.trailingAnchor,
+				constant: ProductNameLabelConstant.trailPadding
+			),
       
-      singerNameLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: SingerNameLabelConstant.topPadding),
-      singerNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SingerNameLabelConstant.leadPadding),
-      singerNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: SingerNameLabelConstant.trailPadding),
+      singerNameLabel.topAnchor.constraint(
+				equalTo: productNameLabel.bottomAnchor,
+				constant: SingerNameLabelConstant.topPadding
+			),
+      singerNameLabel.leadingAnchor.constraint(
+				equalTo: view.leadingAnchor,
+				constant: SingerNameLabelConstant.leadPadding
+			),
+      singerNameLabel.trailingAnchor.constraint(
+				equalTo: view.trailingAnchor,
+				constant: SingerNameLabelConstant.trailPadding
+			),
       
       priceLabel.topAnchor.constraint(equalTo: singerNameLabel.bottomAnchor, constant: PriceLabelConstant.topPadding),
       priceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: PriceLabelConstant.leadPadding),
       priceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: PriceLabelConstant.trailPadding),
       
-      divisionLine.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: DivisionLineLayoutConstant.topPadding),
-      divisionLine.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: DivisionLineLayoutConstant.leadPadding),
-      divisionLine.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: DivisionLineLayoutConstant.trailPadding),
+      divisionLine.topAnchor.constraint(
+				equalTo: priceLabel.bottomAnchor,
+				constant: DivisionLineLayoutConstant.topPadding
+			),
+      divisionLine.leadingAnchor.constraint(
+				equalTo: view.leadingAnchor,
+				constant: DivisionLineLayoutConstant.leadPadding
+			),
+      divisionLine.trailingAnchor.constraint(
+				equalTo: view.trailingAnchor,
+				constant: DivisionLineLayoutConstant.trailPadding
+			),
       divisionLine.heightAnchor.constraint(equalToConstant: DivisionLineLayoutConstant.height),
       
-      productDescriptionLabel.topAnchor.constraint(equalTo: divisionLine.bottomAnchor, constant: ProductDescriptionLabelConstant.topPadding),
-      productDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: ProductDescriptionLabelConstant.leadPadding),
-      productDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: ProductDescriptionLabelConstant.trailPadding),
-      productDescriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: scrollView.contentLayoutGuide.bottomAnchor, constant: ProductDescriptionLabelConstant.bottomPadding)
+      productDescriptionLabel.topAnchor.constraint(
+				equalTo: divisionLine.bottomAnchor,
+				constant: ProductDescriptionLabelConstant.topPadding
+			),
+      productDescriptionLabel.leadingAnchor.constraint(
+				equalTo: view.leadingAnchor,
+				constant: ProductDescriptionLabelConstant.leadPadding
+			),
+      productDescriptionLabel.trailingAnchor.constraint(
+				equalTo: view.trailingAnchor,
+				constant: ProductDescriptionLabelConstant.trailPadding
+			),
+      productDescriptionLabel.bottomAnchor.constraint(
+				lessThanOrEqualTo: scrollView.contentLayoutGuide.bottomAnchor,
+				constant: ProductDescriptionLabelConstant.bottomPadding
+			)
     ])
-
   }
 }
 

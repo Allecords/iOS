@@ -1,11 +1,9 @@
 //
-//  HomeViewController.swift
+//  BetweenViewController.swift
 //  Allecords
 //
 //  Created by Hoon on 3/31/24.
 //
-
-//  filter tag, imageView -> Collection View?, "New" icon in imageView, Detail of imageView, scrollable
 
 import AllecordsNetwork
 import Combine
@@ -15,13 +13,13 @@ protocol HomeRoutingLogic: AnyObject {
   func showDetailScene()
 }
 
-final class HomeViewController: UIViewController {
+final class BetweenViewController: UIViewController {
   // MARK: - UI Components
   private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
   private let navigationBar = AllecordsNavigationBar(leftItems: [.crawling, .allecords], rightItems: [.search, .bell])
   
   // MARK: - Properties
-  private var viewModel: any HomeViewModelable
+  private var viewModel: any BetweenViewModelable
   private var products: [Product] = []
   private var cancellables: Set<AnyCancellable> = []
   // private let router: HomeRoutingLogic
@@ -30,7 +28,7 @@ final class HomeViewController: UIViewController {
   // MARK: - Initializer
   init(
     // router: HomeRoutingLogic,
-    viewModel: any HomeViewModelable
+    viewModel: any BetweenViewModelable
   ) {
     // self.router = router
     self.viewModel = viewModel
@@ -55,12 +53,12 @@ final class HomeViewController: UIViewController {
 }
 
 // MARK: - Bind Methods
-extension HomeViewController: ViewBindable {
-  typealias State = HomeState
+extension BetweenViewController: ViewBindable {
+  typealias State = BetweenState
   typealias OutputError = Error
   
   func bind() {
-    let input = HomeInput(
+    let input = BetweenInput(
       viewLoad: viewLoad
     )
     let output = viewModel.transform(input)
@@ -71,7 +69,7 @@ extension HomeViewController: ViewBindable {
       .store(in: &cancellables)
   }
   
-  func render(_ state: HomeState) {
+  func render(_ state: BetweenState) {
     switch state {
     case .error(let error):
       handleError(error)
@@ -87,7 +85,7 @@ extension HomeViewController: ViewBindable {
 }
 
 // MARK: - UI Configure
-private extension HomeViewController {
+private extension BetweenViewController {
   /* This textConstant is for filter
   enum FilterTextConstant {
   }
@@ -167,7 +165,7 @@ private extension HomeViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension HomeViewController: UICollectionViewDataSource {
+extension BetweenViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return products.count
   }
@@ -186,7 +184,7 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UI Delegate
-extension HomeViewController: UICollectionViewDelegate {
+extension BetweenViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let product: Product = products[indexPath.row]
     let session = CustomSession()
@@ -199,7 +197,7 @@ extension HomeViewController: UICollectionViewDelegate {
   }
 }
 
-extension HomeViewController: AllecordsNavigationBarDelegate {
+extension BetweenViewController: AllecordsNavigationBarDelegate {
   func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) {
     return
   }

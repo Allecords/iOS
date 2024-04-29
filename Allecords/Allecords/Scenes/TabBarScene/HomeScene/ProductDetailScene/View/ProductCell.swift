@@ -115,7 +115,10 @@ extension ProductCell {
       // ImageView 제약 조건
       imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: ImageViewConstant.topPadding),
       imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ImageViewConstant.leadPadding),
-      imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ImageViewConstant.trailPadding),
+      imageView.trailingAnchor.constraint(
+				equalTo: contentView.trailingAnchor,
+				constant: ImageViewConstant.trailPadding
+			),
       imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
       
       // New Label 제약 조건
@@ -131,8 +134,14 @@ extension ProductCell {
       
       // PriceLabel 제약 조건
       priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: PriceLabelConstant.topPadding),
-      priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: PriceLabelConstant.leadPadding),
-      priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: PriceLabelConstant.trailPdding),
+      priceLabel.leadingAnchor.constraint(
+				equalTo: contentView.leadingAnchor,
+				constant: PriceLabelConstant.leadPadding
+			),
+      priceLabel.trailingAnchor.constraint(
+				equalTo: contentView.trailingAnchor,
+				constant: PriceLabelConstant.trailPdding
+			),
       priceLabel.bottomAnchor.constraint(
         lessThanOrEqualTo: contentView.bottomAnchor,
         constant: PriceLabelConstant.bottomPadding

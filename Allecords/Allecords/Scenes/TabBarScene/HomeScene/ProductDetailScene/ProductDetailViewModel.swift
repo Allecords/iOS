@@ -30,4 +30,3 @@ final class ProductDetailViewModel: ProductDetailViewModelable {
     productSubject.send(product)
   }
 }
-

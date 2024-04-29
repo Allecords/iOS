@@ -8,11 +8,11 @@
 import Combine
 
 struct ProductDetailInput {
-    let viewLoad: PassthroughSubject<Int, Never>
+	let viewLoad: PassthroughSubject<Int, Never>
 }
 
 enum ProductDetailState {
-    case none
-    case load(_ product: Product)
-    case error(_ error: Error)
+	case none
+	case load(_ product: Product)
+	case error(_ error: Error)
 }

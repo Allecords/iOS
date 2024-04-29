@@ -1,5 +1,5 @@
 //
-//  HomeBuilder.swift
+//  BetweenBuilder.swift
 //  Allecords
 //
 //  Created by Hoon on 3/31/24.
@@ -8,16 +8,16 @@
 import AllecordsNetwork
 import UIKit
 
-protocol HomeBuilderProtocol {
+protocol BetweenBuilderProtocol {
 	func build() -> UIViewController
 }
 
-struct HomeBuilder: HomeBuilderProtocol {
+struct BetweenBuilder: BetweenBuilderProtocol {
 	func build() -> UIViewController {
 		let session = CustomSession()
 		let homeRepository = DefaultHomeRepository(session: session)
 		let homeUseCase = DefaultHomeUseCase(homeRepository: homeRepository)
-		let homeViewModel = HomeViewModel(homeUseCase: homeUseCase)
-		return HomeViewController(viewModel: homeViewModel)
+		let homeViewModel = BetweenViewModel(homeUseCase: homeUseCase)
+		return BetweenViewController(viewModel: homeViewModel)
 	}
 }
