@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7827F80B2BDFF310008F6883 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */; };
+		7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */; };
+		7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80E2BE00000008F6883 /* HomeTabRouter.swift */; };
 		783656692BB8651A004FFA09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783656682BB8651A004FFA09 /* AppDelegate.swift */; };
 		7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836566A2BB8651A004FFA09 /* SceneDelegate.swift */; };
 		783656722BB8651D004FFA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783656712BB8651D004FFA09 /* Assets.xcassets */; };
@@ -71,6 +74,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBuilder.swift; sourceTree = "<group>"; };
+		7827F80E2BE00000008F6883 /* HomeTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabRouter.swift; sourceTree = "<group>"; };
 		783656652BB8651A004FFA09 /* Allecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783656682BB8651A004FFA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7836566A2BB8651A004FFA09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +163,13 @@
 				789EEAB82BB99A8100B99871 /* BetweenBuilder.swift */,
 			);
 			path = BetweenScene;
+			sourceTree = "<group>";
+		};
+		7827F8092BDFF2B8008F6883 /* AllecordScene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AllecordScene;
 			sourceTree = "<group>";
 		};
 		7836565C2BB8651A004FFA09 = {
@@ -324,8 +337,12 @@
 		789EEA922BB87ED800B99871 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
+				7827F8092BDFF2B8008F6883 /* AllecordScene */,
 				7827F8082BDFED51008F6883 /* BetweenScene */,
 				85078D692BD40DB000068060 /* ProductDetailScene */,
+				7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */,
+				7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */,
+				7827F80E2BE00000008F6883 /* HomeTabRouter.swift */,
 			);
 			path = HomeScene;
 			sourceTree = "<group>";
@@ -589,6 +606,7 @@
 				789EEAED2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift in Sources */,
 				789EEAB52BB9977B00B99871 /* AppRouter.swift in Sources */,
 				789EEABB2BB99CFE00B99871 /* BetweenInput.swift in Sources */,
+				7827F80B2BDFF310008F6883 /* HomeTabViewController.swift in Sources */,
 				85078D6F2BD40E4A00068060 /* ProductDetailAction.swift in Sources */,
 				85078D702BD40E4A00068060 /* ProductDetailRouter.swift in Sources */,
 				85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */,
@@ -604,6 +622,7 @@
 				789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */,
 				789EEAE42BC0088900B99871 /* AllecordsNavigationItem.swift in Sources */,
 				789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */,
+				7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */,
 				789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */,
 				789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */,
 				789D6B392BCA5CBC0088511B /* Product.swift in Sources */,
@@ -619,6 +638,7 @@
 				789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */,
 				8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */,
 				789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */,
+				7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */,
 				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
 				789D6B3B2BCA5D170088511B /* Future+.swift in Sources */,
 				789EEA962BB87F2D00B99871 /* BetweenViewController.swift in Sources */,

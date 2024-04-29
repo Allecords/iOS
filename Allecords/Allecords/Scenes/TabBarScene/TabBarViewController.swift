@@ -8,10 +8,10 @@
 import UIKit
 
 final class TabBarViewController: UITabBarController {
-	private let homeBuilderable: BetweenBuilderProtocol
+	private let homeTabBuilder: HomeTabBuilderProtocol
 	
-	init(homeBuilderable: BetweenBuilderProtocol) {
-		self.homeBuilderable = homeBuilderable
+	init(homeTabBuilder: HomeTabBuilderProtocol) {
+		self.homeTabBuilder = homeTabBuilder
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -24,8 +24,8 @@ final class TabBarViewController: UITabBarController {
 		super.viewDidLoad()
 		
 		// Home Tab
-		let homeViewController = homeBuilderable.build()
-		let homeTabNavigationController = makeTabNavigationController(of: homeViewController)
+		let homeTabViewController = homeTabBuilder.build()
+		let homeTabNavigationController = makeTabNavigationController(of: homeTabViewController)
 		homeTabNavigationController.tabBarItem = makeTabBarItem(of: .homeTab)
 		
 		// Chat Tab

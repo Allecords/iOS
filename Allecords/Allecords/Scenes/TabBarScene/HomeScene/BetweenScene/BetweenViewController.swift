@@ -16,7 +16,6 @@ protocol HomeRoutingLogic: AnyObject {
 final class BetweenViewController: UIViewController {
   // MARK: - UI Components
   private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-  private let navigationBar = AllecordsNavigationBar(leftItems: [.crawling, .allecords], rightItems: [.search, .bell])
   
   // MARK: - Properties
   private var viewModel: any BetweenViewModelable
@@ -104,7 +103,6 @@ private extension BetweenViewController {
   }
   
   func setViewAttribute() {
-    navigationBar.delegate = self
     setCollectionView()
   }
   
@@ -146,7 +144,6 @@ private extension BetweenViewController {
   }
   
   func setViewHierachies() {
-    view.addSubview(navigationBar)
     [
       collectionView
     ].forEach { $0.translatesAutoresizingMaskIntoConstraints = false
@@ -156,7 +153,7 @@ private extension BetweenViewController {
   
   func setViewConstraints() {
     NSLayoutConstraint.activate([
-      collectionView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+      collectionView.topAnchor.constraint(equalTo: view.topAnchor),
       collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
       collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
       collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
