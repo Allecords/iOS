@@ -11,6 +11,7 @@
 		7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */; };
 		7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80E2BE00000008F6883 /* HomeTabRouter.swift */; };
 		7827F8112BE00EFD008F6883 /* HomeTopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */; };
+		7827F8132BE021B7008F6883 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7827F8122BE021B7008F6883 /* NotoSansKR-Bold.otf */; };
 		783656692BB8651A004FFA09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783656682BB8651A004FFA09 /* AppDelegate.swift */; };
 		7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836566A2BB8651A004FFA09 /* SceneDelegate.swift */; };
 		783656722BB8651D004FFA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783656712BB8651D004FFA09 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBuilder.swift; sourceTree = "<group>"; };
 		7827F80E2BE00000008F6883 /* HomeTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabRouter.swift; sourceTree = "<group>"; };
 		7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopTabView.swift; sourceTree = "<group>"; };
+		7827F8122BE021B7008F6883 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../../../../Library/Fonts/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		783656652BB8651A004FFA09 /* Allecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783656682BB8651A004FFA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7836566A2BB8651A004FFA09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		789D6B3E2BCC29370088511B /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				7827F8122BE021B7008F6883 /* NotoSansKR-Bold.otf */,
 				789D6B402BCC29470088511B /* NotoSansCJKkr-Medium.otf */,
 				789D6B3F2BCC29450088511B /* NotoSansCJKkr-Regular.otf */,
 			);
@@ -562,6 +565,7 @@
 				789D6B412BCC2AF80088511B /* NotoSansCJKkr-Regular.otf in Resources */,
 				783656722BB8651D004FFA09 /* Assets.xcassets in Resources */,
 				789D6B422BCC2AFB0088511B /* NotoSansCJKkr-Medium.otf in Resources */,
+				7827F8132BE021B7008F6883 /* NotoSansKR-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

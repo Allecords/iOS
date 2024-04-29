@@ -60,7 +60,7 @@ private extension HomeTopTabView {
 	
 	func setBetweenTabButtonAttributes() {
 		betweenTabButton.setTitle("알라딘", for: .normal)
-		betweenTabButton.titleLabel?.font = .notoSansCJKkr(type: .medium, size: .medium)
+		betweenTabButton.titleLabel?.font = .notoSansCJKkr(type: .bold, size: .mLarge)
 		betweenTabButton.setTitleColor(.primary1, for: .normal)
 		betweenTabButton.addTarget(self, action: #selector(betweenTabButtonDidTap), for: .touchUpInside)
 		betweenTabButton.translatesAutoresizingMaskIntoConstraints = false
@@ -68,7 +68,7 @@ private extension HomeTopTabView {
 	
 	func setAllecordTabButtonAttributes() {
 		allecordTabButton.setTitle("올레코즈", for: .normal)
-		allecordTabButton.titleLabel?.font = .notoSansCJKkr(type: .medium, size: .medium)
+		allecordTabButton.titleLabel?.font = .notoSansCJKkr(type: .bold, size: .mLarge)
 		allecordTabButton.setTitleColor(.gray3, for: .normal)
 		allecordTabButton.addTarget(self, action: #selector(allecordTabButtonDidTap), for: .touchUpInside)
 		allecordTabButton.translatesAutoresizingMaskIntoConstraints = false

@@ -127,7 +127,7 @@ private extension HomeTabViewController {
 			
 			indicatorViewCenterConstraint,
 			indicatorView.topAnchor.constraint(equalTo: homeTopTapView.bottomAnchor, constant: 4),
-			indicatorView.widthAnchor.constraint(equalToConstant: 44),
+			indicatorView.widthAnchor.constraint(equalToConstant: 58),
 			indicatorView.heightAnchor.constraint(equalToConstant: 2),
 			
 			pageViewController.view.topAnchor.constraint(equalTo: indicatorView.bottomAnchor),
