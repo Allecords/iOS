@@ -31,21 +31,22 @@ final class HomeTabViewController: UIViewController {
 	private let router: HomeTabRoutingLogic
 	
 	// MARK: - UI Components
-	/// 네이게이션 뷰 컨트롤러
-	private let navigationBar: AllecordsNavigationBar = .init(
-		leftItems: [.crawling, .allecords],
-		rightItems: [.bell, .search]
-	)
 	/// 상단 탭의 컨텐츠를 보여주는 페이징 뷰
 	private let pageViewController = UIPageViewController(
 		transitionStyle: .scroll,
 		navigationOrientation: .horizontal,
 		options: nil
 	)
+	/// 상단 탭 뷰
+	private let homeTopTapView: HomeTopTabView = .init()
+	/// 상단 탭의 인디케이터 뷰
+	private let indicatorView: UIView = .init()
 	/// 상단 탭의 컨텐츠 뷰 컨트롤러
 	private let betweenBuilder: BetweenBuilderProtocol
 	private let allecordsViewController: UIViewController = .init()
 	private var childHomeViewControllers: [UIViewController] = []
+	/// 인디케이터 뷰 센터 레이아웃
+	private var indicatorViewCenterConstraint: NSLayoutConstraint?
 	
 	// MARK: - Initailizer
 	init(
@@ -82,7 +83,8 @@ private extension HomeTabViewController {
 		view.backgroundColor = .background
 		setChildViewControllers()
 		setPageViewControllerAttributes()
-		setNavigationBarAttributes()
+		setHomeTopTapViewAttributes()
+		setIndicatorViewAttributes()
 	}
 	
 	func setPageViewControllerAttributes() {
@@ -93,19 +95,42 @@ private extension HomeTabViewController {
 		pageViewController.setViewControllers([defaultViewController], direction: .forward, animated: true, completion: nil)
 	}
 	
-	func setNavigationBarAttributes() {
-		navigationBar.delegate = self
+	func setIndicatorViewAttributes() {
+		indicatorView.translatesAutoresizingMaskIntoConstraints = false
+		indicatorView.backgroundColor = .primary1
+		indicatorView.layer.cornerRadius = 1
+	}
+	
+	func setHomeTopTapViewAttributes() {
+		homeTopTapView.translatesAutoresizingMaskIntoConstraints = false
+		homeTopTapView.delegate = self
 	}
 	
 	func setViewHierachies() {
-		view.addSubview(navigationBar)
+		view.addSubview(homeTopTapView)
+		view.addSubview(indicatorView)
 		addChild(pageViewController)
 		view.addSubview(pageViewController.view)
 	}
 	
 	func setViewConstraints() {
+		let indicatorViewCenterConstraint = indicatorView.centerXAnchor.constraint(
+			equalTo: homeTopTapView.betweenTabButton.centerXAnchor
+		)
+		self.indicatorViewCenterConstraint = indicatorViewCenterConstraint
+		
 		NSLayoutConstraint.activate([
-			pageViewController.view.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+			homeTopTapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			homeTopTapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+			homeTopTapView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+			homeTopTapView.heightAnchor.constraint(equalToConstant: 40),
+			
+			indicatorViewCenterConstraint,
+			indicatorView.topAnchor.constraint(equalTo: homeTopTapView.bottomAnchor, constant: 4),
+			indicatorView.widthAnchor.constraint(equalToConstant: 44),
+			indicatorView.heightAnchor.constraint(equalToConstant: 2),
+			
+			pageViewController.view.topAnchor.constraint(equalTo: indicatorView.bottomAnchor),
 			pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			pageViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -147,8 +172,9 @@ extension HomeTabViewController: UIPageViewControllerDataSource, UIPageViewContr
 	let currentIndex = childHomeViewControllers.firstIndex(of: currentVC),
 	let currentTab = HomeType(rawValue: currentIndex)
 		else { return }
-		// navigationBar의 특정 버튼 선택
-		// navigationBar.setSelectedTab(currentTab)
+		// 상단 탭의 선택 상태 변경
+		homeTopTapView.setSelected(currentTab)
+		// 현재 뷰 컨트롤러의 현재 탭 상태 변경
 		self.currentTab = currentTab
 	}
 }
@@ -163,6 +189,7 @@ private extension HomeTabViewController {
 			animated: true,
 			completion: nil
 		)
+		moveToTab(newTab)
 	}
 	
 	func moveToTab(_ tab: HomeType) {
@@ -173,22 +200,45 @@ private extension HomeTabViewController {
 	}
 	
 	func moveToBetweenTab() {
+		var newIndicatorViewCenterConstraint: NSLayoutConstraint
+		newIndicatorViewCenterConstraint = indicatorView.centerXAnchor.constraint(
+			equalTo: homeTopTapView.betweenTabButton.centerXAnchor
+		)
+		view.layoutIfNeeded()
+		UIView.animate(withDuration: 0.3) {
+			self.indicatorViewCenterConstraint?.isActive = false
+			self.indicatorViewCenterConstraint = newIndicatorViewCenterConstraint
+			self.indicatorViewCenterConstraint?.isActive = true
+			self.view.layoutIfNeeded()
+		}
 	}
 	
 	func moveToAllecordTab() {
+		var newIndicatorViewCenterConstraint: NSLayoutConstraint
+		newIndicatorViewCenterConstraint = indicatorView.centerXAnchor.constraint(
+			equalTo: homeTopTapView.allecordTabButton.centerXAnchor
+		)
+		view.layoutIfNeeded()
+		UIView.animate(withDuration: 0.3) {
+			self.indicatorViewCenterConstraint?.isActive = false
+			self.indicatorViewCenterConstraint = newIndicatorViewCenterConstraint
+			self.indicatorViewCenterConstraint?.isActive = true
+			self.view.layoutIfNeeded()
+		}
 	}
 }
 
-extension HomeTabViewController: AllecordsNavigationBarDelegate {
-	func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) { }
+extension HomeTabViewController: HomeTopTabViewDelegate {
+	func homeTopTabView(_ homeTopTabView: HomeTopTabView, tabDidSelect tab: HomeType) {
+		currentTab = tab
+		moveToTab(tab)
+	}
 	
-	func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBarItem item: AllecordsNavigationBarItem) {
-		switch item.type {
-		case .search:
-			router.showSearch()
-		case .bell:
-			router.showAlarm()
-		default: return
-		}
+	func alarmDidTap() {
+		router.showAlarm()
+	}
+	
+	func searchDidTap() {
+		router.showSearch()
 	}
 }

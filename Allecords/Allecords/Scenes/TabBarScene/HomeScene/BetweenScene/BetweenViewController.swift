@@ -201,16 +201,10 @@ extension BetweenViewController: AllecordsNavigationBarDelegate {
   
   func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBarItem item: AllecordsNavigationBarItem) {
     switch item.type {
-    case .allecords:
-      debugPrint("allecord data")
-    case .crawling:
-      debugPrint("crawling data")
     case .search:
       debugPrint("search button")
     case .bell:
       debugPrint("route to bell")
-    case .logo:
-      debugPrint("logo tapped")
     }
   }
 }

@@ -23,7 +23,7 @@ final class ProductDetailViewController: UIViewController {
   private let divisionLine = UIView()
   
   // MARK: - Properties
-  private var navigationBar = AllecordsNavigationBar(leftItems: [.crawling, .allecords], rightItems: [.search, .bell])
+  private var navigationBar = AllecordsNavigationBar(rightItems: [.search, .bell])
   private var viewModel: ProductDetailViewModelable
   private var cancellables: Set<AnyCancellable> = []
   // private let router: HomeDetailRoutingLogic
@@ -287,10 +287,6 @@ extension ProductDetailViewController: AllecordsNavigationBarDelegate {
       debugPrint("search button")
     case .bell:
       debugPrint("route to bell")
-    case .logo:
-      debugPrint("logo tapped")
-    default:
-      break
     }
   }
 }

@@ -29,7 +29,7 @@ final class AllecordsNavigationBar: UIView {
 	private let leftView: UIStackView = .init()
 	private let rightView: UIStackView = .init()
 	internal private(set) var backButtonItem: AllecordsNavigationBackButtonItem?
-	internal private(set) var leftItems: [AllecordsTypeNavigationBarItem]?
+	internal private(set) var leftItems: [AllecordsNavigationBarItem]?
 	internal private(set) var rightItems: [AllecordsNavigationBarItem]?
 	
 	// MARK: - Initializers
@@ -39,7 +39,7 @@ final class AllecordsNavigationBar: UIView {
 		leftItems: [AllecordsNavigationItemType] = [],
 		rightItems: [AllecordsNavigationItemType] = []
 	) {
-		self.leftItems = leftItems.map(AllecordsTypeNavigationBarItem.init(type:))
+		self.leftItems = leftItems.map(AllecordsNavigationBarItem.init(type:))
 		self.rightItems = rightItems.map(AllecordsNavigationBarItem.init(type:))
 		if !isBackButtonHidden {
 			backButtonItem = AllecordsNavigationBackButtonItem(backButtonTitle: backButtonTitle)
@@ -65,7 +65,7 @@ final class AllecordsNavigationBar: UIView {
 
 // MARK: - 네비게이션 바 아이템 추가 및 삭제 메서드
 extension AllecordsNavigationBar {
-	func appendLeftItem(_ item: AllecordsTypeNavigationBarItem) {
+	func appendLeftItem(_ item: AllecordsNavigationBarItem) {
 		leftItems?.append(item)
 		leftView.addArrangedSubview(item)
 	}
@@ -75,7 +75,7 @@ extension AllecordsNavigationBar {
 		rightView.addArrangedSubview(item)
 	}
 	
-	func insertLeftItem(_ item: AllecordsTypeNavigationBarItem, at index: Int) {
+	func insertLeftItem(_ item: AllecordsNavigationBarItem, at index: Int) {
 		leftItems?.insert(item, at: index)
 		leftView.insertArrangedSubview(item, at: index)
 	}

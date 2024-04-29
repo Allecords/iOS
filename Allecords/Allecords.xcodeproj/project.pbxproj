@@ -10,6 +10,7 @@
 		7827F80B2BDFF310008F6883 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */; };
 		7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */; };
 		7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80E2BE00000008F6883 /* HomeTabRouter.swift */; };
+		7827F8112BE00EFD008F6883 /* HomeTopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */; };
 		783656692BB8651A004FFA09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783656682BB8651A004FFA09 /* AppDelegate.swift */; };
 		7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836566A2BB8651A004FFA09 /* SceneDelegate.swift */; };
 		783656722BB8651D004FFA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783656712BB8651D004FFA09 /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBuilder.swift; sourceTree = "<group>"; };
 		7827F80E2BE00000008F6883 /* HomeTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabRouter.swift; sourceTree = "<group>"; };
+		7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopTabView.swift; sourceTree = "<group>"; };
 		783656652BB8651A004FFA09 /* Allecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783656682BB8651A004FFA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7836566A2BB8651A004FFA09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				7827F8082BDFED51008F6883 /* BetweenScene */,
 				85078D692BD40DB000068060 /* ProductDetailScene */,
 				7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */,
+				7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */,
 				7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */,
 				7827F80E2BE00000008F6883 /* HomeTabRouter.swift */,
 			);
@@ -610,6 +613,7 @@
 				85078D6F2BD40E4A00068060 /* ProductDetailAction.swift in Sources */,
 				85078D702BD40E4A00068060 /* ProductDetailRouter.swift in Sources */,
 				85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */,
+				7827F8112BE00EFD008F6883 /* HomeTopTabView.swift in Sources */,
 				85078D722BD40E4A00068060 /* ProductDetailBuilder.swift in Sources */,
 				85078D732BD40E4A00068060 /* ProductDetailViewModel.swift in Sources */,
 				789EEAB72BB99A4000B99871 /* BetweenRouter.swift in Sources */,
