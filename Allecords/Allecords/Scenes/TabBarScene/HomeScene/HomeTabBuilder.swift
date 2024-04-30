@@ -20,6 +20,10 @@ struct HomeTabBuilder: HomeTabBuilderProtocol {
 			router: homeTabRouter,
 			betweenBuilder: betweenBuilder
 		)
-		return homeTabController
+		let homeTabNavController = UINavigationController(rootViewController: homeTabController)
+		homeTabNavController.isNavigationBarHidden = true
+		homeTabNavController.interactivePopGestureRecognizer?.isEnabled = true
+		homeTabRouter.viewController = homeTabNavController
+		return homeTabNavController
 	}
 }

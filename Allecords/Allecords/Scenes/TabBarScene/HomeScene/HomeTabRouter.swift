@@ -8,7 +8,7 @@
 import UIKit
 
 final class HomeTabRouter {
-	weak var viewController: UIViewController?
+	weak var viewController: UINavigationController?
 	/// alram, search builder 프로퍼티
 	
 	init(

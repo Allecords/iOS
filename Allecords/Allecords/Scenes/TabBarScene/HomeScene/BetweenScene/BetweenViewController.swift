@@ -9,8 +9,10 @@ import AllecordsNetwork
 import Combine
 import UIKit
 
-protocol HomeRoutingLogic: AnyObject {
-  func showDetailScene()
+protocol BetweenRoutingLogic: AnyObject {
+	func showDetailScene(_ product: Product)
+	func showAlarm()
+	func showSearch()
 }
 
 final class BetweenViewController: UIViewController {
@@ -21,18 +23,18 @@ final class BetweenViewController: UIViewController {
   private var viewModel: any BetweenViewModelable
   private var products: [Product] = []
   private var cancellables: Set<AnyCancellable> = []
-  // private let router: HomeRoutingLogic
+	private let router: BetweenRoutingLogic
   private let viewLoad: PassthroughSubject<Int, Never> = .init()
   
   // MARK: - Initializer
-  init(
-    // router: HomeRoutingLogic,
-    viewModel: any BetweenViewModelable
-  ) {
-    // self.router = router
-    self.viewModel = viewModel
-    super.init(nibName: nil, bundle: nil)
-  }
+	init(
+		router: BetweenRoutingLogic,
+		viewModel: any BetweenViewModelable
+	) {
+		self.router = router
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
   
   @available(*, unavailable)
   required init?(coder: NSCoder) {
@@ -85,11 +87,6 @@ extension BetweenViewController: ViewBindable {
 
 // MARK: - UI Configure
 private extension BetweenViewController {
-  /* This textConstant is for filter
-  enum FilterTextConstant {
-  }
-   */
-  
   enum CollectionViewLayoutConstant {
     static let itemSizeWidth: CGFloat = 1
     static let itemSizeHeight: CGFloat = 1
@@ -184,13 +181,7 @@ extension BetweenViewController: UICollectionViewDataSource {
 extension BetweenViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let product: Product = products[indexPath.row]
-    let session = CustomSession()
-    let productDetailRepository = DefaultHomeRepository(session: session)
-    let productDetailUseCase = DefaultHomeUseCase(homeRepository: productDetailRepository)
-    let viewModel = ProductDetailViewModel(productDetailUseCase: productDetailUseCase, product: product)
-    let detailVC = ProductDetailViewController(viewModel: viewModel)
-    navigationController?.pushViewController(detailVC, animated: true)
-    // collectionView.reloadItems(at: [indexPath])
+		router.showDetailScene(product)
   }
 }
 

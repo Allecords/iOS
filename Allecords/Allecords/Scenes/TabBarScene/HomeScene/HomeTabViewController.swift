@@ -28,7 +28,7 @@ final class HomeTabViewController: UIViewController {
 			paging(from: oldValue, to: currentTab)
 		}
 	}
-	private let router: HomeTabRoutingLogic
+	private let router: HomeTabRouter
 	
 	// MARK: - UI Components
 	/// 상단 탭의 컨텐츠를 보여주는 페이징 뷰
@@ -50,7 +50,7 @@ final class HomeTabViewController: UIViewController {
 	
 	// MARK: - Initailizer
 	init(
-		router: HomeTabRoutingLogic,
+		router: HomeTabRouter,
 		betweenBuilder: BetweenBuilderProtocol
 	) {
 		self.router = router
@@ -74,7 +74,7 @@ final class HomeTabViewController: UIViewController {
 // MARK: - View Methods
 private extension HomeTabViewController {
 	func setChildViewControllers() {
-		let betweenController = betweenBuilder.build()
+		let betweenController = betweenBuilder.build(router: router)
 		childHomeViewControllers.append(betweenController)
 		childHomeViewControllers.append(allecordsViewController)
 	}

@@ -9,13 +9,22 @@ import UIKit
 
 final class BetweenRouter {
 	weak var viewController: UINavigationController?
-	// 이후에 여기엔 builder 들이 들어가야함
+	private var productDetailBuilder: ProductDetailBuilderProtocol
+	
+	init(productDetailBuilder: ProductDetailBuilderProtocol) {
+		self.productDetailBuilder = productDetailBuilder
+	}
 }
 
-extension BetweenRouter: HomeRoutingLogic {
-	func showDetailScene() {
-		// 아래의 코드는 builder에서 build한 코드가 들어가야함
-		let detailViewController = UIViewController()
-		viewController?.pushViewController(detailViewController, animated: true)
+extension BetweenRouter: BetweenRoutingLogic {
+	func showAlarm() {
+	}
+	
+	func showSearch() {
+	}
+	
+	func showDetailScene(_ product: Product) {
+		let productDetailViewController = productDetailBuilder.build(product: product)
+		viewController?.pushViewController(productDetailViewController, animated: true)
 	}
 }

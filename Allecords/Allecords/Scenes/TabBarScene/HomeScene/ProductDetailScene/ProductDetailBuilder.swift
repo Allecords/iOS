@@ -8,11 +8,11 @@
 import AllecordsNetwork
 import UIKit
 
-protocol ProductDetailProtocol {
+protocol ProductDetailBuilderProtocol {
   func build(product: Product) -> UIViewController
 }
 
-struct ProductDetailBuilder: ProductDetailProtocol {
+struct ProductDetailBuilder: ProductDetailBuilderProtocol {
   func build(product: Product) -> UIViewController {
     let session = CustomSession()
     let productDetailRepository = DefaultHomeRepository(session: session)

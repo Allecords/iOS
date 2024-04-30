@@ -12,6 +12,7 @@
 		7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F80E2BE00000008F6883 /* HomeTabRouter.swift */; };
 		7827F8112BE00EFD008F6883 /* HomeTopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */; };
 		7827F8132BE021B7008F6883 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7827F8122BE021B7008F6883 /* NotoSansKR-Bold.otf */; };
+		7827F8152BE0CC89008F6883 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7827F8142BE0CC89008F6883 /* UIViewController+.swift */; };
 		783656692BB8651A004FFA09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783656682BB8651A004FFA09 /* AppDelegate.swift */; };
 		7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836566A2BB8651A004FFA09 /* SceneDelegate.swift */; };
 		783656722BB8651D004FFA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783656712BB8651D004FFA09 /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		7827F80E2BE00000008F6883 /* HomeTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabRouter.swift; sourceTree = "<group>"; };
 		7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopTabView.swift; sourceTree = "<group>"; };
 		7827F8122BE021B7008F6883 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../../../../Library/Fonts/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		7827F8142BE0CC89008F6883 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		783656652BB8651A004FFA09 /* Allecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783656682BB8651A004FFA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7836566A2BB8651A004FFA09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				789EEAE62BC00A7F00B99871 /* UIImage+Resize.swift */,
 				789EEAE82BC00A9700B99871 /* UIFont+.swift */,
 				789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */,
+				7827F8142BE0CC89008F6883 /* UIViewController+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */,
 				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
 				789D6B3B2BCA5D170088511B /* Future+.swift in Sources */,
+				7827F8152BE0CC89008F6883 /* UIViewController+.swift in Sources */,
 				789EEA962BB87F2D00B99871 /* BetweenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,15 +9,18 @@ import AllecordsNetwork
 import UIKit
 
 protocol BetweenBuilderProtocol {
-	func build() -> UIViewController
+	func build(router: HomeTabRouter) -> UIViewController
 }
 
 struct BetweenBuilder: BetweenBuilderProtocol {
-	func build() -> UIViewController {
+	func build(router: HomeTabRouter) -> UIViewController {
 		let session = CustomSession()
 		let homeRepository = DefaultHomeRepository(session: session)
 		let homeUseCase = DefaultHomeUseCase(homeRepository: homeRepository)
-		let homeViewModel = BetweenViewModel(homeUseCase: homeUseCase)
-		return BetweenViewController(viewModel: homeViewModel)
+		let betweenViewModel = BetweenViewModel(homeUseCase: homeUseCase)
+		let betweenRouter = BetweenRouter(productDetailBuilder: ProductDetailBuilder())
+		let betweenViewController = BetweenViewController(router: betweenRouter, viewModel: betweenViewModel)
+		betweenRouter.viewController = router.viewController
+		return betweenViewController
 	}
 }

@@ -25,8 +25,7 @@ final class TabBarViewController: UITabBarController {
 		
 		// Home Tab
 		let homeTabViewController = homeTabBuilder.build()
-		let homeTabNavigationController = makeTabNavigationController(of: homeTabViewController)
-		homeTabNavigationController.tabBarItem = makeTabBarItem(of: .homeTab)
+		homeTabViewController.tabBarItem = makeTabBarItem(of: .homeTab)
 		
 		// Chat Tab
 		let chatViewController = ChatViewController()
@@ -39,7 +38,7 @@ final class TabBarViewController: UITabBarController {
 		myPageTabNavigationController.tabBarItem = makeTabBarItem(of: .myPageTab)
 		
 		self.viewControllers = [
-			homeTabNavigationController,
+			homeTabViewController,
 			chatTabNavigationController,
 			myPageTabNavigationController
 		]
