@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  BetweenViewModel.swift
 //  Allecords
 //
 //  Created by Hoon on 3/31/24.
@@ -8,12 +8,12 @@
 import Combine
 import Foundation
 
-protocol HomeViewModelable: ViewModelable
-where Input == HomeInput,
-State == HomeState,
+protocol BetweenViewModelable: ViewModelable
+where Input == BetweenInput,
+State == BetweenState,
 Output == AnyPublisher<State, Never> { }
 
-final class HomeViewModel {
+final class BetweenViewModel {
 	private let homeUseCase: HomeUseCase
 	
 	init(homeUseCase: HomeUseCase) {
@@ -21,7 +21,7 @@ final class HomeViewModel {
 	}
 }
 
-extension HomeViewModel: HomeViewModelable {
+extension BetweenViewModel: BetweenViewModelable {
 	func transform(_ input: Input) -> Output {
 		let viewLoad = viewLoad(input)
 		return Publishers.MergeMany(
@@ -30,7 +30,7 @@ extension HomeViewModel: HomeViewModelable {
 	}
 }
 
-private extension HomeViewModel {
+private extension BetweenViewModel {
 	func viewLoad(_ input: Input) -> Output {
 		return input.viewLoad
 			.withUnretained(self)
