@@ -8,7 +8,7 @@
 import Combine
 
 struct ProductDetailInput {
-	let viewLoad: PassthroughSubject<Int, Never>
+	let viewLoad: PassthroughSubject<Void, Never>
 }
 
 enum ProductDetailState {

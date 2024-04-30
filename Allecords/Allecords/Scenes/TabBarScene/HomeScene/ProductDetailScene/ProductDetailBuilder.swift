@@ -17,9 +17,9 @@ struct ProductDetailBuilder: ProductDetailBuilderProtocol {
     let session = CustomSession()
 		let productDetailRouter = ProductDetailRouter()
 		
-    let productDetailRepository = DefaultHomeRepository(session: session)
-    let productDetailUseCase = DefaultHomeUseCase(homeRepository: productDetailRepository)
-    let productDetailViewModel = ProductDetailViewModel(productDetailUseCase: productDetailUseCase, product: product)
+    let homeRepository = DefaultHomeRepository(session: session)
+    let homeUseCase = DefaultHomeUseCase(homeRepository: homeRepository)
+		let productDetailViewModel = ProductDetailViewModel(homeUseCase: homeUseCase, product: product)
 		let productDetailViewController = ProductDetailViewController(
 			router: productDetailRouter,
 			viewModel: productDetailViewModel

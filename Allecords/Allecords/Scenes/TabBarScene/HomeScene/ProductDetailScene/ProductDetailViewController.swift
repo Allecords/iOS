@@ -27,14 +27,16 @@ final class ProductDetailViewController: UIViewController {
   
   // MARK: - Properties
   private var navigationBar = AllecordsNavigationBar(rightItems: [.search, .bell])
-  private var viewModel: ProductDetailViewModelable
+	private var viewModel: any ProductDetailViewModelable
+	private let viewLoad: PassthroughSubject<Void, Never> = .init()
   private var cancellables: Set<AnyCancellable> = []
 	private let router: ProductDetailRoutingLogic
+	private var product: Product?
   
   // MARK: - Initializers
 	init(
 		router: ProductDetailRoutingLogic,
-		viewModel: ProductDetailViewModelable
+		viewModel: any ProductDetailViewModelable
 	) {
 		self.router = router
 		self.viewModel = viewModel
@@ -53,7 +55,7 @@ final class ProductDetailViewController: UIViewController {
     setViewHierachies()
     setViewConstraints()
     bind()
-    viewModel.loadProductDetails()
+		viewLoad.send()
   }
 }
 
@@ -63,32 +65,43 @@ extension ProductDetailViewController: ViewBindable {
   typealias OutputError = Error
 
   func bind() {
-    viewModel.productPublisher
-      .receive(on: RunLoop.main)
-      .sink { [weak self] product in
-        if let imageUrl = URL(string: product.imgUrl) {
-          self?.imageView.loadImage(from: imageUrl.absoluteString)
-        }
-        self?.productNameLabel.text = product.title
-        self?.singerNameLabel.text = "Body"
-        self?.priceLabel.text = "\(product.price) 원"
-        self?.productDescriptionLabel.text = "상품 설명"
-      }
-      .store(in: &cancellables)
+		let input = ProductDetailInput(
+			viewLoad: viewLoad
+		)
+		let output = viewModel.transform(input)
+		output
+			.receive(on: DispatchQueue.main)
+			.withUnretained(self)
+			.sink { (owner, state) in owner.render(state) }
+			.store(in: &cancellables)
   }
 
-  func render(_ state: ProductDetailState) {
-    switch state {
-    case .error(let error):
-      handleError(error)
-		case .load:
-      break
-    case .none:
-      break
-    }
+	func render(_ state: ProductDetailState) {
+		switch state {
+		case .error(let error):
+			handleError(error)
+		case .load(let product):
+			self.product = product
+			reload(product: product)
+		case .none:
+			break
+		}
   }
 
   func handleError(_ error: OutputError) {}
+}
+
+// MARK: - Reload
+private extension ProductDetailViewController {
+	func reload(product: Product) {
+		if let imageUrl = URL(string: product.imgUrl) {
+			self.imageView.loadImage(from: imageUrl.absoluteString)
+		}
+		self.productNameLabel.text = product.title
+		self.singerNameLabel.text = "아티스트 : "
+		self.priceLabel.text = "\(product.price) 원"
+		self.productDescriptionLabel.text = "상품 설명"
+	}
 }
 
 // MARK: - UI Configure

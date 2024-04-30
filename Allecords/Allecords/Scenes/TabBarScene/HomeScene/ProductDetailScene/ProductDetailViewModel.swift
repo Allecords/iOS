@@ -8,25 +8,36 @@
 import Combine
 import Foundation
 
-protocol ProductDetailViewModelable {
-  func loadProductDetails()
-  var productPublisher: AnyPublisher<Product, Never> { get }
+protocol ProductDetailViewModelable: ViewModelable
+where Input == ProductDetailInput,
+State == ProductDetailState,
+Output == AnyPublisher<State, Never> { }
+
+final class ProductDetailViewModel {
+	private let homeUseCase: HomeUseCase
+	private let product: Product
+		
+	init(homeUseCase: HomeUseCase, product: Product) {
+		self.homeUseCase = homeUseCase
+		self.product = product
+	}
 }
 
-final class ProductDetailViewModel: ProductDetailViewModelable {
-  private let productDetailUseCase: HomeUseCase
-  private let product: Product
-  private let productSubject = PassthroughSubject<Product, Never>()
-  var productPublisher: AnyPublisher<Product, Never> {
-    productSubject.eraseToAnyPublisher()
-  }
-  
-  init(productDetailUseCase: HomeUseCase, product: Product) {
-    self.productDetailUseCase = productDetailUseCase
-    self.product = product
-  }
-  
-  func loadProductDetails() {
-    productSubject.send(product)
-  }
+extension ProductDetailViewModel: ProductDetailViewModelable {
+	func transform(_ input: ProductDetailInput) -> AnyPublisher<ProductDetailState, Never> {
+		let viewLoad = viewLoad(input)
+		return Publishers.MergeMany(
+			viewLoad
+		).eraseToAnyPublisher()
+	}
+}
+
+private extension ProductDetailViewModel {
+	func viewLoad(_ input: Input) -> Output {
+		return input.viewLoad
+			.withUnretained(self)
+			.map { (owner, _) in
+				return .load(owner.product)
+			}.eraseToAnyPublisher()
+	}
 }
