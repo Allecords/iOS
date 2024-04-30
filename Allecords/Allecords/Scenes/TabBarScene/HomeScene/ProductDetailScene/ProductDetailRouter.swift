@@ -14,10 +14,13 @@ final class ProductDetailRouter {
 
 // MARK: - RoutingLogic
 extension ProductDetailRouter: ProductDetailRoutingLogic {
-	func showDetailScene() {
-		// 아래의 코드는 builder에서 build한 코드가 들어가야함
-		let detailViewController = UIViewController()
-		viewController?.pushViewController(detailViewController, animated: true)
+	func showAlarm() {
+	}
+	
+	func showSearch() {
+	}
+	
+	func enterChat() {
 	}
 	
 	func dismiss() {

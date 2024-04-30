@@ -9,8 +9,10 @@ import Combine
 import UIKit
 
 protocol ProductDetailRoutingLogic: AnyObject {
-  func showDetailScene()
 	func dismiss()
+	func showAlarm()
+	func showSearch()
+	func enterChat()
 }
 
 final class ProductDetailViewController: UIViewController {
@@ -286,9 +288,9 @@ extension ProductDetailViewController: AllecordsNavigationBarDelegate {
   func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBarItem item: AllecordsNavigationBarItem) {
     switch item.type {
     case .search:
-      debugPrint("search button")
+			router.showSearch()
     case .bell:
-      debugPrint("route to bell")
+			router.showAlarm()
     }
   }
 }
