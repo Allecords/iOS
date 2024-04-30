@@ -17,13 +17,13 @@ protocol ProductDetailRoutingLogic: AnyObject {
 
 final class ProductDetailViewController: UIViewController {
   // MARK: - UI Components
-  private let scrollView = UIScrollView()
-  private let imageView = UIImageView()
-  private let productNameLabel = UILabel()
-  private let singerNameLabel = UILabel()
-  private let priceLabel = UILabel()
-  private let productDescriptionLabel = UILabel()
-  private let divisionLine = UIView()
+	private let scrollView: UIScrollView = .init()
+	private let imageView: UIImageView = .init()
+	private let productNameLabel: UILabel = .init()
+	private let singerNameLabel: UILabel = .init()
+	private let priceLabel: UILabel = .init()
+	private let productDescriptionLabel: UILabel = .init()
+	private let divisionLine: UIView = .init()
   
   // MARK: - Properties
   private var navigationBar = AllecordsNavigationBar(rightItems: [.search, .bell])
@@ -217,79 +217,99 @@ private extension ProductDetailViewController {
   }
   
   func setViewConstraints() {
-    NSLayoutConstraint.activate([
-      scrollView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
-      scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      
-      imageView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-      imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
-      
-      productNameLabel.topAnchor.constraint(
+    setScrollViewTopConstraints()
+		setScrollViewBottomConstraints()
+  }
+	
+	func setScrollViewTopConstraints() {
+		NSLayoutConstraint.activate([
+			scrollView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+			scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			
+			imageView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+			imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
+		])
+	}
+	
+	// swiftlint:disable function_body_length
+	func setScrollViewBottomConstraints() {
+		NSLayoutConstraint.activate([
+			productNameLabel.topAnchor.constraint(
 				equalTo: imageView.bottomAnchor,
 				constant: ProductNameLabelConstant.topPadding
 			),
-      productNameLabel.leadingAnchor.constraint(
+			productNameLabel.leadingAnchor.constraint(
 				equalTo: view.leadingAnchor,
 				constant: ProductNameLabelConstant.leadPadding
 			),
-      productNameLabel.trailingAnchor.constraint(
+			productNameLabel.trailingAnchor.constraint(
 				equalTo: view.trailingAnchor,
 				constant: ProductNameLabelConstant.trailPadding
 			),
-      
-      singerNameLabel.topAnchor.constraint(
+			
+			singerNameLabel.topAnchor.constraint(
 				equalTo: productNameLabel.bottomAnchor,
 				constant: SingerNameLabelConstant.topPadding
 			),
-      singerNameLabel.leadingAnchor.constraint(
+			singerNameLabel.leadingAnchor.constraint(
 				equalTo: view.leadingAnchor,
 				constant: SingerNameLabelConstant.leadPadding
 			),
-      singerNameLabel.trailingAnchor.constraint(
+			singerNameLabel.trailingAnchor.constraint(
 				equalTo: view.trailingAnchor,
 				constant: SingerNameLabelConstant.trailPadding
 			),
-      
-      priceLabel.topAnchor.constraint(equalTo: singerNameLabel.bottomAnchor, constant: PriceLabelConstant.topPadding),
-      priceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: PriceLabelConstant.leadPadding),
-      priceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: PriceLabelConstant.trailPadding),
-      
-      divisionLine.topAnchor.constraint(
+			
+			priceLabel.topAnchor.constraint(
+				equalTo: singerNameLabel.bottomAnchor,
+				constant: PriceLabelConstant.topPadding
+			),
+			priceLabel.leadingAnchor.constraint(
+				equalTo: view.leadingAnchor,
+				constant: PriceLabelConstant.leadPadding
+			),
+			priceLabel.trailingAnchor.constraint(
+				equalTo: view.trailingAnchor,
+				constant: PriceLabelConstant.trailPadding
+			),
+			
+			divisionLine.topAnchor.constraint(
 				equalTo: priceLabel.bottomAnchor,
 				constant: DivisionLineLayoutConstant.topPadding
 			),
-      divisionLine.leadingAnchor.constraint(
+			divisionLine.leadingAnchor.constraint(
 				equalTo: view.leadingAnchor,
 				constant: DivisionLineLayoutConstant.leadPadding
 			),
-      divisionLine.trailingAnchor.constraint(
+			divisionLine.trailingAnchor.constraint(
 				equalTo: view.trailingAnchor,
 				constant: DivisionLineLayoutConstant.trailPadding
 			),
-      divisionLine.heightAnchor.constraint(equalToConstant: DivisionLineLayoutConstant.height),
-      
-      productDescriptionLabel.topAnchor.constraint(
+			divisionLine.heightAnchor.constraint(equalToConstant: DivisionLineLayoutConstant.height),
+			
+			productDescriptionLabel.topAnchor.constraint(
 				equalTo: divisionLine.bottomAnchor,
 				constant: ProductDescriptionLabelConstant.topPadding
 			),
-      productDescriptionLabel.leadingAnchor.constraint(
+			productDescriptionLabel.leadingAnchor.constraint(
 				equalTo: view.leadingAnchor,
 				constant: ProductDescriptionLabelConstant.leadPadding
 			),
-      productDescriptionLabel.trailingAnchor.constraint(
+			productDescriptionLabel.trailingAnchor.constraint(
 				equalTo: view.trailingAnchor,
 				constant: ProductDescriptionLabelConstant.trailPadding
 			),
-      productDescriptionLabel.bottomAnchor.constraint(
+			productDescriptionLabel.bottomAnchor.constraint(
 				lessThanOrEqualTo: scrollView.contentLayoutGuide.bottomAnchor,
 				constant: ProductDescriptionLabelConstant.bottomPadding
 			)
-    ])
-  }
+		])
+	}
+	// swiftlint:enable function_body_length
 }
 
 // MARK: - UI Delegate
