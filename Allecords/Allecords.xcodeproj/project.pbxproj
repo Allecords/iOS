@@ -167,6 +167,7 @@
 				789EEABA2BB99CFE00B99871 /* BetweenInput.swift */,
 				789EEAB62BB99A4000B99871 /* BetweenRouter.swift */,
 				789EEAB82BB99A8100B99871 /* BetweenBuilder.swift */,
+				789EEAF02BC93A6E00B99871 /* View */,
 			);
 			path = BetweenScene;
 			sourceTree = "<group>";
@@ -449,7 +450,6 @@
 		85078D692BD40DB000068060 /* ProductDetailScene */ = {
 			isa = PBXGroup;
 			children = (
-				789EEAF02BC93A6E00B99871 /* View */,
 				85078D6C2BD40E4A00068060 /* ProductDetailViewController.swift */,
 				85078D6E2BD40E4A00068060 /* ProductDetailViewModel.swift */,
 				85078D6A2BD40E4A00068060 /* ProductDetailAction.swift */,

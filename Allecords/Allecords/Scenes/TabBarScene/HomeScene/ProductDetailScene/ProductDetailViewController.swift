@@ -47,7 +47,6 @@ final class ProductDetailViewController: UIViewController {
   // MARK: - ProductDetailView Life Cycles
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .systemBackground
     setViewAttribute()
     setViewHierachies()
     setViewConstraints()
@@ -128,6 +127,7 @@ private extension ProductDetailViewController {
   }
   
   func setViewAttribute() {
+		view.backgroundColor = .systemBackground
     setNagivationBar()
     setScrollView()
     setImageView()
@@ -159,21 +159,21 @@ private extension ProductDetailViewController {
   }
   
   func setProductNameLabel() {
-    productNameLabel.font = UIFont.boldSystemFont(ofSize: 25)
+		productNameLabel.font = UIFont.notoSansCJKkr(type: .bold, size: .large)
   }
   
   func setSingerNameLabel() {
     singerNameLabel.textColor = .gray
-    singerNameLabel.font = UIFont.systemFont(ofSize: 20)
+    singerNameLabel.font = UIFont.notoSansCJKkr(type: .medium, size: .medium)
   }
   
   func setPriceLabel() {
-    priceLabel.font = UIFont.boldSystemFont(ofSize: 20)
+		priceLabel.font = UIFont.notoSansCJKkr(type: .medium, size: .medium)
   }
   
   func setProductDescriptionLabel () {
     productDescriptionLabel.textColor = .gray
-    productDescriptionLabel.font = UIFont.systemFont(ofSize: 18)
+		productDescriptionLabel.font = UIFont.notoSansCJKkr(type: .regular, size: .medium)
     productDescriptionLabel.numberOfLines = 0
   }
   

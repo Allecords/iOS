@@ -61,13 +61,13 @@ extension ProductCell {
     static let topPadding: CGFloat = 5
     static let leadPadding: CGFloat = 10
     static let trailPdding: CGFloat = -10
-    static let bottomPadding: CGFloat = -10
+    static let bottomPadding: CGFloat = -5
   }
 
   private func setAttributes() {
     setImageView()
     setNewLabel()
-    setNewLabel()
+    setNameLabel()
     setPriceLabel()
   }
   
@@ -82,19 +82,19 @@ extension ProductCell {
     newLabel.text = "New"
     newLabel.textColor = .white
     newLabel.backgroundColor = .primary1
-    newLabel.font = UIFont.boldSystemFont(ofSize: 12)
+		newLabel.font = UIFont.notoSansCJKkr(type: .medium, size: .tiny)
     newLabel.textAlignment = .center
     newLabel.layer.cornerRadius = 10
     newLabel.layer.masksToBounds = true
   }
   
   func setNameLabel() {
-    nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+		nameLabel.font = UIFont.notoSansCJKkr(type: .medium, size: .small)
     nameLabel.textAlignment = .left
   }
   
   func setPriceLabel() {
-    priceLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+    priceLabel.font = UIFont.notoSansCJKkr(type: .bold, size: .tiny)
     priceLabel.textAlignment = .left
   }
   
