@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProductDetailRoutingLogic: AnyObject {
   func showDetailScene()
+	func dismiss()
 }
 
 final class ProductDetailViewController: UIViewController {
@@ -26,17 +27,17 @@ final class ProductDetailViewController: UIViewController {
   private var navigationBar = AllecordsNavigationBar(rightItems: [.search, .bell])
   private var viewModel: ProductDetailViewModelable
   private var cancellables: Set<AnyCancellable> = []
-  // private let router: HomeDetailRoutingLogic
+	private let router: ProductDetailRoutingLogic
   
   // MARK: - Initializers
-  init(
-    // router: HomeDetailRoutingLogic,
-    viewModel: ProductDetailViewModelable
-  ) {
-    // self.router = router
-    self.viewModel = viewModel
-    super.init(nibName: nil, bundle: nil)
-  }
+	init(
+		router: ProductDetailRoutingLogic,
+		viewModel: ProductDetailViewModelable
+	) {
+		self.router = router
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
 
   @available(*, unavailable)
   required init?(coder: NSCoder) {
@@ -278,8 +279,9 @@ private extension ProductDetailViewController {
 
 // MARK: - UI Delegate
 extension ProductDetailViewController: AllecordsNavigationBarDelegate {
-  func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) {
-    navigationController?.popViewController(animated: true)  }
+	func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) {
+		router.dismiss()
+	}
   
   func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBarItem item: AllecordsNavigationBarItem) {
     switch item.type {

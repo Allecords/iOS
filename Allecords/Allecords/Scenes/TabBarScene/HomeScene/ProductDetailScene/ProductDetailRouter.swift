@@ -19,4 +19,8 @@ extension ProductDetailRouter: ProductDetailRoutingLogic {
 		let detailViewController = UIViewController()
 		viewController?.pushViewController(detailViewController, animated: true)
 	}
+	
+	func dismiss() {
+		viewController?.popViewController(animated: true)
+	}
 }

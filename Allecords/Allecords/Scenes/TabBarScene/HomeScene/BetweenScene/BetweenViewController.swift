@@ -44,7 +44,6 @@ final class BetweenViewController: UIViewController {
   // MARK: - HomeView LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .systemBackground
     setViewAttribute()
     setViewHierachies()
     setViewConstraints()
@@ -100,6 +99,7 @@ private extension BetweenViewController {
   }
   
   func setViewAttribute() {
+		view.backgroundColor = .systemBackground
     setCollectionView()
   }
   
@@ -186,9 +186,7 @@ extension BetweenViewController: UICollectionViewDelegate {
 }
 
 extension BetweenViewController: AllecordsNavigationBarDelegate {
-  func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) {
-    return
-  }
+  func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) { }
   
   func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBarItem item: AllecordsNavigationBarItem) {
     switch item.type {

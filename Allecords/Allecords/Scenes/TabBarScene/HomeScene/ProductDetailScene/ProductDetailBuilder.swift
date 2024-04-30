@@ -9,15 +9,22 @@ import AllecordsNetwork
 import UIKit
 
 protocol ProductDetailBuilderProtocol {
-  func build(product: Product) -> UIViewController
+	func build(router: BetweenRouter, product: Product) -> UIViewController
 }
 
 struct ProductDetailBuilder: ProductDetailBuilderProtocol {
-  func build(product: Product) -> UIViewController {
+	func build(router: BetweenRouter, product: Product) -> UIViewController {
     let session = CustomSession()
+		let productDetailRouter = ProductDetailRouter()
+		
     let productDetailRepository = DefaultHomeRepository(session: session)
     let productDetailUseCase = DefaultHomeUseCase(homeRepository: productDetailRepository)
     let productDetailViewModel = ProductDetailViewModel(productDetailUseCase: productDetailUseCase, product: product)
-    return ProductDetailViewController(viewModel: productDetailViewModel)
+		let productDetailViewController = ProductDetailViewController(
+			router: productDetailRouter,
+			viewModel: productDetailViewModel
+		)
+		productDetailRouter.viewController = router.viewController
+    return productDetailViewController
   }
 }

@@ -24,7 +24,7 @@ extension BetweenRouter: BetweenRoutingLogic {
 	}
 	
 	func showDetailScene(_ product: Product) {
-		let productDetailViewController = productDetailBuilder.build(product: product)
+		let productDetailViewController = productDetailBuilder.build(router: self, product: product)
 		viewController?.pushViewController(productDetailViewController, animated: true)
 	}
 }
