@@ -18,7 +18,7 @@ final class DefaultHomeRepository {
 
 extension DefaultHomeRepository: HomeRepository {
 	enum Constant {
-		static let baseUrl = "https://allecords.shop/api2/products/"
+		static let baseUrl = "https://allecords.shop/api2/products"
 	}
 	
 	func fetchProductItems(page: Int) async throws -> [Product] {

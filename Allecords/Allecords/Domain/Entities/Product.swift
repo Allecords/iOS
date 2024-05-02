@@ -12,5 +12,5 @@ struct Product {
 	let artist: String
 	let url: String
 	let imgUrl: String
-	let price: String
+	let price: Double
 }
