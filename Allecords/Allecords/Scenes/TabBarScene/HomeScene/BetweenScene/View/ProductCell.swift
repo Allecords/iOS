@@ -32,7 +32,7 @@ final class ProductCell: UICollectionViewCell {
       imageView.loadImage(from: imageUrl.absoluteString)
     }
     nameLabel.text = product.title
-    priceLabel.text = product.price + " 원"
+    priceLabel.text = String(Int(product.price)) + " 원"
     newLabel.isHidden = false
   }
 }

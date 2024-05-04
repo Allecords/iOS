@@ -36,7 +36,7 @@ private extension BetweenViewModel {
 			.withUnretained(self)
 			.flatMap { (owner, _) -> AnyPublisher<Result<[Product], Error>, Never> in
 				let future = Future(asyncFunc: {
-					await owner.homeUseCase.fetchCrawlingProducts(with: 1)
+					await owner.homeUseCase.fetchCrawlingProducts(with: 0)
 				})
 				return future.eraseToAnyPublisher()
 			}
