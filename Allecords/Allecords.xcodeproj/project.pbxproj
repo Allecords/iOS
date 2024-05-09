@@ -55,6 +55,11 @@
 		85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D6C2BD40E4A00068060 /* ProductDetailViewController.swift */; };
 		85078D722BD40E4A00068060 /* ProductDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D6D2BD40E4A00068060 /* ProductDetailBuilder.swift */; };
 		85078D732BD40E4A00068060 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D6E2BD40E4A00068060 /* ProductDetailViewModel.swift */; };
+		85078D7A2BEA540800068060 /* AllecordsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D752BEA540800068060 /* AllecordsInput.swift */; };
+		85078D7B2BEA540800068060 /* AllecordsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D762BEA540800068060 /* AllecordsRouter.swift */; };
+		85078D7C2BEA540800068060 /* AllecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D772BEA540800068060 /* AllecordsViewController.swift */; };
+		85078D7D2BEA540800068060 /* AllecordsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D782BEA540800068060 /* AllecordsBuilder.swift */; };
+		85078D7E2BEA540800068060 /* AllecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D792BEA540800068060 /* AllecordsViewModel.swift */; };
 		8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570F5AE2BBFE472009D1772 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +85,7 @@
 		7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBuilder.swift; sourceTree = "<group>"; };
 		7827F80E2BE00000008F6883 /* HomeTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabRouter.swift; sourceTree = "<group>"; };
 		7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopTabView.swift; sourceTree = "<group>"; };
-		7827F8122BE021B7008F6883 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../../../../Library/Fonts/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		7827F8122BE021B7008F6883 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		783656652BB8651A004FFA09 /* Allecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783656682BB8651A004FFA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7836566A2BB8651A004FFA09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +133,11 @@
 		85078D6C2BD40E4A00068060 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		85078D6D2BD40E4A00068060 /* ProductDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailBuilder.swift; sourceTree = "<group>"; };
 		85078D6E2BD40E4A00068060 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		85078D752BEA540800068060 /* AllecordsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsInput.swift; path = Allecords/App/Resources/Font/AllecordsInput.swift; sourceTree = SOURCE_ROOT; };
+		85078D762BEA540800068060 /* AllecordsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsRouter.swift; path = Allecords/App/Resources/Font/AllecordsRouter.swift; sourceTree = SOURCE_ROOT; };
+		85078D772BEA540800068060 /* AllecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsViewController.swift; path = Allecords/App/Resources/Font/AllecordsViewController.swift; sourceTree = SOURCE_ROOT; };
+		85078D782BEA540800068060 /* AllecordsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsBuilder.swift; path = Allecords/App/Resources/Font/AllecordsBuilder.swift; sourceTree = SOURCE_ROOT; };
+		85078D792BEA540800068060 /* AllecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsViewModel.swift; path = Allecords/App/Resources/Font/AllecordsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8570F5AE2BBFE472009D1772 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,11 +180,16 @@
 			path = BetweenScene;
 			sourceTree = "<group>";
 		};
-		7827F8092BDFF2B8008F6883 /* AllecordScene */ = {
+		7827F8092BDFF2B8008F6883 /* AllecordsScene */ = {
 			isa = PBXGroup;
 			children = (
+				85078D772BEA540800068060 /* AllecordsViewController.swift */,
+				85078D792BEA540800068060 /* AllecordsViewModel.swift */,
+				85078D752BEA540800068060 /* AllecordsInput.swift */,
+				85078D762BEA540800068060 /* AllecordsRouter.swift */,
+				85078D782BEA540800068060 /* AllecordsBuilder.swift */,
 			);
-			path = AllecordScene;
+			path = AllecordsScene;
 			sourceTree = "<group>";
 		};
 		7836565C2BB8651A004FFA09 = {
@@ -343,7 +358,7 @@
 		789EEA922BB87ED800B99871 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
-				7827F8092BDFF2B8008F6883 /* AllecordScene */,
+				7827F8092BDFF2B8008F6883 /* AllecordsScene */,
 				7827F8082BDFED51008F6883 /* BetweenScene */,
 				85078D692BD40DB000068060 /* ProductDetailScene */,
 				7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */,
@@ -636,6 +651,11 @@
 				789D6B392BCA5CBC0088511B /* Product.swift in Sources */,
 				789D6B3D2BCA5E6D0088511B /* ViewBindable.swift in Sources */,
 				789EEAEB2BC00B2400B99871 /* AllecordsNavigationBar.swift in Sources */,
+				85078D7A2BEA540800068060 /* AllecordsInput.swift in Sources */,
+				85078D7B2BEA540800068060 /* AllecordsRouter.swift in Sources */,
+				85078D7C2BEA540800068060 /* AllecordsViewController.swift in Sources */,
+				85078D7D2BEA540800068060 /* AllecordsBuilder.swift in Sources */,
+				85078D7E2BEA540800068060 /* AllecordsViewModel.swift in Sources */,
 				7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */,
 				789EEAE72BC00A7F00B99871 /* UIImage+Resize.swift in Sources */,
 				789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */,
