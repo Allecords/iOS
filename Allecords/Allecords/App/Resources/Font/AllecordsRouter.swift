@@ -9,9 +9,9 @@ import UIKit
 
 final class AllecordsRouter {
   weak var viewController: UINavigationController?
-  private var productDetailBuilder: ProductDetailBuilderProtocol
+  private var productDetailBuilder: AllecordsProductDetailBuilderProtocol
   
-  init(productDetailBuilder: ProductDetailBuilderProtocol) {
+  init(productDetailBuilder: AllecordsProductDetailBuilderProtocol) {
     self.productDetailBuilder = productDetailBuilder
   }
 }

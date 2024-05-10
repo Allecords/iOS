@@ -11,6 +11,7 @@ import UIKit
 
 protocol BetweenRoutingLogic: AnyObject {
 	func showDetailScene(_ product: Product)
+  func showWebViewScene(url: URL)
 	func showAlarm()
 	func showSearch()
 }
@@ -181,7 +182,9 @@ extension BetweenViewController: UICollectionViewDataSource {
 extension BetweenViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let product: Product = products[indexPath.row]
-		router.showDetailScene(product)
+    if let url = URL(string: product.url) {
+      router.showWebViewScene(url: url)
+    }
   }
 }
 

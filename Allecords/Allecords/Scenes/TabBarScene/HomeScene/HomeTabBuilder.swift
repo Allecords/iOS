@@ -31,6 +31,8 @@ struct HomeTabBuilder: HomeTabBuilderProtocol {
 		homeTabNavController.isNavigationBarHidden = true
 		homeTabNavController.interactivePopGestureRecognizer?.isEnabled = true
 		homeTabRouter.viewController = homeTabNavController
+    betweenRouter.viewController = homeTabNavController
+    allecordsRouter.viewController = homeTabNavController
 		return homeTabNavController
 	}
 }

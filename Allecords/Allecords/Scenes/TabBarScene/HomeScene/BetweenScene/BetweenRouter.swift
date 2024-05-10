@@ -9,9 +9,9 @@ import UIKit
 
 final class BetweenRouter {
 	weak var viewController: UINavigationController?
-	private var productDetailBuilder: ProductDetailBuilderProtocol
+	private var productDetailBuilder: BetweenProductDetailBuilderProtocol
 	
-	init(productDetailBuilder: ProductDetailBuilderProtocol) {
+	init(productDetailBuilder: BetweenProductDetailBuilderProtocol) {
 		self.productDetailBuilder = productDetailBuilder
 	}
 }
@@ -27,4 +27,11 @@ extension BetweenRouter: BetweenRoutingLogic {
 		let productDetailViewController = productDetailBuilder.build(router: self, product: product)
 		viewController?.pushViewController(productDetailViewController, animated: true)
 	}
+  
+  func showWebViewScene(url: URL) {
+    let productWebRouter = ProductWebRouter()
+    let productWebViewController = ProductWebViewController(router: productWebRouter, productURL: url)
+      productWebRouter.viewController = viewController
+      viewController?.pushViewController(productWebViewController, animated: true)
+    }
 }
