@@ -8,10 +8,6 @@
 import UIKit
 
 final actor AllecordsImageLoader: AllecordsImageLoadable {
-	static let shared = AllecordsImageLoader()
-	
-	private init() { }
-	
 	private enum DownloadEntry {
 		case inProgress(Task<UIImage, Error>)
 		case complete(UIImage)
@@ -84,7 +80,7 @@ extension AllecordsImageLoader {
 		guard let url = URL(string: url) else {
 			throw AllecordsImageLoaderError.urlError
 		}
-		var request = URLRequest(url: url)
+		let request = URLRequest(url: url)
 		
 		let (data, response) = try await URLSession.shared.data(for: request)
 		guard let httpURLResponse = response as? HTTPURLResponse, (200..<400) ~= httpURLResponse.statusCode else {

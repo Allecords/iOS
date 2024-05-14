@@ -19,6 +19,7 @@
 		7836568A2BB8651D004FFA09 /* AllecordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783656892BB8651D004FFA09 /* AllecordsUITests.swift */; };
 		7836568C2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
+		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		789D6B2E2BCA5CB70088511B /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2B2BCA5CB70088511B /* ProductDTO.swift */; };
 		789D6B2F2BCA5CB70088511B /* DefualtHomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */; };
 		789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B322BCA5CBC0088511B /* HomeRepository.swift */; };
@@ -97,6 +98,7 @@
 		783656892BB8651D004FFA09 /* AllecordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITests.swift; sourceTree = "<group>"; };
 		7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
+		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		789D6B2B2BCA5CB70088511B /* ProductDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
 		789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefualtHomeRepository.swift; sourceTree = "<group>"; };
 		789D6B322BCA5CBC0088511B /* HomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		783656672BB8651A004FFA09 /* Allecords */ = {
 			isa = PBXGroup;
 			children = (
+				788EB65B2BF3585400EECCBD /* Utils */,
 				789D6B302BCA5CBC0088511B /* Domain */,
 				789D6B292BCA5CB70088511B /* Data */,
 				789EEAE12BC0085B00B99871 /* DesignSystem */,
@@ -246,6 +249,14 @@
 				788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */,
 			);
 			path = Cacher;
+			sourceTree = "<group>";
+		};
+		788EB65B2BF3585400EECCBD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				78BAFC542BF33F11008F900D /* AllecordsImage */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		789D6B292BCA5CB70088511B /* Data */ = {
@@ -391,7 +402,6 @@
 		789EEA9F2BB881DD00B99871 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				78BAFC542BF33F11008F900D /* AllecordsImage */,
 				789EEAA02BB881EE00B99871 /* ViewModelable.swift */,
 				789EEAB02BB9955400B99871 /* Router.swift */,
 				789EEAB42BB9977B00B99871 /* AppRouter.swift */,
@@ -469,6 +479,7 @@
 			children = (
 				788EB6542BF34E6700EECCBD /* Cacher */,
 				78BAFC572BF33FF1008F900D /* Downloader */,
+				788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */,
 			);
 			path = AllecordsImage;
 			sourceTree = "<group>";
@@ -692,6 +703,7 @@
 				789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */,
 				7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */,
 				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
+				788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */,
 				789D6B3B2BCA5D170088511B /* Future+.swift in Sources */,
 				789EEA962BB87F2D00B99871 /* BetweenViewController.swift in Sources */,
 			);

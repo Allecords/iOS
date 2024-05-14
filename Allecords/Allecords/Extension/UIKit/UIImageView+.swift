@@ -11,7 +11,7 @@ extension UIImageView {
 	func setImage(from urlString: String) {
 		Task { [weak self] in
 			do {
-				let image = try await AllecordsImageLoader.shared.downloadImage(from: urlString)
+				let image = try await AllecordsImageService.shared.setImage(with: urlString)
 				DispatchQueue.main.async {
 					self?.image = image
 				}
@@ -26,7 +26,7 @@ extension UIImageView {
 	
 	func cancelImageDownload(for urlString: String) {
 		Task {
-			await AllecordsImageLoader.shared.cancelDownloadImage(url: urlString)
+			await AllecordsImageService.shared.cancelLoad(for: urlString)
 		}
 	}
 }

@@ -7,12 +7,10 @@
 
 import UIKit
 
-final class ImageCache {
-	static let shared = ImageCache()
-	
+final class AllecordsImageCache {
 	private let cache = NSCache<NSString, UIImage>()
 	
-	private init() {
+	init() {
 		cache.totalCostLimit = 52428800 // 50MB
 	}
 	
