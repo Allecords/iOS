@@ -94,9 +94,7 @@ extension ProductDetailViewController: ViewBindable {
 // MARK: - Reload
 private extension ProductDetailViewController {
 	func reload(product: Product) {
-		if let imageUrl = URL(string: product.imgUrl) {
-			self.imageView.loadImage(from: imageUrl.absoluteString)
-		}
+		self.imageView.setImage(from: product.imgUrl)
 		self.productNameLabel.text = product.title
 		self.singerNameLabel.text = "아티스트 : "
 		self.priceLabel.text = "\(product.price) 원"
