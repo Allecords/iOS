@@ -10,10 +10,9 @@ import Combine
 import UIKit
 
 protocol BetweenRoutingLogic: AnyObject {
-	func showDetailScene(_ product: Product)
   func showWebViewScene(url: URL)
-	func showAlarm()
-	func showSearch()
+  func showAlarm()
+  func showSearch()
 }
 
 final class BetweenViewController: UIViewController {
@@ -21,21 +20,23 @@ final class BetweenViewController: UIViewController {
   private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
   
   // MARK: - Properties
+  private var isFetching: Bool = false
   private var viewModel: any BetweenViewModelable
   private var products: [Product] = []
+  private var pageNumber: Int = 0
   private var cancellables: Set<AnyCancellable> = []
-	private let router: BetweenRoutingLogic
+  private let router: BetweenRoutingLogic
   private let viewLoad: PassthroughSubject<Int, Never> = .init()
   
   // MARK: - Initializer
-	init(
-		router: BetweenRoutingLogic,
-		viewModel: any BetweenViewModelable
-	) {
-		self.router = router
-		self.viewModel = viewModel
-		super.init(nibName: nil, bundle: nil)
-	}
+  init(
+    router: BetweenRoutingLogic,
+    viewModel: any BetweenViewModelable
+  ) {
+    self.router = router
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
   
   @available(*, unavailable)
   required init?(coder: NSCoder) {
@@ -49,7 +50,7 @@ final class BetweenViewController: UIViewController {
     setViewHierachies()
     setViewConstraints()
     bind()
-    viewLoad.send(1)
+    viewLoad.send(pageNumber)
   }
 }
 
@@ -75,8 +76,9 @@ extension BetweenViewController: ViewBindable {
     case .error(let error):
       handleError(error)
     case .load(let products):
-      self.products = products
+      self.products += products
       collectionView.reloadData()
+      isFetching = false
     case .none:
       break
     }
@@ -100,7 +102,7 @@ private extension BetweenViewController {
   }
   
   func setViewAttribute() {
-		view.backgroundColor = .systemBackground
+    view.backgroundColor = .systemBackground
     setCollectionView()
   }
   
@@ -184,6 +186,18 @@ extension BetweenViewController: UICollectionViewDelegate {
     let product: Product = products[indexPath.row]
     if let url = URL(string: product.url) {
       router.showWebViewScene(url: url)
+    }
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let position = scrollView.contentOffset.y
+    let threshold = collectionView.contentSize.height - scrollView.frame.size.height
+
+    if position > threshold * 0.95 && !isFetching {
+      isFetching = true
+      pageNumber += 1
+      
+      viewLoad.send(pageNumber)
     }
   }
 }

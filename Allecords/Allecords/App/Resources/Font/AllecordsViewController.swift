@@ -20,8 +20,10 @@ final class AllecordsViewController: UIViewController {
   private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
   
   // MARK: - Properties
+  private var isFetching: Bool = false
   private var viewModel: any AllecordsViewModelable
   private var products: [Product] = []
+  private var pageNumber: Int = 0
   private var cancellables: Set<AnyCancellable> = []
   private let router: AllecordsRoutingLogic
   private let viewLoad: PassthroughSubject<Int, Never> = .init()
@@ -74,8 +76,9 @@ extension AllecordsViewController: ViewBindable {
     case .error(let error):
       handleError(error)
     case .load(let products):
-      self.products = products
+      self.products += products
       collectionView.reloadData()
+      isFetching = false
     case .none:
       break
     }
@@ -182,6 +185,18 @@ extension AllecordsViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let product: Product = products[indexPath.row]
     router.showDetailScene(product)
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let position = scrollView.contentOffset.y
+    let threshold = collectionView.contentSize.height - scrollView.frame.size.height
+
+    if position > threshold * 0.95 && !isFetching {
+      isFetching = true
+      pageNumber += 1
+      
+      viewLoad.send(pageNumber)
+    }
   }
 }
 

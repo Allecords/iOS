@@ -22,11 +22,6 @@ extension BetweenRouter: BetweenRoutingLogic {
 	
 	func showSearch() {
 	}
-	
-	func showDetailScene(_ product: Product) {
-		let productDetailViewController = productDetailBuilder.build(router: self, product: product)
-		viewController?.pushViewController(productDetailViewController, animated: true)
-	}
   
   func showWebViewScene(url: URL) {
     let productWebRouter = ProductWebRouter()
