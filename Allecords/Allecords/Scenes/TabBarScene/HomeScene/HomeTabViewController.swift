@@ -42,8 +42,10 @@ final class HomeTabViewController: UIViewController {
 	/// 상단 탭의 인디케이터 뷰
 	private let indicatorView: UIView = .init()
 	/// 상단 탭의 컨텐츠 뷰 컨트롤러
+  private let betweenRouter: BetweenRouter
+  private let allecordsRouter: AllecordsRouter
 	private let betweenBuilder: BetweenBuilderProtocol
-	private let allecordsViewController: UIViewController = .init()
+	private let allecordsBuilder: AllecordsBuilderProtocol
 	private var childHomeViewControllers: [UIViewController] = []
 	/// 인디케이터 뷰 센터 레이아웃
 	private var indicatorViewCenterConstraint: NSLayoutConstraint?
@@ -51,10 +53,16 @@ final class HomeTabViewController: UIViewController {
 	// MARK: - Initailizer
 	init(
 		router: HomeTabRouter,
-		betweenBuilder: BetweenBuilderProtocol
+		betweenRouter: BetweenRouter,
+		allecordsRouter: AllecordsRouter,
+		betweenBuilder: BetweenBuilderProtocol,
+		allecordsBuilder: AllecordsBuilderProtocol
 	) {
 		self.router = router
+    self.betweenRouter = betweenRouter
+    self.allecordsRouter = allecordsRouter
 		self.betweenBuilder = betweenBuilder
+    self.allecordsBuilder = allecordsBuilder
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -74,9 +82,10 @@ final class HomeTabViewController: UIViewController {
 // MARK: - View Methods
 private extension HomeTabViewController {
 	func setChildViewControllers() {
-		let betweenController = betweenBuilder.build(router: router)
+		let betweenController = betweenBuilder.build(router: betweenRouter)
+    let allecordsController = allecordsBuilder.build(router: allecordsRouter)
 		childHomeViewControllers.append(betweenController)
-		childHomeViewControllers.append(allecordsViewController)
+		childHomeViewControllers.append(allecordsController)
 	}
 	
 	func setViewAttributes() {
@@ -195,7 +204,7 @@ private extension HomeTabViewController {
 	func moveToTab(_ tab: HomeType) {
 		switch tab {
 		case .between: moveToBetweenTab()
-		case .allecords: moveToAllecordTab()
+		case .allecords: moveToAllecordsTab()
 		}
 	}
 	
@@ -213,7 +222,7 @@ private extension HomeTabViewController {
 		}
 	}
 	
-	func moveToAllecordTab() {
+	func moveToAllecordsTab() {
 		var newIndicatorViewCenterConstraint: NSLayoutConstraint
 		newIndicatorViewCenterConstraint = indicatorView.centerXAnchor.constraint(
 			equalTo: homeTopTapView.allecordTabButton.centerXAnchor

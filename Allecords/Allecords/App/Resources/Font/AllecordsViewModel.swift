@@ -1,19 +1,19 @@
 //
-//  BetweenViewModel.swift
+//  AllecordsViewModel.swift
 //  Allecords
 //
-//  Created by Hoon on 3/31/24.
+//  Created by 이숲 on 5/7/24.
 //
 
 import Combine
 import Foundation
 
-protocol BetweenViewModelable: ViewModelable
-where Input == BetweenInput,
-State == BetweenState,
+protocol AllecordsViewModelable: ViewModelable
+where Input == AllecordsInput,
+State == AllecordsState,
 Output == AnyPublisher<State, Never> { }
 
-final class BetweenViewModel {
+final class AllecordsViewModel {
   private let homeUseCase: HomeUseCase
   
   init(homeUseCase: HomeUseCase) {
@@ -21,7 +21,7 @@ final class BetweenViewModel {
   }
 }
 
-extension BetweenViewModel: BetweenViewModelable {
+extension AllecordsViewModel: AllecordsViewModelable {
   func transform(_ input: Input) -> Output {
     let viewLoad = viewLoad(input)
     return Publishers.MergeMany(
@@ -30,7 +30,7 @@ extension BetweenViewModel: BetweenViewModelable {
   }
 }
 
-private extension BetweenViewModel {
+private extension AllecordsViewModel {
   func viewLoad(_ input: Input) -> Output {
     return input.viewLoad
       .withUnretained(self)

@@ -97,7 +97,7 @@ private extension ProductDetailViewController {
 		self.imageView.setImage(from: product.imgUrl)
 		self.productNameLabel.text = product.title
 		self.singerNameLabel.text = "아티스트 : "
-		self.priceLabel.text = "\(product.price) 원"
+		self.priceLabel.text = "\(String(Int(product.price))) 원"
 		self.productDescriptionLabel.text = "상품 설명"
 	}
 }

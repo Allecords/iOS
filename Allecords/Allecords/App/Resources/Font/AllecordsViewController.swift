@@ -1,37 +1,37 @@
 //
-//  BetweenViewController.swift
+//  AllecordsViewController.swift
 //  Allecords
 //
-//  Created by Hoon on 3/31/24.
+//  Created by 이숲 on 5/7/24.
 //
 
 import AllecordsNetwork
 import Combine
 import UIKit
 
-protocol BetweenRoutingLogic: AnyObject {
-  func showWebViewScene(url: URL)
+protocol AllecordsRoutingLogic: AnyObject {
+  func showDetailScene(_ product: Product)
   func showAlarm()
   func showSearch()
 }
 
-final class BetweenViewController: UIViewController {
+final class AllecordsViewController: UIViewController {
   // MARK: - UI Components
   private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
   
   // MARK: - Properties
   private var isFetching: Bool = false
-  private var viewModel: any BetweenViewModelable
+  private var viewModel: any AllecordsViewModelable
   private var products: [Product] = []
   private var pageNumber: Int = 0
   private var cancellables: Set<AnyCancellable> = []
-  private let router: BetweenRoutingLogic
+  private let router: AllecordsRoutingLogic
   private let viewLoad: PassthroughSubject<Int, Never> = .init()
   
   // MARK: - Initializer
   init(
-    router: BetweenRoutingLogic,
-    viewModel: any BetweenViewModelable
+    router: AllecordsRoutingLogic,
+    viewModel: any AllecordsViewModelable
   ) {
     self.router = router
     self.viewModel = viewModel
@@ -55,12 +55,12 @@ final class BetweenViewController: UIViewController {
 }
 
 // MARK: - Bind Methods
-extension BetweenViewController: ViewBindable {
-  typealias State = BetweenState
+extension AllecordsViewController: ViewBindable {
+  typealias State = AllecordsState
   typealias OutputError = Error
   
   func bind() {
-    let input = BetweenInput(
+    let input = AllecordsInput(
       viewLoad: viewLoad
     )
     let output = viewModel.transform(input)
@@ -71,7 +71,7 @@ extension BetweenViewController: ViewBindable {
       .store(in: &cancellables)
   }
   
-  func render(_ state: BetweenState) {
+  func render(_ state: AllecordsState) {
     switch state {
     case .error(let error):
       handleError(error)
@@ -88,7 +88,7 @@ extension BetweenViewController: ViewBindable {
 }
 
 // MARK: - UI Configure
-private extension BetweenViewController {
+private extension AllecordsViewController {
   enum CollectionViewLayoutConstant {
     static let itemSizeWidth: CGFloat = 1
     static let itemSizeHeight: CGFloat = 1
@@ -162,7 +162,7 @@ private extension BetweenViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension BetweenViewController: UICollectionViewDataSource {
+extension AllecordsViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return products.count
   }
@@ -181,12 +181,10 @@ extension BetweenViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UI Delegate
-extension BetweenViewController: UICollectionViewDelegate {
+extension AllecordsViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let product: Product = products[indexPath.row]
-    if let url = URL(string: product.url) {
-      router.showWebViewScene(url: url)
-    }
+    router.showDetailScene(product)
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -202,7 +200,7 @@ extension BetweenViewController: UICollectionViewDelegate {
   }
 }
 
-extension BetweenViewController: AllecordsNavigationBarDelegate {
+extension AllecordsViewController: AllecordsNavigationBarDelegate {
   func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) { }
   
   func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBarItem item: AllecordsNavigationBarItem) {
