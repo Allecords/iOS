@@ -53,10 +53,10 @@ final class HomeTabViewController: UIViewController {
 	// MARK: - Initailizer
 	init(
 		router: HomeTabRouter,
-    betweenRouter: BetweenRouter,
-    allecordsRouter: AllecordsRouter,
+		betweenRouter: BetweenRouter,
+		allecordsRouter: AllecordsRouter,
 		betweenBuilder: BetweenBuilderProtocol,
-    allecordsBuilder: AllecordsBuilderProtocol
+		allecordsBuilder: AllecordsBuilderProtocol
 	) {
 		self.router = router
     self.betweenRouter = betweenRouter

@@ -5,9 +5,9 @@
 //  Created by 이숲 on 5/10/24.
 //
 
+import Combine
 import UIKit
 import WebKit
-import Combine
 
 protocol ProductWebRoutingLogic: AnyObject {
   func dismiss()
@@ -21,7 +21,6 @@ final class ProductWebViewController: UIViewController {
   private let scrollView: UIScrollView = .init()
   private let webView: WKWebView = .init()
       
-  
 	// MARK: - Properties
   private var navigationBar = AllecordsNavigationBar(rightItems: [.search, .bell])
   private var productURL: URL
@@ -31,7 +30,7 @@ final class ProductWebViewController: UIViewController {
   // MARK: - Initializers
 	init(
 		router: ProductWebRoutingLogic,
-    productURL: URL
+		productURL: URL
 	) {
 		self.router = router
 		self.productURL = productURL

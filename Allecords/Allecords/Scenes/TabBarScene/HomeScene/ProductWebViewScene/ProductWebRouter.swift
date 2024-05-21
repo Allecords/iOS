@@ -8,7 +8,7 @@
 import UIKit
 
 final class ProductWebRouter {
-    weak var viewController: UINavigationController?
+  weak var viewController: UINavigationController?
 }
 
 // MARK: - RoutingLogic

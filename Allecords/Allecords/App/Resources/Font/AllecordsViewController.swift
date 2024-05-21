@@ -50,7 +50,7 @@ final class AllecordsViewController: UIViewController {
     setViewHierachies()
     setViewConstraints()
     bind()
-    viewLoad.send(1)
+    viewLoad.send(pageNumber)
   }
 }
 
@@ -212,4 +212,3 @@ extension AllecordsViewController: AllecordsNavigationBarDelegate {
     }
   }
 }
-

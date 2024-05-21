@@ -60,11 +60,8 @@
 		85078D7C2BEA540800068060 /* AllecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D772BEA540800068060 /* AllecordsViewController.swift */; };
 		85078D7D2BEA540800068060 /* AllecordsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D782BEA540800068060 /* AllecordsBuilder.swift */; };
 		85078D7E2BEA540800068060 /* AllecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D792BEA540800068060 /* AllecordsViewModel.swift */; };
-		85078D902BED27F100068060 /* ProductWebInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D8B2BED27F100068060 /* ProductWebInput.swift */; };
 		85078D912BED27F100068060 /* ProductWebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D8C2BED27F100068060 /* ProductWebRouter.swift */; };
 		85078D922BED27F100068060 /* ProductWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D8D2BED27F100068060 /* ProductWebViewController.swift */; };
-		85078D932BED27F100068060 /* ProductWebBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D8E2BED27F100068060 /* ProductWebBuilder.swift */; };
-		85078D942BED27F100068060 /* ProductWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D8F2BED27F100068060 /* ProductWebViewModel.swift */; };
 		8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570F5AE2BBFE472009D1772 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -143,11 +140,8 @@
 		85078D772BEA540800068060 /* AllecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsViewController.swift; path = Allecords/App/Resources/Font/AllecordsViewController.swift; sourceTree = SOURCE_ROOT; };
 		85078D782BEA540800068060 /* AllecordsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsBuilder.swift; path = Allecords/App/Resources/Font/AllecordsBuilder.swift; sourceTree = SOURCE_ROOT; };
 		85078D792BEA540800068060 /* AllecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsViewModel.swift; path = Allecords/App/Resources/Font/AllecordsViewModel.swift; sourceTree = SOURCE_ROOT; };
-		85078D8B2BED27F100068060 /* ProductWebInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebInput.swift; sourceTree = "<group>"; };
 		85078D8C2BED27F100068060 /* ProductWebRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebRouter.swift; sourceTree = "<group>"; };
 		85078D8D2BED27F100068060 /* ProductWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebViewController.swift; sourceTree = "<group>"; };
-		85078D8E2BED27F100068060 /* ProductWebBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebBuilder.swift; sourceTree = "<group>"; };
-		85078D8F2BED27F100068060 /* ProductWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebViewModel.swift; sourceTree = "<group>"; };
 		8570F5AE2BBFE472009D1772 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -486,10 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				85078D8D2BED27F100068060 /* ProductWebViewController.swift */,
-				85078D8F2BED27F100068060 /* ProductWebViewModel.swift */,
-				85078D8B2BED27F100068060 /* ProductWebInput.swift */,
 				85078D8C2BED27F100068060 /* ProductWebRouter.swift */,
-				85078D8E2BED27F100068060 /* ProductWebBuilder.swift */,
 			);
 			path = ProductWebViewScene;
 			sourceTree = "<group>";
@@ -639,7 +630,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -657,11 +648,8 @@
 				85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */,
 				7827F8112BE00EFD008F6883 /* HomeTopTabView.swift in Sources */,
 				85078D722BD40E4A00068060 /* ProductDetailBuilder.swift in Sources */,
-				85078D902BED27F100068060 /* ProductWebInput.swift in Sources */,
 				85078D912BED27F100068060 /* ProductWebRouter.swift in Sources */,
 				85078D922BED27F100068060 /* ProductWebViewController.swift in Sources */,
-				85078D932BED27F100068060 /* ProductWebBuilder.swift in Sources */,
-				85078D942BED27F100068060 /* ProductWebViewModel.swift in Sources */,
 				85078D732BD40E4A00068060 /* ProductDetailViewModel.swift in Sources */,
 				789EEAB72BB99A4000B99871 /* BetweenRouter.swift in Sources */,
 				789EEAB12BB9955400B99871 /* Router.swift in Sources */,
