@@ -9,6 +9,8 @@ import UIKit
 
 final class ProductCell: UICollectionViewCell {
   static let identifier = "ProductCell"
+	
+	private var imageUrlString: String?
   
   private let imageView = UIImageView()
   private let nameLabel = UILabel()
@@ -26,11 +28,18 @@ final class ProductCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+	
+	override func prepareForReuse() {
+		imageView.image = nil
+		if let url = imageUrlString {
+			imageView.cancelImageDownload(for: url)
+		}
+		imageUrlString = nil
+	}
   
   func configure(with product: Product) {
-    if let imageUrl = URL(string: product.imgUrl) {
-      imageView.loadImage(from: imageUrl.absoluteString)
-    }
+		imageUrlString = product.imgUrl
+		imageView.setImage(from: product.imgUrl)
     nameLabel.text = product.title
     priceLabel.text = String(Int(product.price)) + " 원"
     newLabel.isHidden = false
@@ -147,29 +156,5 @@ extension ProductCell {
         constant: PriceLabelConstant.bottomPadding
       )
     ])
-  }
-}
-
-extension UIImageView {
-  func loadImage(from urlString: String, completion: (() -> Void)? = nil) {
-    guard let url = URL(string: urlString) else {
-      completion?()
-      return
-    }
-    
-    let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
-      guard let data = data, error == nil else {
-        completion?()
-        return
-      }
-      
-      DispatchQueue.main.async {
-        if let image = UIImage(data: data) {
-          self?.image = image
-          completion?()
-        }
-      }
-    }
-    task.resume()
   }
 }
