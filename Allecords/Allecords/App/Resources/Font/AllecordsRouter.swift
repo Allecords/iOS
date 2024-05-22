@@ -17,6 +17,11 @@ final class AllecordsRouter {
 }
 
 extension AllecordsRouter: AllecordsRoutingLogic {
+	func showCreateScene() {
+		let testVC = UIViewController()
+		viewController?.pushViewController(testVC, animated: true)
+	}
+	
   func showAlarm() {
   }
   

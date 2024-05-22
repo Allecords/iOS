@@ -20,6 +20,7 @@
 		7836568C2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
+		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
 		789D6B2E2BCA5CB70088511B /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2B2BCA5CB70088511B /* ProductDTO.swift */; };
 		789D6B2F2BCA5CB70088511B /* DefualtHomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */; };
 		789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B322BCA5CBC0088511B /* HomeRepository.swift */; };
@@ -106,6 +107,7 @@
 		7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
+		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
 		789D6B2B2BCA5CB70088511B /* ProductDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
 		789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefualtHomeRepository.swift; sourceTree = "<group>"; };
 		789D6B322BCA5CBC0088511B /* HomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		7827F8092BDFF2B8008F6883 /* AllecordsScene */ = {
 			isa = PBXGroup;
 			children = (
+				788EB65E2BFDD4D000EECCBD /* FloatingButton */,
 				85078D772BEA540800068060 /* AllecordsViewController.swift */,
 				85078D792BEA540800068060 /* AllecordsViewModel.swift */,
 				85078D752BEA540800068060 /* AllecordsInput.swift */,
@@ -276,6 +279,14 @@
 				78BAFC542BF33F11008F900D /* AllecordsImage */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		788EB65E2BFDD4D000EECCBD /* FloatingButton */ = {
+			isa = PBXGroup;
+			children = (
+				788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */,
+			);
+			path = FloatingButton;
 			sourceTree = "<group>";
 		};
 		789D6B292BCA5CB70088511B /* Data */ = {
@@ -724,6 +735,7 @@
 				85078D7B2BEA540800068060 /* AllecordsRouter.swift in Sources */,
 				85078D7C2BEA540800068060 /* AllecordsViewController.swift in Sources */,
 				85078D7D2BEA540800068060 /* AllecordsBuilder.swift in Sources */,
+				788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */,
 				85078D7E2BEA540800068060 /* AllecordsViewModel.swift in Sources */,
 				7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */,
 				789EEAE72BC00A7F00B99871 /* UIImage+Resize.swift in Sources */,
