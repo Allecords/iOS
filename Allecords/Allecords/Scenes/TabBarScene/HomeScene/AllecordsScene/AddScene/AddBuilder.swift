@@ -14,12 +14,13 @@ protocol AddBuilderProtocol {
 
 struct AddBuilder: AddBuilderProtocol {
 	func build(router: AllecordsRouter) -> UIViewController {
-		let router = AddRouter()
+		let addRouter = AddRouter()
 		let viewModel = AddViewModel()
 		let addViewController = AddViewController(
-			router: router,
+			router: addRouter,
 			viewModel: viewModel
 		)
+		addRouter.viewController = router.viewController
 		return addViewController
 	}
 }

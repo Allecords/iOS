@@ -18,6 +18,9 @@ final class AddViewController: UIViewController {
   private let viewModel: any AddViewModelable
   private var cancellables: Set<AnyCancellable> = []
 	private let buttonTapped: PassthroughSubject<Void, Never> = .init()
+	
+	// MARK: - UI Components
+	private let navigationBar: AllecordsNavigationBar = .init(isBackButtonHidden: false)
 
   // MARK: - Initializers
 	init(
@@ -37,8 +40,10 @@ final class AddViewController: UIViewController {
 	// MARK: - View Life Cycles
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = .blue
-		self.bind()
+		setViewAttributes()
+		setViewHierachies()
+		setViewConstraints()
+		bind()
 	}
 }
 
@@ -66,4 +71,32 @@ extension AddViewController: ViewBindable {
 	}
 
 	func handleError(_ error: OutputError) {}
+}
+
+// MARK: - UI Configure
+extension AddViewController {
+	func setViewAttributes() {
+		view.backgroundColor = .background
+		setNavigationBar()
+	}
+	
+	func setViewHierachies() {
+		view.addSubview(navigationBar)
+	}
+	
+	func setViewConstraints() {
+	}
+	
+	func setNavigationBar() {
+		navigationBar.delegate = self
+	}
+}
+
+extension AddViewController: AllecordsNavigationBarDelegate {
+	func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) {
+		router.dismiss()
+	}
+	
+	func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBarItem item: AllecordsNavigationBarItem) {
+	}
 }
