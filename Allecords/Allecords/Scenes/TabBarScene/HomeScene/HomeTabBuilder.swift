@@ -16,8 +16,12 @@ struct HomeTabBuilder: HomeTabBuilderProtocol {
 	func build() -> UIViewController {
 		let homeTabRouter = HomeTabRouter()
     let productDetailBuilder = ProductDetailBuilder()
+		let addBuilder = AddBuilder()
     let betweenRouter = BetweenRouter(productDetailBuilder: productDetailBuilder)
-    let allecordsRouter = AllecordsRouter(productDetailBuilder: productDetailBuilder)
+    let allecordsRouter = AllecordsRouter(
+			productDetailBuilder: productDetailBuilder,
+			addBuilder: addBuilder
+		)
 		let betweenBuilder = BetweenBuilder()
     let allecordsBuilder = AllecordsBuilder()
 		let homeTabController = HomeTabViewController(

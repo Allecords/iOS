@@ -21,6 +21,11 @@
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
+		788EB6672BFE250C00EECCBD /* AddAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6622BFE250C00EECCBD /* AddAction.swift */; };
+		788EB6682BFE250C00EECCBD /* AddRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6632BFE250C00EECCBD /* AddRouter.swift */; };
+		788EB6692BFE250C00EECCBD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6642BFE250C00EECCBD /* AddViewController.swift */; };
+		788EB66A2BFE250C00EECCBD /* AddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6652BFE250C00EECCBD /* AddBuilder.swift */; };
+		788EB66B2BFE250C00EECCBD /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6662BFE250C00EECCBD /* AddViewModel.swift */; };
 		789D6B2E2BCA5CB70088511B /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2B2BCA5CB70088511B /* ProductDTO.swift */; };
 		789D6B2F2BCA5CB70088511B /* DefualtHomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */; };
 		789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B322BCA5CBC0088511B /* HomeRepository.swift */; };
@@ -108,6 +113,11 @@
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
+		788EB6622BFE250C00EECCBD /* AddAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAction.swift; sourceTree = "<group>"; };
+		788EB6632BFE250C00EECCBD /* AddRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRouter.swift; sourceTree = "<group>"; };
+		788EB6642BFE250C00EECCBD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		788EB6652BFE250C00EECCBD /* AddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuilder.swift; sourceTree = "<group>"; };
+		788EB6662BFE250C00EECCBD /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		789D6B2B2BCA5CB70088511B /* ProductDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
 		789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefualtHomeRepository.swift; sourceTree = "<group>"; };
 		789D6B322BCA5CBC0088511B /* HomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
@@ -202,6 +212,7 @@
 		7827F8092BDFF2B8008F6883 /* AllecordsScene */ = {
 			isa = PBXGroup;
 			children = (
+				788EB6612BFE243800EECCBD /* AddScene */,
 				788EB65E2BFDD4D000EECCBD /* FloatingButton */,
 				85078D772BEA540800068060 /* AllecordsViewController.swift */,
 				85078D792BEA540800068060 /* AllecordsViewModel.swift */,
@@ -289,6 +300,18 @@
 				788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */,
 			);
 			path = FloatingButton;
+			sourceTree = "<group>";
+		};
+		788EB6612BFE243800EECCBD /* AddScene */ = {
+			isa = PBXGroup;
+			children = (
+				788EB6622BFE250C00EECCBD /* AddAction.swift */,
+				788EB6632BFE250C00EECCBD /* AddRouter.swift */,
+				788EB6642BFE250C00EECCBD /* AddViewController.swift */,
+				788EB6652BFE250C00EECCBD /* AddBuilder.swift */,
+				788EB6662BFE250C00EECCBD /* AddViewModel.swift */,
+			);
+			path = AddScene;
 			sourceTree = "<group>";
 		};
 		789D6B292BCA5CB70088511B /* Data */ = {
@@ -707,7 +730,9 @@
 				85078D6F2BD40E4A00068060 /* ProductDetailInput.swift in Sources */,
 				85078D702BD40E4A00068060 /* ProductDetailRouter.swift in Sources */,
 				85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */,
+				788EB66A2BFE250C00EECCBD /* AddBuilder.swift in Sources */,
 				7827F8112BE00EFD008F6883 /* HomeTopTabView.swift in Sources */,
+				788EB6692BFE250C00EECCBD /* AddViewController.swift in Sources */,
 				85078D722BD40E4A00068060 /* ProductDetailBuilder.swift in Sources */,
 				85078D912BED27F100068060 /* ProductWebRouter.swift in Sources */,
 				85078D922BED27F100068060 /* ProductWebViewController.swift in Sources */,
@@ -721,12 +746,14 @@
 				789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */,
 				789EEAA12BB881EE00B99871 /* ViewModelable.swift in Sources */,
 				78BAFC5B2BF34053008F900D /* AllecordsImageLoadable.swift in Sources */,
+				788EB6672BFE250C00EECCBD /* AddAction.swift in Sources */,
 				783656692BB8651A004FFA09 /* AppDelegate.swift in Sources */,
 				789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */,
 				789EEAE42BC0088900B99871 /* AllecordsNavigationItem.swift in Sources */,
 				789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */,
 				7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */,
 				789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */,
+				788EB6682BFE250C00EECCBD /* AddRouter.swift in Sources */,
 				789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */,
 				789D6B392BCA5CBC0088511B /* Product.swift in Sources */,
 				789D6B3D2BCA5E6D0088511B /* ViewBindable.swift in Sources */,
@@ -753,6 +780,7 @@
 				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
 				788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */,
 				789D6B3B2BCA5D170088511B /* Future+.swift in Sources */,
+				788EB66B2BFE250C00EECCBD /* AddViewModel.swift in Sources */,
 				789EEA962BB87F2D00B99871 /* BetweenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

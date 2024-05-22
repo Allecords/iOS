@@ -10,16 +10,21 @@ import UIKit
 final class AllecordsRouter {
   weak var viewController: UINavigationController?
   private var productDetailBuilder: AllecordsProductDetailBuilderProtocol
+	private var addBuilder: AddBuilderProtocol
   
-  init(productDetailBuilder: AllecordsProductDetailBuilderProtocol) {
+  init(
+		productDetailBuilder: AllecordsProductDetailBuilderProtocol,
+		addBuilder: AddBuilderProtocol
+	) {
     self.productDetailBuilder = productDetailBuilder
+		self.addBuilder = addBuilder
   }
 }
 
 extension AllecordsRouter: AllecordsRoutingLogic {
 	func showCreateScene() {
-		let testVC = UIViewController()
-		viewController?.pushViewController(testVC, animated: true)
+		let addViewController = addBuilder.build(router: self)
+		viewController?.pushViewController(addViewController, animated: true)
 	}
 	
   func showAlarm() {

@@ -18,7 +18,10 @@ struct AllecordsBuilder: AllecordsBuilderProtocol {
     let homeRepository = DefaultHomeRepository(session: session)
     let homeUseCase = DefaultHomeUseCase(homeRepository: homeRepository)
     let allecordsViewModel = AllecordsViewModel(homeUseCase: homeUseCase)
-    let allecordsRouter = AllecordsRouter(productDetailBuilder: ProductDetailBuilder())
+    let allecordsRouter = AllecordsRouter(
+			productDetailBuilder: ProductDetailBuilder(),
+			addBuilder: AddBuilder()
+		)
     let allecordsViewController = AllecordsViewController(router: allecordsRouter, viewModel: allecordsViewModel)
     allecordsRouter.viewController = router.viewController
     return allecordsViewController
