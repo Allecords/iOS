@@ -26,6 +26,8 @@
 		788EB6692BFE250C00EECCBD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6642BFE250C00EECCBD /* AddViewController.swift */; };
 		788EB66A2BFE250C00EECCBD /* AddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6652BFE250C00EECCBD /* AddBuilder.swift */; };
 		788EB66B2BFE250C00EECCBD /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6662BFE250C00EECCBD /* AddViewModel.swift */; };
+		788EB66E2BFE37B800EECCBD /* AllecordsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB66D2BFE37B800EECCBD /* AllecordsTextField.swift */; };
+		789C810F2BFE663000760A16 /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C810E2BFE663000760A16 /* UIResponder+.swift */; };
 		789D6B2E2BCA5CB70088511B /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2B2BCA5CB70088511B /* ProductDTO.swift */; };
 		789D6B2F2BCA5CB70088511B /* DefualtHomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */; };
 		789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B322BCA5CBC0088511B /* HomeRepository.swift */; };
@@ -118,6 +120,8 @@
 		788EB6642BFE250C00EECCBD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		788EB6652BFE250C00EECCBD /* AddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuilder.swift; sourceTree = "<group>"; };
 		788EB6662BFE250C00EECCBD /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		788EB66D2BFE37B800EECCBD /* AllecordsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsTextField.swift; sourceTree = "<group>"; };
+		789C810E2BFE663000760A16 /* UIResponder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
 		789D6B2B2BCA5CB70088511B /* ProductDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
 		789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefualtHomeRepository.swift; sourceTree = "<group>"; };
 		789D6B322BCA5CBC0088511B /* HomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
@@ -305,6 +309,7 @@
 		788EB6612BFE243800EECCBD /* AddScene */ = {
 			isa = PBXGroup;
 			children = (
+				788EB66C2BFE37A500EECCBD /* AllecordsTextField */,
 				788EB6622BFE250C00EECCBD /* AddAction.swift */,
 				788EB6632BFE250C00EECCBD /* AddRouter.swift */,
 				788EB6642BFE250C00EECCBD /* AddViewController.swift */,
@@ -312,6 +317,14 @@
 				788EB6662BFE250C00EECCBD /* AddViewModel.swift */,
 			);
 			path = AddScene;
+			sourceTree = "<group>";
+		};
+		788EB66C2BFE37A500EECCBD /* AllecordsTextField */ = {
+			isa = PBXGroup;
+			children = (
+				788EB66D2BFE37B800EECCBD /* AllecordsTextField.swift */,
+			);
+			path = AllecordsTextField;
 			sourceTree = "<group>";
 		};
 		789D6B292BCA5CB70088511B /* Data */ = {
@@ -516,6 +529,7 @@
 				78BAFC602BF34934008F900D /* UIImageView+.swift */,
 				789EEAE82BC00A9700B99871 /* UIFont+.swift */,
 				789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */,
+				789C810E2BFE663000760A16 /* UIResponder+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -744,6 +758,7 @@
 				789EEAB92BB99A8100B99871 /* BetweenBuilder.swift in Sources */,
 				78BAFC562BF33F3B008F900D /* AllecordsImageLoader.swift in Sources */,
 				789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */,
+				788EB66E2BFE37B800EECCBD /* AllecordsTextField.swift in Sources */,
 				789EEAA12BB881EE00B99871 /* ViewModelable.swift in Sources */,
 				78BAFC5B2BF34053008F900D /* AllecordsImageLoadable.swift in Sources */,
 				788EB6672BFE250C00EECCBD /* AddAction.swift in Sources */,
@@ -775,6 +790,7 @@
 				789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */,
 				8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */,
 				788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */,
+				789C810F2BFE663000760A16 /* UIResponder+.swift in Sources */,
 				789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */,
 				7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */,
 				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
