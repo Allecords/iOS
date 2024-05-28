@@ -26,6 +26,7 @@ extension AddViewModel: AddViewModelable {
 			productNameChanged(input),
 			priceChanged(input),
 			productDetailChanged(input),
+			imageAdded(input),
 			confirmButtonTapped(input)
     ]).eraseToAnyPublisher()
   }
