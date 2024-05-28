@@ -19,6 +19,7 @@
 		7836568A2BB8651D004FFA09 /* AllecordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783656892BB8651D004FFA09 /* AllecordsUITests.swift */; };
 		7836568C2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */; };
 		785262562C05A7FA00425457 /* PhotoAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262552C05A7FA00425457 /* PhotoAddCollectionViewCell.swift */; };
+		785262582C05BC7C00425457 /* AllecordsConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262572C05BC7C00425457 /* AllecordsConfirmButton.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -115,6 +116,7 @@
 		783656892BB8651D004FFA09 /* AllecordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITests.swift; sourceTree = "<group>"; };
 		7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		785262552C05A7FA00425457 /* PhotoAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddCollectionViewCell.swift; sourceTree = "<group>"; };
+		785262572C05BC7C00425457 /* AllecordsConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsConfirmButton.swift; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 			children = (
 				789EEAE32BC0088900B99871 /* AllecordsNavigationItem.swift */,
 				789EEAEA2BC00B2400B99871 /* AllecordsNavigationBar.swift */,
+				785262572C05BC7C00425457 /* AllecordsConfirmButton.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 				789EEAA12BB881EE00B99871 /* ViewModelable.swift in Sources */,
 				78BAFC5B2BF34053008F900D /* AllecordsImageLoadable.swift in Sources */,
 				788EB6672BFE250C00EECCBD /* AddAction.swift in Sources */,
+				785262582C05BC7C00425457 /* AllecordsConfirmButton.swift in Sources */,
 				783656692BB8651A004FFA09 /* AppDelegate.swift in Sources */,
 				789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */,
 				789EEAE42BC0088900B99871 /* AllecordsNavigationItem.swift in Sources */,
