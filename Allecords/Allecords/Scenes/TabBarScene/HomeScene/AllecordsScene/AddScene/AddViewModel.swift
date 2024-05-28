@@ -14,10 +14,16 @@ State == AddState,
 Output == AnyPublisher<State, Never> { }
 
 final class AddViewModel {
+	private let productUseCase: ProductUseCase
+	
 	private var productName: String = ""
 	private var productPrice: UInt = 0
 	private var productDetail: String = ""
 	private var images: [Data] = []
+	
+	init(productUseCase: ProductUseCase) {
+		self.productUseCase = productUseCase
+	}
 }
 
 extension AddViewModel: AddViewModelable {

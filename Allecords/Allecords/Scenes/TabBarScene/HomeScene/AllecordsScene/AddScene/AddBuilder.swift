@@ -15,7 +15,10 @@ protocol AddBuilderProtocol {
 struct AddBuilder: AddBuilderProtocol {
 	func build(router: AllecordsRouter) -> UIViewController {
 		let addRouter = AddRouter()
-		let viewModel = AddViewModel()
+		let session = CustomSession(interceptor: AccessTokenInterceptor())
+		let repository = DefaultProductRepository(session: session)
+		let useCase = DefaultProductUseCase(productRepository: repository)
+		let viewModel = AddViewModel(productUseCase: useCase)
 		let addViewController = AddViewController(
 			router: addRouter,
 			viewModel: viewModel
