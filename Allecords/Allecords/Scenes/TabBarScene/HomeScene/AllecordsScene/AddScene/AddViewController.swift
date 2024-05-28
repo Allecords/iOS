@@ -18,7 +18,6 @@ final class AddViewController: UIViewController {
   private let router: AddRoutingLogic
   private let viewModel: any AddViewModelable
   private var cancellables: Set<AnyCancellable> = []
-	private let buttonTapped: PassthroughSubject<Void, Never> = .init()
 	private var images: [(UUID, UIImage)] = []
 	
 	// MARK: - UI Components
@@ -71,7 +70,7 @@ extension AddViewController: ViewBindable {
 
 	func bind() {
 		let input = AddInput(
-			complete: buttonTapped
+			complete: confirmButton.
 		)
 		let output = viewModel.transform(input)
 		output

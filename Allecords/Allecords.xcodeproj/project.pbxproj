@@ -20,6 +20,8 @@
 		7836568C2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */; };
 		785262562C05A7FA00425457 /* PhotoAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262552C05A7FA00425457 /* PhotoAddCollectionViewCell.swift */; };
 		785262582C05BC7C00425457 /* AllecordsConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262572C05BC7C00425457 /* AllecordsConfirmButton.swift */; };
+		7852625A2C05BF3000425457 /* UIButton+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262592C05BF3000425457 /* UIButton+Operator.swift */; };
+		7852625C2C05BF4F00425457 /* UIControl+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7852625B2C05BF4F00425457 /* UIControl+Operator.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -117,6 +119,8 @@
 		7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		785262552C05A7FA00425457 /* PhotoAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		785262572C05BC7C00425457 /* AllecordsConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsConfirmButton.swift; sourceTree = "<group>"; };
+		785262592C05BF3000425457 /* UIButton+Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Operator.swift"; sourceTree = "<group>"; };
+		7852625B2C05BF4F00425457 /* UIControl+Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Operator.swift"; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -501,6 +505,8 @@
 			children = (
 				789EEABE2BB99F8200B99871 /* Publisher+Operator.swift */,
 				789D6B3A2BCA5D170088511B /* Future+.swift */,
+				785262592C05BF3000425457 /* UIButton+Operator.swift */,
+				7852625B2C05BF4F00425457 /* UIControl+Operator.swift */,
 			);
 			path = "Combine+";
 			sourceTree = "<group>";
@@ -751,6 +757,7 @@
 				789EEABB2BB99CFE00B99871 /* BetweenInput.swift in Sources */,
 				7827F80B2BDFF310008F6883 /* HomeTabViewController.swift in Sources */,
 				85078D6F2BD40E4A00068060 /* ProductDetailInput.swift in Sources */,
+				7852625C2C05BF4F00425457 /* UIControl+Operator.swift in Sources */,
 				85078D702BD40E4A00068060 /* ProductDetailRouter.swift in Sources */,
 				85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */,
 				788EB66A2BFE250C00EECCBD /* AddBuilder.swift in Sources */,
@@ -759,6 +766,7 @@
 				85078D722BD40E4A00068060 /* ProductDetailBuilder.swift in Sources */,
 				85078D912BED27F100068060 /* ProductWebRouter.swift in Sources */,
 				85078D922BED27F100068060 /* ProductWebViewController.swift in Sources */,
+				7852625A2C05BF3000425457 /* UIButton+Operator.swift in Sources */,
 				85078D732BD40E4A00068060 /* ProductDetailViewModel.swift in Sources */,
 				789EEAB72BB99A4000B99871 /* BetweenRouter.swift in Sources */,
 				789EEAB12BB9955400B99871 /* Router.swift in Sources */,
