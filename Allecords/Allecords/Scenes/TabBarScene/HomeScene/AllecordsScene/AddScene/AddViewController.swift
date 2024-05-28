@@ -18,6 +18,7 @@ final class AddViewController: UIViewController {
   private let router: AddRoutingLogic
   private let viewModel: any AddViewModelable
   private var cancellables: Set<AnyCancellable> = []
+	private let imagePublisher: PassthroughSubject<[Data], Never> = .init()
 	private var images: [(UUID, UIImage)] = []
 	
 	// MARK: - UI Components
@@ -70,6 +71,10 @@ extension AddViewController: ViewBindable {
 
 	func bind() {
 		let input = AddInput(
+			productNameChanged: productNameTextField.valuePublisher,
+			priceChanged: priceTextField.valuePublisher,
+			productDetailChanges: productDetailTextView.valuePublisher,
+			imageAdded: imagePublisher,
 			confirmButtonTapped: confirmButton.tapPublisher
 		)
 		let output = viewModel.transform(input)
@@ -162,6 +167,11 @@ private extension AddViewController {
 	
 	func setConfirmButton() {
 		confirmButton.configure("판매 등록")
+		confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
+	}
+	
+	@objc func confirmButtonTapped() {
+		// image DownSampling -> publisher send
 	}
 	
 	func collectionViewLayout() -> UICollectionViewCompositionalLayout {
