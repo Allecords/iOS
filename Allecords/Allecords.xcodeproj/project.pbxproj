@@ -31,7 +31,6 @@
 		789D6B422BCC2AFB0088511B /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789D6B402BCC29470088511B /* NotoSansCJKkr-Medium.otf */; };
 		789EEA962BB87F2D00B99871 /* BetweenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA952BB87F2D00B99871 /* BetweenViewController.swift */; };
 		789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA972BB87F4500B99871 /* ChatViewController.swift */; };
-		789EEA9A2BB87F6400B99871 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA992BB87F6400B99871 /* MyPageViewController.swift */; };
 		789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA9B2BB8802600B99871 /* TabBarViewController.swift */; };
 		789EEAA12BB881EE00B99871 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAA02BB881EE00B99871 /* ViewModelable.swift */; };
 		789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAA22BB8827000B99871 /* TabBarpage.swift */; };
@@ -68,6 +67,10 @@
 		85078D7E2BEA540800068060 /* AllecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D792BEA540800068060 /* AllecordsViewModel.swift */; };
 		85078D912BED27F100068060 /* ProductWebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D8C2BED27F100068060 /* ProductWebRouter.swift */; };
 		85078D922BED27F100068060 /* ProductWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078D8D2BED27F100068060 /* ProductWebViewController.swift */; };
+		85078DA72BFCFF1700068060 /* MyPageTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078DA22BFCFF1700068060 /* MyPageTabRouter.swift */; };
+		85078DA82BFCFF1800068060 /* MyPageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078DA32BFCFF1700068060 /* MyPageTabViewController.swift */; };
+		85078DA92BFCFF1800068060 /* MyPageTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078DA42BFCFF1700068060 /* MyPageTabBuilder.swift */; };
+		85078DB62C0089A700068060 /* MyPageTopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078DB52C0089A700068060 /* MyPageTopTabView.swift */; };
 		8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570F5AE2BBFE472009D1772 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -117,7 +120,6 @@
 		789D6B402BCC29470088511B /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		789EEA952BB87F2D00B99871 /* BetweenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetweenViewController.swift; sourceTree = "<group>"; };
 		789EEA972BB87F4500B99871 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		789EEA992BB87F6400B99871 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		789EEA9B2BB8802600B99871 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		789EEAA02BB881EE00B99871 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		789EEAA22BB8827000B99871 /* TabBarpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarpage.swift; sourceTree = "<group>"; };
@@ -154,6 +156,10 @@
 		85078D792BEA540800068060 /* AllecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllecordsViewModel.swift; path = Allecords/App/Resources/Font/AllecordsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		85078D8C2BED27F100068060 /* ProductWebRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebRouter.swift; sourceTree = "<group>"; };
 		85078D8D2BED27F100068060 /* ProductWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebViewController.swift; sourceTree = "<group>"; };
+		85078DA22BFCFF1700068060 /* MyPageTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTabRouter.swift; sourceTree = "<group>"; };
+		85078DA32BFCFF1700068060 /* MyPageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTabViewController.swift; sourceTree = "<group>"; };
+		85078DA42BFCFF1700068060 /* MyPageTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTabBuilder.swift; sourceTree = "<group>"; };
+		85078DB52C0089A700068060 /* MyPageTopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTopTabView.swift; sourceTree = "<group>"; };
 		8570F5AE2BBFE472009D1772 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -397,8 +403,8 @@
 				85078D802BECF9E200068060 /* ProductWebViewScene */,
 				7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */,
 				7827F8102BE00EFD008F6883 /* HomeTopTabView.swift */,
-				7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */,
 				7827F80E2BE00000008F6883 /* HomeTabRouter.swift */,
+				7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */,
 			);
 			path = HomeScene;
 			sourceTree = "<group>";
@@ -414,7 +420,10 @@
 		789EEA942BB87EF400B99871 /* MyPageScene */ = {
 			isa = PBXGroup;
 			children = (
-				789EEA992BB87F6400B99871 /* MyPageViewController.swift */,
+				85078DA32BFCFF1700068060 /* MyPageTabViewController.swift */,
+				85078DB52C0089A700068060 /* MyPageTopTabView.swift */,
+				85078DA22BFCFF1700068060 /* MyPageTabRouter.swift */,
+				85078DA42BFCFF1700068060 /* MyPageTabBuilder.swift */,
 			);
 			path = MyPageScene;
 			sourceTree = "<group>";
@@ -698,13 +707,13 @@
 				85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */,
 				7827F8112BE00EFD008F6883 /* HomeTopTabView.swift in Sources */,
 				85078D722BD40E4A00068060 /* ProductDetailBuilder.swift in Sources */,
+				85078DB62C0089A700068060 /* MyPageTopTabView.swift in Sources */,
 				85078D912BED27F100068060 /* ProductWebRouter.swift in Sources */,
 				85078D922BED27F100068060 /* ProductWebViewController.swift in Sources */,
 				85078D732BD40E4A00068060 /* ProductDetailViewModel.swift in Sources */,
 				789EEAB72BB99A4000B99871 /* BetweenRouter.swift in Sources */,
 				789EEAB12BB9955400B99871 /* Router.swift in Sources */,
 				78BAFC612BF34934008F900D /* UIImageView+.swift in Sources */,
-				789EEA9A2BB87F6400B99871 /* MyPageViewController.swift in Sources */,
 				789EEAB92BB99A8100B99871 /* BetweenBuilder.swift in Sources */,
 				78BAFC562BF33F3B008F900D /* AllecordsImageLoader.swift in Sources */,
 				789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */,
@@ -714,6 +723,9 @@
 				789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */,
 				789EEAE42BC0088900B99871 /* AllecordsNavigationItem.swift in Sources */,
 				789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */,
+				85078DA72BFCFF1700068060 /* MyPageTabRouter.swift in Sources */,
+				85078DA82BFCFF1800068060 /* MyPageTabViewController.swift in Sources */,
+				85078DA92BFCFF1800068060 /* MyPageTabBuilder.swift in Sources */,
 				7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */,
 				789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */,
 				789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */,

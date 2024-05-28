@@ -13,7 +13,7 @@ protocol TabBarBuilderProtocol {
 
 struct TabBarBuilder: TabBarBuilderProtocol {
 	func build() -> UITabBarController {
-		let tabBarController = TabBarViewController(homeTabBuilder: HomeTabBuilder())
+		let tabBarController = TabBarViewController(homeTabBuilder: HomeTabBuilder(), myPageTabBuilder: MyPageTabBuilder())
 		return tabBarController
 	}
 }
