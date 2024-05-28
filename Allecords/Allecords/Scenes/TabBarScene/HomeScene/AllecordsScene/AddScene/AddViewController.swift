@@ -31,6 +31,7 @@ final class AddViewController: UIViewController {
 	private let productDetailLabel: UILabel = .init(frame: .zero)
 	private let productDetailTextView: UITextView = .init(frame: .zero)
 	private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: collectionViewLayout())
+	private let confirmButton: AllecordsConfirmButton = .init()
 
   // MARK: - Initializers
 	init(
@@ -100,6 +101,7 @@ private extension AddViewController {
 		setLabels()
 		setTextFields()
 		setTextView()
+		setConfirmButton()
 	}
 	
 	func setViewHierachies() {
@@ -114,7 +116,8 @@ private extension AddViewController {
 			collectionView,
 			priceTextField,
 			productDetailLabel,
-			productDetailTextView
+			productDetailTextView,
+			confirmButton
 		].forEach {
 			$0.translatesAutoresizingMaskIntoConstraints = false
 			stackView.addArrangedSubview($0)
@@ -122,11 +125,12 @@ private extension AddViewController {
 	}
 	
 	func setViewConstraints() {
+		let safeArea = view.safeAreaLayoutGuide
 		NSLayoutConstraint.activate([
 			scrollView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
-			scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+			scrollView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+			scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
 			
 			stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
 			stackView.leadingAnchor.constraint(
@@ -149,8 +153,16 @@ private extension AddViewController {
 			priceTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor),
 			
 			productDetailTextView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-			productDetailTextView.heightAnchor.constraint(equalToConstant: 200)
+			productDetailTextView.heightAnchor.constraint(equalToConstant: 200),
+			
+			confirmButton.topAnchor.constraint(equalTo: productDetailTextView.bottomAnchor, constant: 20),
+			confirmButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
+			confirmButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20)
 		])
+	}
+	
+	func setConfirmButton() {
+		confirmButton.configure("판매 등록")
 	}
 	
 	func collectionViewLayout() -> UICollectionViewCompositionalLayout {

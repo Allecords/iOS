@@ -22,6 +22,8 @@ final class AllecordsConfirmButton: UIButton {
 		setTitle("", for: .normal)
 		titleLabel?.font = .notoSansCJKkr(type: .medium, size: .large)
 		backgroundColor = .primaryDark
+		layer.cornerRadius = 12
+		heightAnchor.constraint(equalToConstant: 60).isActive = true
 	}
 	
 	func configure(_ title: String) {
