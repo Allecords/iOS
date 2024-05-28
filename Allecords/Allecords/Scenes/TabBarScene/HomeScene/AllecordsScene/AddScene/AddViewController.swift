@@ -70,7 +70,7 @@ extension AddViewController: ViewBindable {
 
 	func bind() {
 		let input = AddInput(
-			complete: confirmButton.
+			complete: confirmButton.tapPublisher
 		)
 		let output = viewModel.transform(input)
 		output

@@ -8,7 +8,7 @@
 import Combine
 
 struct AddInput {
-	let complete: PassthroughSubject<Void, Never>
+	let complete: AnyPublisher<Void, Never>
 }
 
 enum AddState {
