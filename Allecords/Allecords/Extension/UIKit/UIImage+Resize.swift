@@ -8,17 +8,30 @@
 import UIKit
 
 extension UIImage {
-	func resizeImage(size: CGSize) -> UIImage? {
-		let originalSize = self.size
-		let ratio: CGFloat = {
-			if originalSize.width > originalSize.height {
-				return 1 / (size.width / originalSize.width)
-			} else {
-				return 1 / (size.height / originalSize.height)
-			}
-		}()
-		guard let cgImage = self.cgImage else { return nil }
+	func resizeImage(to maxLength: CGFloat) -> UIImage? {
+		let aspectRatio = size.width / size.height
 		
-		return UIImage(cgImage: cgImage, scale: self.scale * ratio, orientation: self.imageOrientation)
+		var newSize: CGSize
+		if aspectRatio > 1 {
+			newSize = CGSize(width: maxLength, height: maxLength / aspectRatio)
+		} else {
+			newSize = CGSize(width: maxLength * aspectRatio, height: maxLength)
+		}
+		
+		let renderer = UIGraphicsImageRenderer(size: newSize)
+		let newImage = renderer.image { _ in
+			draw(in: CGRect(origin: .zero, size: newSize))
+		}
+		
+		return newImage
+	}
+}
+
+extension UIImage {
+	func compressedData(maxLength: CGFloat, compressionQuality: CGFloat = 0.7) -> Data? {
+		guard let resizedImage = self.resizeImage(to: maxLength) else {
+			return nil
+		}
+		return resizedImage.jpegData(compressionQuality: compressionQuality)
 	}
 }

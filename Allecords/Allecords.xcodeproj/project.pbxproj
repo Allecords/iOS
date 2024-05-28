@@ -25,6 +25,7 @@
 		7852625E2C05C08B00425457 /* UITextField+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7852625D2C05C08B00425457 /* UITextField+Combine.swift */; };
 		785262602C05C0A000425457 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7852625F2C05C0A000425457 /* String+.swift */; };
 		785262622C05C12E00425457 /* UITextView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262612C05C12E00425457 /* UITextView+Combine.swift */; };
+		785262642C05C5A400425457 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262632C05C5A400425457 /* Data+.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -127,6 +128,7 @@
 		7852625D2C05C08B00425457 /* UITextField+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Combine.swift"; sourceTree = "<group>"; };
 		7852625F2C05C0A000425457 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		785262612C05C12E00425457 /* UITextView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Combine.swift"; sourceTree = "<group>"; };
+		785262632C05C5A400425457 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				789EEAEC2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift */,
 				789C810E2BFE663000760A16 /* UIResponder+.swift */,
 				7852625F2C05C0A000425457 /* String+.swift */,
+				785262632C05C5A400425457 /* Data+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 				789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */,
 				7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */,
 				789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */,
+				785262642C05C5A400425457 /* Data+.swift in Sources */,
 				788EB6682BFE250C00EECCBD /* AddRouter.swift in Sources */,
 				789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */,
 				789D6B392BCA5CBC0088511B /* Product.swift in Sources */,
