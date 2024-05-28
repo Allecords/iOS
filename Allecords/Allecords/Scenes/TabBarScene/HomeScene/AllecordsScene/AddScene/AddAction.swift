@@ -8,10 +8,11 @@
 import Combine
 
 struct AddInput {
-	let complete: AnyPublisher<Void, Never>
+	let confirmButtonTapped: AnyPublisher<Void, Never>
 }
 
 enum AddState {
+	case success
   case none
 	case error(_ error: Error)
 }

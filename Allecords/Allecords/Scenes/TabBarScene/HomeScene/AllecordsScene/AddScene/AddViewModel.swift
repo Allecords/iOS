@@ -17,16 +17,16 @@ final class AddViewModel {
 
 extension AddViewModel: AddViewModelable {
   func transform(_ input: Input) -> Output {
-		let doneButtonTapped = doneButtonTapped(input)
+		let confirmButtonTapped = confirmButtonTapped(input)
     return Publishers.MergeMany([
-			doneButtonTapped
+			confirmButtonTapped
     ]).eraseToAnyPublisher()
   }
 }
 
 private extension AddViewModel {
-	func doneButtonTapped(_ input: Input) -> Output {
-		return input.complete
+	func confirmButtonTapped(_ input: Input) -> Output {
+		return input.confirmButtonTapped
 			.withUnretained(self)
 			.map { _ in
 				return .none
