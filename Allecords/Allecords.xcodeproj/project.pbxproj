@@ -18,6 +18,7 @@
 		783656802BB8651D004FFA09 /* AllecordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836567F2BB8651D004FFA09 /* AllecordsTests.swift */; };
 		7836568A2BB8651D004FFA09 /* AllecordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783656892BB8651D004FFA09 /* AllecordsUITests.swift */; };
 		7836568C2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */; };
+		785262562C05A7FA00425457 /* PhotoAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262552C05A7FA00425457 /* PhotoAddCollectionViewCell.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -28,6 +29,7 @@
 		788EB66B2BFE250C00EECCBD /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6662BFE250C00EECCBD /* AddViewModel.swift */; };
 		788EB66E2BFE37B800EECCBD /* AllecordsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB66D2BFE37B800EECCBD /* AllecordsTextField.swift */; };
 		789C810F2BFE663000760A16 /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C810E2BFE663000760A16 /* UIResponder+.swift */; };
+		789C81442C02516300760A16 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C81432C02516300760A16 /* PhotoCollectionViewCell.swift */; };
 		789D6B2E2BCA5CB70088511B /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2B2BCA5CB70088511B /* ProductDTO.swift */; };
 		789D6B2F2BCA5CB70088511B /* DefualtHomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */; };
 		789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D6B322BCA5CBC0088511B /* HomeRepository.swift */; };
@@ -112,6 +114,7 @@
 		783656852BB8651D004FFA09 /* AllecordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllecordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		783656892BB8651D004FFA09 /* AllecordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITests.swift; sourceTree = "<group>"; };
 		7836568B2BB8651D004FFA09 /* AllecordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		785262552C05A7FA00425457 /* PhotoAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 		788EB6662BFE250C00EECCBD /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		788EB66D2BFE37B800EECCBD /* AllecordsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsTextField.swift; sourceTree = "<group>"; };
 		789C810E2BFE663000760A16 /* UIResponder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
+		789C81432C02516300760A16 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		789D6B2B2BCA5CB70088511B /* ProductDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
 		789D6B2D2BCA5CB70088511B /* DefualtHomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefualtHomeRepository.swift; sourceTree = "<group>"; };
 		789D6B322BCA5CBC0088511B /* HomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				788EB66D2BFE37B800EECCBD /* AllecordsTextField.swift */,
+				789C81432C02516300760A16 /* PhotoCollectionViewCell.swift */,
+				785262552C05A7FA00425457 /* PhotoAddCollectionViewCell.swift */,
 			);
 			path = AllecordsTextField;
 			sourceTree = "<group>";
@@ -759,6 +765,7 @@
 				78BAFC562BF33F3B008F900D /* AllecordsImageLoader.swift in Sources */,
 				789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */,
 				788EB66E2BFE37B800EECCBD /* AllecordsTextField.swift in Sources */,
+				785262562C05A7FA00425457 /* PhotoAddCollectionViewCell.swift in Sources */,
 				789EEAA12BB881EE00B99871 /* ViewModelable.swift in Sources */,
 				78BAFC5B2BF34053008F900D /* AllecordsImageLoadable.swift in Sources */,
 				788EB6672BFE250C00EECCBD /* AddAction.swift in Sources */,
@@ -790,6 +797,7 @@
 				789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */,
 				8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */,
 				788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */,
+				789C81442C02516300760A16 /* PhotoCollectionViewCell.swift in Sources */,
 				789C810F2BFE663000760A16 /* UIResponder+.swift in Sources */,
 				789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */,
 				7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */,

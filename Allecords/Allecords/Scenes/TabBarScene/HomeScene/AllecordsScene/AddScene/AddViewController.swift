@@ -6,6 +6,7 @@
 //
 
 import Combine
+import PhotosUI
 import UIKit
 
 protocol AddRoutingLogic: AnyObject {
@@ -18,7 +19,7 @@ final class AddViewController: UIViewController {
   private let viewModel: any AddViewModelable
   private var cancellables: Set<AnyCancellable> = []
 	private let buttonTapped: PassthroughSubject<Void, Never> = .init()
-	private var images: [UIImage] = []
+	private var images: [(UUID, UIImage)] = []
 	
 	// MARK: - UI Components
 	private let navigationBar: AllecordsNavigationBar = .init(isBackButtonHidden: false)
@@ -26,10 +27,10 @@ final class AddViewController: UIViewController {
 	private let stackView: UIStackView = .init(frame: .zero)
 	private let productNameTextField: AllecordsTextField = .init(frame: .zero)
 	private let photoLabel: UILabel = .init(frame: .zero)
-	private let photoView: UIView = .init(frame: .zero)
 	private let priceTextField: AllecordsTextField = .init(frame: .zero)
 	private let productDetailLabel: UILabel = .init(frame: .zero)
 	private let productDetailTextView: UITextView = .init(frame: .zero)
+	private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: collectionViewLayout())
 
   // MARK: - Initializers
 	init(
@@ -95,9 +96,9 @@ private extension AddViewController {
 		setNavigationBar()
 		setScrollView()
 		setStackView()
+		setCollectionView()
 		setLabels()
 		setTextFields()
-		setPhotoView()
 		setTextView()
 	}
 	
@@ -110,7 +111,7 @@ private extension AddViewController {
 		[
 			productNameTextField,
 			photoLabel,
-			photoView,
+			collectionView,
 			priceTextField,
 			productDetailLabel,
 			productDetailTextView
@@ -143,14 +144,42 @@ private extension AddViewController {
 			),
 			
 			productNameTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+			collectionView.heightAnchor.constraint(equalToConstant: 100),
+			collectionView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
 			priceTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-			
-			photoView.widthAnchor.constraint(equalToConstant: 75),
-			photoView.heightAnchor.constraint(equalToConstant: 120),
 			
 			productDetailTextView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
 			productDetailTextView.heightAnchor.constraint(equalToConstant: 200)
 		])
+	}
+	
+	func collectionViewLayout() -> UICollectionViewCompositionalLayout {
+		let layout = UICollectionViewCompositionalLayout { (_: Int, _: NSCollectionLayoutEnvironment) ->
+			NSCollectionLayoutSection? in
+			let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+			let item = NSCollectionLayoutItem(layoutSize: itemSize)
+			item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+			let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(100), heightDimension: .absolute(100))
+			let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+			let section = NSCollectionLayoutSection(group: group)
+			section.orthogonalScrollingBehavior = .continuous
+			return section
+		}
+		
+		return layout
+	}
+	
+	func setCollectionView() {
+		collectionView.delegate = self
+		collectionView.dataSource = self
+		collectionView.register(
+			PhotoCollectionViewCell.self,
+			forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier
+		)
+		collectionView.register(
+			PhotoAddCollectionViewCell.self,
+			forCellWithReuseIdentifier: PhotoAddCollectionViewCell.identifier
+		)
 	}
 	
 	func setTextView() {
@@ -165,12 +194,6 @@ private extension AddViewController {
 		productDetailTextView.delegate = self
 	}
 	
-	func setPhotoView() {
-		photoView.backgroundColor = .gray1
-		photoView.layer.cornerRadius = 12
-		photoView.clipsToBounds = true
-	}
-	
 	func setTextFields() {
 		productNameTextField.setPlaceHolderText("상품 이름")
 		priceTextField.setPlaceHolderText("상품 가격")
@@ -178,7 +201,7 @@ private extension AddViewController {
 	}
 	
 	func setLabels() {
-		photoLabel.text = "사진"
+		photoLabel.text = "사진 (최대 5장)"
 		photoLabel.textColor = .gray5
 		photoLabel.font = .notoSansCJKkr(type: .medium, size: .large)
 		
@@ -202,6 +225,76 @@ private extension AddViewController {
 	
 	func setNavigationBar() {
 		navigationBar.delegate = self
+	}
+}
+
+// MARK: - CollectionView
+extension AddViewController: UICollectionViewDelegate {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		if indexPath.item == 0 {
+			presentImagePicker()
+		}
+	}
+	
+	func presentImagePicker() {
+		var config = PHPickerConfiguration()
+		config.selectionLimit = 0
+		config.filter = .images
+		
+		let picker = PHPickerViewController(configuration: config)
+		picker.delegate = self
+		present(picker, animated: true, completion: nil)
+	}
+}
+
+extension AddViewController: UICollectionViewDataSource {
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return images.count + 1
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		if indexPath.item == 0 {
+			guard let addButtonCell = collectionView.dequeueReusableCell(
+				withReuseIdentifier: PhotoAddCollectionViewCell.identifier,
+				for: indexPath
+			) as? PhotoAddCollectionViewCell else { return UICollectionViewCell() }
+			
+			return addButtonCell
+		}
+		
+		guard let photoCell = collectionView.dequeueReusableCell(
+			withReuseIdentifier: PhotoCollectionViewCell.identifier,
+			for: indexPath
+		) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
+		
+		let image = images[indexPath.item - 1]
+		photoCell.configure(with: image.1)
+		photoCell.deleteButton.isHidden = false
+		photoCell.onDelete = { [weak self] in
+			guard let self = self, let index = self.images.firstIndex(where: { $0.0 == image.0 }) else { return }
+			self.images.remove(at: index)
+			collectionView.deleteItems(at: [IndexPath(item: index + 1, section: 0)])
+		}
+		return photoCell
+	}
+}
+
+// MARK: - PHP Configuration
+extension AddViewController: PHPickerViewControllerDelegate {
+	func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+		picker.dismiss(animated: true)
+		
+		for result in results {
+			result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (image, _) in
+				if let image = image as? UIImage {
+					DispatchQueue.main.async {
+						let imageId = UUID()
+						self?.images.append((imageId, image))
+						self?.collectionView.reloadData()
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -231,7 +324,6 @@ private extension AddViewController {
 		scrollView.contentInset.bottom = bottomInset
 		scrollView.verticalScrollIndicatorInsets.bottom = bottomInset
 		
-		// 선택된 텍스트 뷰를 키보드 위로 스크롤
 		if let activeTextField = UIResponder.currentResponder as? UIView {
 			let scrollViewBottom = scrollView.frame.height - bottomInset
 			let textFieldBottom = activeTextField.frame.maxY + stackView.frame.origin.y
