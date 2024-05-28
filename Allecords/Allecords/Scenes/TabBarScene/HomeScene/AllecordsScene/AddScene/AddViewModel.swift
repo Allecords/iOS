@@ -81,7 +81,7 @@ private extension AddViewModel {
 		return input.confirmButtonTapped
 			.withUnretained(self)
 			.map { _ in
-				return .none
+				return .success
 			}
 			.eraseToAnyPublisher()
 	}

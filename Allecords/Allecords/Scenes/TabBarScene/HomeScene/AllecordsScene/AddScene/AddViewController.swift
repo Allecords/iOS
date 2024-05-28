@@ -87,16 +87,16 @@ extension AddViewController: ViewBindable {
 
 	func render(_ state: State) {
 		switch state {
-			case .invalidPrice:
-				priceTextField.text = ""
-				priceTextField.placeholder = "올바른 가격을 입력해주세요"
-			case .success:
-				dismiss(animated: true)
-			case .error(let error):
-				// TODO: Network 오류로 POST 하지 못하였을 경우 -> alertView
-				print(error)
-			default:
-				break
+		case .invalidPrice:
+			priceTextField.text = ""
+			priceTextField.placeholder = "올바른 가격을 입력해주세요"
+		case .success:
+			router.dismiss()
+		case .error(let error):
+			// TODO: Network 오류로 POST 하지 못하였을 경우 -> alertView
+			print(error)
+		default:
+			break
 		}
 	}
 
@@ -182,9 +182,7 @@ private extension AddViewController {
 	@objc func confirmButtonTapped() {
 		var downSampledImages: [Data] = []
 		for image in self.images {
-			// TODO: - Throw 예외처리
-			// downsampling에 실패하면 비즈니스 로직상 어떻게 할 것인가? 이건 향후에 고민해봐야합니다
-			guard let downsampledImage = image.1.compressedData(maxLength: 1024) else { continue }
+			guard let downsampledImage = image.1.compressedData(image: image.1) else { continue }
 			downSampledImages.append(downsampledImage)
 		}
 		imagePublisher.send(downSampledImages)
@@ -323,10 +321,11 @@ extension AddViewController: PHPickerViewControllerDelegate {
 		
 		for result in results {
 			result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (image, _) in
-				if let image = image as? UIImage {
+				if let image = image as? UIImage,
+					let resizedImage = image.resizeImage(to: 1024) {
 					DispatchQueue.main.async {
 						let imageId = UUID()
-						self?.images.append((imageId, image))
+						self?.images.append((imageId, resizedImage))
 						self?.collectionView.reloadData()
 					}
 				}

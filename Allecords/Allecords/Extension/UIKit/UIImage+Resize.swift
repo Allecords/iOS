@@ -28,10 +28,7 @@ extension UIImage {
 }
 
 extension UIImage {
-	func compressedData(maxLength: CGFloat, compressionQuality: CGFloat = 0.7) -> Data? {
-		guard let resizedImage = self.resizeImage(to: maxLength) else {
-			return nil
-		}
-		return resizedImage.jpegData(compressionQuality: compressionQuality)
+	func compressedData(image: UIImage, compressionQuality: CGFloat = 0.7) -> Data? {
+		return image.jpegData(compressionQuality: compressionQuality)
 	}
 }
