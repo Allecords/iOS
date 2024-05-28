@@ -24,12 +24,14 @@ extension DefaultProductRepository: ProductRepository {
 	func registerProduct(with product: ProductRegister) async throws {
 		let boundary = UUID().uuidString
 		let parameters: [String: Any] = [
-			"title": product.title,
-			"price": product.price,
-			"description": product.productDetail,
+			"prMember": [
+				"title": product.title,
+				"price": product.price,
+				"description": product.productDetail
+			],
 			"images": product.images
 		]
-		let bodyData = createMultipartFormData(parameters: parameters, boundary: boundary)
+		let bodyData = try createMultipartFormData(parameters: parameters, boundary: boundary)
 		
 		var builder = URLRequestBuilder(url: Constant.baseUrl)
 		builder.setMethod(.post)
@@ -42,28 +44,39 @@ extension DefaultProductRepository: ProductRepository {
 }
 
 fileprivate extension DefaultProductRepository {
-	func createMultipartFormData(parameters: [String: Any], boundary: String) -> Data {
+	func createMultipartFormData(parameters: [String: Any], boundary: String) throws -> Data {
 		var body = Data()
 		let boundaryPrefix = "--\(boundary)\r\n"
 		
 		for (key, value) in parameters {
-			if let array = value as? [String] {
-				for element in array {
+			if let array = value as? [Data] {
+				for (index, element) in array.enumerated() {
 					body.appendString(boundaryPrefix)
-					body.appendString("Content-Disposition: form-data; name=\"\(key)[]\"\r\n\r\n")
-					body.appendString("\(element)\r\n")
+					body.appendString("Content-Disposition: form-data; name=\"images\"; filename=\"image\(index).jpg\"\r\n")
+					body.appendString("Content-Type: image/jpeg\r\n\r\n")
+					body.append(element)
+					body.appendString("\r\n")
 				}
-			} else if let value = value as? String {
+			} else if let dict = value as? [String: Any] {
+				let jsonData = try JSONSerialization.data(withJSONObject: dict, options: [])
+				if let jsonString = String(data: jsonData, encoding: .utf8) {
+					body.appendString(boundaryPrefix)
+					body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n")
+					body.appendString("Content-Type: application/json\r\n\r\n")
+					body.appendString(jsonString)
+					body.appendString("\r\n")
+				}
+			} else if let stringValue = value as? String {
 				body.appendString(boundaryPrefix)
 				body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-				body.appendString("\(value)\r\n")
-			} else if let value = value as? Int {
+				body.appendString("\(stringValue)\r\n")
+			} else if let intValue = value as? Int {
 				body.appendString(boundaryPrefix)
 				body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-				body.appendString("\(value)\r\n")
+				body.appendString("\(intValue)\r\n")
 			}
 		}
-		body.appendString("--\(boundary)--")
+		body.appendString("--\(boundary)--\r\n")
 		return body
 	}
 }

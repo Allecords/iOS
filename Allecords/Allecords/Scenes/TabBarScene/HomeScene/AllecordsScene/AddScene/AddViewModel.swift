@@ -86,8 +86,25 @@ private extension AddViewModel {
 	func confirmButtonTapped(_ input: Input) -> Output {
 		return input.confirmButtonTapped
 			.withUnretained(self)
-			.map { _ in
-				return .success
+			.flatMap { (owner, _) in
+				return Future(asyncFunc: {
+					await owner.productUseCase.registerProducts(
+						with: ProductRegister(
+							title: owner.productName,
+							price: owner.productPrice,
+							productDetail: owner.productDetail,
+							images: owner.images
+						)
+					)
+				}).eraseToAnyPublisher()
+			}
+			.map { result in
+				switch result {
+				case .success:
+					return .success
+				case let .failure(error):
+					return .error(error)
+				}
 			}
 			.eraseToAnyPublisher()
 	}
