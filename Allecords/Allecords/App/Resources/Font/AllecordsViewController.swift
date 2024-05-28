@@ -11,7 +11,7 @@ import UIKit
 
 protocol AllecordsRoutingLogic: AnyObject {
 	func showCreateScene()
-  func showDetailScene(_ product: Product)
+  func showDetailScene(_ product: AllecordsProduct)
   func showAlarm()
   func showSearch()
 }
@@ -24,7 +24,7 @@ final class AllecordsViewController: UIViewController {
   // MARK: - Properties
   private var isFetching: Bool = false
   private var viewModel: any AllecordsViewModelable
-  private var products: [Product] = []
+  private var products: [AllecordsProduct] = []
   private var pageNumber: Int = 0
   private var cancellables: Set<AnyCancellable> = []
   private let router: AllecordsRoutingLogic
@@ -208,7 +208,7 @@ extension AllecordsViewController: UICollectionViewDataSource {
 // MARK: - UI Delegate
 extension AllecordsViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let product: Product = products[indexPath.row]
+    let product: AllecordsProduct = products[indexPath.row]
     router.showDetailScene(product)
   }
   

@@ -37,13 +37,24 @@ final class ProductCell: UICollectionViewCell {
 		imageUrlString = nil
 	}
   
-  func configure(with product: Product) {
+  func configure(with product: BetweenProduct) {
 		imageUrlString = product.imgUrl
 		imageView.setImage(from: product.imgUrl)
     nameLabel.text = product.title
     priceLabel.text = String(Int(product.price)) + " 원"
     newLabel.isHidden = false
   }
+	
+	func configure(with product: AllecordsProduct) {
+		if let firstImageId = product.images.first?.id {
+			let urlString = "https://allecords.shop/api/v2/pr-members/\(firstImageId)/image"
+			imageUrlString = urlString
+			imageView.setImage(from: urlString)
+		}
+		nameLabel.text = product.title
+		priceLabel.text = String(Int(product.price)) + " 원"
+		newLabel.isHidden = false
+	}
 }
 
 extension ProductCell {

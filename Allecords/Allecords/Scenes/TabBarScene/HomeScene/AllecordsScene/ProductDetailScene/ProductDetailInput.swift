@@ -13,6 +13,6 @@ struct ProductDetailInput {
 
 enum ProductDetailState {
 	case none
-	case load(_ product: Product)
+	case load(_ product: AllecordsProduct)
 	case error(_ error: Error)
 }

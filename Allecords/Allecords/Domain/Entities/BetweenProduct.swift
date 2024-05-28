@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product {
+struct BetweenProduct {
 	let title: String
 	let artist: String
 	let url: String

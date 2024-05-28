@@ -22,7 +22,7 @@ final class BetweenViewController: UIViewController {
   // MARK: - Properties
   private var isFetching: Bool = false
   private var viewModel: any BetweenViewModelable
-  private var products: [Product] = []
+  private var products: [BetweenProduct] = []
   private var pageNumber: Int = 0
   private var cancellables: Set<AnyCancellable> = []
   private let router: BetweenRoutingLogic
@@ -183,7 +183,7 @@ extension BetweenViewController: UICollectionViewDataSource {
 // MARK: - UI Delegate
 extension BetweenViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let product: Product = products[indexPath.row]
+    let product: BetweenProduct = products[indexPath.row]
     if let url = URL(string: product.url) {
       router.showWebViewScene(url: url)
     }

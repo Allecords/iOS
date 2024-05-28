@@ -15,9 +15,9 @@ Output == AnyPublisher<State, Never> { }
 
 final class ProductDetailViewModel {
 	private let homeUseCase: HomeUseCase
-	private let product: Product
+	private let product: AllecordsProduct
 		
-	init(homeUseCase: HomeUseCase, product: Product) {
+	init(homeUseCase: HomeUseCase, product: AllecordsProduct) {
 		self.homeUseCase = homeUseCase
 		self.product = product
 	}

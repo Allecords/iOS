@@ -17,7 +17,7 @@ struct HomeTabBuilder: HomeTabBuilderProtocol {
 		let homeTabRouter = HomeTabRouter()
     let productDetailBuilder = ProductDetailBuilder()
 		let addBuilder = AddBuilder()
-    let betweenRouter = BetweenRouter(productDetailBuilder: productDetailBuilder)
+    let betweenRouter = BetweenRouter()
     let allecordsRouter = AllecordsRouter(
 			productDetailBuilder: productDetailBuilder,
 			addBuilder: addBuilder

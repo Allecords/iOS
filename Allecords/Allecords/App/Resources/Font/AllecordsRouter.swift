@@ -33,7 +33,7 @@ extension AllecordsRouter: AllecordsRoutingLogic {
   func showSearch() {
   }
   
-  func showDetailScene(_ product: Product) {
+  func showDetailScene(_ product: AllecordsProduct) {
     let productDetailViewController = productDetailBuilder.build(router: self, product: product)
     viewController?.pushViewController(productDetailViewController, animated: true)
   }
