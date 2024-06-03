@@ -46,8 +46,8 @@ final class ProductCell: UICollectionViewCell {
   }
 	
 	func configure(with product: AllecordsProduct) {
-		if let firstImageId = product.images.first?.id {
-			let urlString = "https://allecords.shop/api/v2/pr-members/\(firstImageId)/image"
+		if let firstUrl = product.images.first?.url {
+			let urlString = "https://allecords.shop/api/v2/pr-members/image/\(firstUrl)"
 			imageUrlString = urlString
 			imageView.setImage(from: urlString)
 		}
