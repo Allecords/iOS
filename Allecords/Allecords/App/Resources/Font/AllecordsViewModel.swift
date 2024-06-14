@@ -34,16 +34,16 @@ private extension AllecordsViewModel {
   func viewLoad(_ input: Input) -> Output {
     return input.viewLoad
       .withUnretained(self)
-      .flatMap { (owner, pageNumber) -> AnyPublisher<Result<[Product], Error>, Never> in
+      .flatMap { (owner, pageNumber) -> AnyPublisher<Result<[AllecordsProduct], Error>, Never> in
         let future = Future(asyncFunc: {
-          await owner.homeUseCase.fetchCrawlingProducts(with: pageNumber)
+          await owner.homeUseCase.fetchAllecordsProducts(with: pageNumber)
         })
         return future.eraseToAnyPublisher()
       }
       .map { result in
         switch result {
         case let .success(products):
-          return .load(products)
+					return .load(products)
         case let .failure(error):
           return .error(error)
         }

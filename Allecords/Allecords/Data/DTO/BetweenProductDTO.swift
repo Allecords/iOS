@@ -1,5 +1,5 @@
 //
-//  ProductDTO.swift
+//  BetweenProductDTO.swift
 //  Allecords
 //
 //  Created by Hoon on 4/13/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductResponseDTO: Decodable {
+struct BetweenProductResponseDTO: Decodable {
 	let id: UInt
 	let aladinId: UInt
 	let title: String

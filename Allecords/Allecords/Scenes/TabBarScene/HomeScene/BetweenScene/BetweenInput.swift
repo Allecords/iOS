@@ -13,6 +13,6 @@ struct BetweenInput {
 
 enum BetweenState {
 	case none
-	case load(_ products: [Product])
+	case load(_ products: [BetweenProduct])
 	case error(_ error: Error)
 }

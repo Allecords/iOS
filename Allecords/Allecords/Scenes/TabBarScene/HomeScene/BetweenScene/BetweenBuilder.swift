@@ -18,7 +18,7 @@ struct BetweenBuilder: BetweenBuilderProtocol {
 		let homeRepository = DefaultHomeRepository(session: session)
 		let homeUseCase = DefaultHomeUseCase(homeRepository: homeRepository)
 		let betweenViewModel = BetweenViewModel(homeUseCase: homeUseCase)
-		let betweenRouter = BetweenRouter(productDetailBuilder: ProductDetailBuilder())
+		let betweenRouter = BetweenRouter()
 		let betweenViewController = BetweenViewController(router: betweenRouter, viewModel: betweenViewModel)
 		betweenRouter.viewController = router.viewController
 		return betweenViewController

@@ -13,6 +13,6 @@ struct AllecordsInput {
 
 enum AllecordsState {
   case none
-  case load(_ products: [Product])
+  case load(_ products: [AllecordsProduct])
   case error(_ error: Error)
 }

@@ -31,7 +31,7 @@ final class ProductDetailViewController: UIViewController {
 	private let viewLoad: PassthroughSubject<Void, Never> = .init()
   private var cancellables: Set<AnyCancellable> = []
 	private let router: ProductDetailRoutingLogic
-	private var product: Product?
+	private var product: AllecordsProduct?
   
   // MARK: - Initializers
 	init(
@@ -93,12 +93,15 @@ extension ProductDetailViewController: ViewBindable {
 
 // MARK: - Reload
 private extension ProductDetailViewController {
-	func reload(product: Product) {
-		self.imageView.setImage(from: product.imgUrl)
+	func reload(product: AllecordsProduct) {
+		if let firstImageId = product.images.first?.id {
+			let urlString = "https://allecords.shop/api/v2/pr-members/\(firstImageId)/image"
+			imageView.setImage(from: urlString)
+		}
 		self.productNameLabel.text = product.title
-		self.singerNameLabel.text = "아티스트 : "
+		self.singerNameLabel.text = "아티스트 : Various Artist"
 		self.priceLabel.text = "\(String(Int(product.price))) 원"
-		self.productDescriptionLabel.text = "상품 설명"
+		self.productDescriptionLabel.text = product.description
 	}
 }
 

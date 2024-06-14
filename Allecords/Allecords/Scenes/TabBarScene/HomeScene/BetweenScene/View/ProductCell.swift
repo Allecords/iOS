@@ -25,6 +25,7 @@ final class ProductCell: UICollectionViewCell {
     setViewConstraints()
   }
   
+	@available(*, unavailable)
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -37,13 +38,24 @@ final class ProductCell: UICollectionViewCell {
 		imageUrlString = nil
 	}
   
-  func configure(with product: Product) {
+  func configure(with product: BetweenProduct) {
 		imageUrlString = product.imgUrl
 		imageView.setImage(from: product.imgUrl)
     nameLabel.text = product.title
     priceLabel.text = String(Int(product.price)) + " 원"
     newLabel.isHidden = false
   }
+	
+	func configure(with product: AllecordsProduct) {
+		if let firstUrl = product.images.first?.url {
+			let urlString = "https://allecords.shop/images/prmember/\(firstUrl)"
+			imageUrlString = urlString
+			imageView.setImage(from: urlString)
+		}
+		nameLabel.text = product.title
+		priceLabel.text = String(Int(product.price)) + " 원"
+		newLabel.isHidden = false
+	}
 }
 
 extension ProductCell {

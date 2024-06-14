@@ -9,11 +9,6 @@ import UIKit
 
 final class BetweenRouter {
 	weak var viewController: UINavigationController?
-	private var productDetailBuilder: BetweenProductDetailBuilderProtocol
-	
-	init(productDetailBuilder: BetweenProductDetailBuilderProtocol) {
-		self.productDetailBuilder = productDetailBuilder
-	}
 }
 
 extension BetweenRouter: BetweenRoutingLogic {

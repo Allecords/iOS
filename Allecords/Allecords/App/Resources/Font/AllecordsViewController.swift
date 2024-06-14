@@ -10,7 +10,8 @@ import Combine
 import UIKit
 
 protocol AllecordsRoutingLogic: AnyObject {
-  func showDetailScene(_ product: Product)
+	func showCreateScene()
+  func showDetailScene(_ product: AllecordsProduct)
   func showAlarm()
   func showSearch()
 }
@@ -18,11 +19,12 @@ protocol AllecordsRoutingLogic: AnyObject {
 final class AllecordsViewController: UIViewController {
   // MARK: - UI Components
   private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+	private let floatingButton: AllecordsFloatingButton = .init(frame: .zero)
   
   // MARK: - Properties
   private var isFetching: Bool = false
   private var viewModel: any AllecordsViewModelable
-  private var products: [Product] = []
+  private var products: [AllecordsProduct] = []
   private var pageNumber: Int = 0
   private var cancellables: Set<AnyCancellable> = []
   private let router: AllecordsRoutingLogic
@@ -100,10 +102,17 @@ private extension AllecordsViewController {
     static let sectionContentInsetsBottom: CGFloat = 10
     static let sectionContentInsetsTrail: CGFloat = 10
   }
+	
+	enum FloatButtonConstant {
+		static let height: CGFloat = 50
+		static let width: CGFloat = 50
+		static let padding: CGFloat = 25
+	}
   
   func setViewAttribute() {
     view.backgroundColor = .systemBackground
     setCollectionView()
+		floatingButton.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)
   }
   
   func setCollectionView() {
@@ -144,11 +153,10 @@ private extension AllecordsViewController {
   }
   
   func setViewHierachies() {
-    [
-      collectionView
-    ].forEach { $0.translatesAutoresizingMaskIntoConstraints = false
-      view.addSubview($0)
-    }
+		view.addSubview(collectionView)
+		view.addSubview(floatingButton)
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		floatingButton.translatesAutoresizingMaskIntoConstraints = false
   }
   
   func setViewConstraints() {
@@ -156,9 +164,26 @@ private extension AllecordsViewController {
       collectionView.topAnchor.constraint(equalTo: view.topAnchor),
       collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
       collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-      collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+      collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			floatingButton.bottomAnchor.constraint(
+				equalTo: view.bottomAnchor,
+				constant: -FloatButtonConstant.padding
+			),
+			floatingButton.trailingAnchor.constraint(
+				equalTo: view.trailingAnchor,
+				constant: -FloatButtonConstant.padding
+			),
+			floatingButton.widthAnchor.constraint(equalToConstant: FloatButtonConstant.width),
+			floatingButton.heightAnchor.constraint(equalToConstant: FloatButtonConstant.height)
     ])
   }
+}
+
+// MARK: - Button Action
+extension AllecordsViewController {
+	@objc func floatingButtonTapped() {
+		router.showCreateScene()
+	}
 }
 
 // MARK: - UICollectionViewDataSource
@@ -183,7 +208,7 @@ extension AllecordsViewController: UICollectionViewDataSource {
 // MARK: - UI Delegate
 extension AllecordsViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let product: Product = products[indexPath.row]
+    let product: AllecordsProduct = products[indexPath.row]
     router.showDetailScene(product)
   }
   

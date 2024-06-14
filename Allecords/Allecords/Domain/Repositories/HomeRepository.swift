@@ -8,5 +8,6 @@
 import Foundation
 
 protocol HomeRepository {
-	func fetchProductItems(page: Int) async throws -> [Product]
+	func fetchBetweenProductItems(page: Int) async throws -> [BetweenProduct]
+	func fetchAllecordsProductItems(page: Int) async throws -> [AllecordsProduct]
 }

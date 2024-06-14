@@ -48,7 +48,7 @@ final class AllecordsNavigationBackButtonItem: UIButton {
 	init(backButtonTitle: String?) {
 		super.init(frame: .zero)
 		let backButtonImage = UIImage.init(systemName: "chevron.backward")!
-			.resizeImage(size: .init(width: 24, height: 24))?
+			.resizeImage(to: 24)?
 			.withTintColor(UIColor.primary1)
 		setImage(backButtonImage, for: .normal)
 		
