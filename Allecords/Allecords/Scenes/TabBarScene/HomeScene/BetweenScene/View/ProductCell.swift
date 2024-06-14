@@ -25,6 +25,7 @@ final class ProductCell: UICollectionViewCell {
     setViewConstraints()
   }
   
+	@available(*, unavailable)
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -47,7 +48,7 @@ final class ProductCell: UICollectionViewCell {
 	
 	func configure(with product: AllecordsProduct) {
 		if let firstUrl = product.images.first?.url {
-			let urlString = "https://allecords.shop/api/v2/pr-members/image/\(firstUrl)"
+			let urlString = "https://allecords.shop/images/prmember/\(firstUrl)"
 			imageUrlString = urlString
 			imageView.setImage(from: urlString)
 		}
