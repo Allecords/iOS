@@ -27,6 +27,7 @@ final class BetweenViewController: UIViewController {
   private var cancellables: Set<AnyCancellable> = []
   private let router: BetweenRoutingLogic
   private let viewLoad: PassthroughSubject<Int, Never> = .init()
+  private let infiniteScrollViewLoad = PassthroughSubject<UIScrollView, Never>()
   
   // MARK: - Initializer
   init(
@@ -69,6 +70,14 @@ extension BetweenViewController: ViewBindable {
       .withUnretained(self)
       .sink { (owner, state) in owner.render(state) }
       .store(in: &cancellables)
+    
+    infiniteScrollViewLoad
+      .throttle(for: .milliseconds(500), scheduler: RunLoop.main, latest: true)
+      .sink { [weak self] scrollView in
+        self?.handleScrollViewDidScroll(scrollView)
+        self?.isFetching = false
+      }
+      .store(in: &cancellables)
   }
   
   func render(_ state: BetweenState) {
@@ -78,7 +87,6 @@ extension BetweenViewController: ViewBindable {
     case .load(let products):
       self.products += products
       collectionView.reloadData()
-      isFetching = false
     case .none:
       break
     }
@@ -190,14 +198,19 @@ extension BetweenViewController: UICollectionViewDelegate {
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    infiniteScrollViewLoad.send(scrollView)
+  }
+  
+  func handleScrollViewDidScroll(_ scrollView: UIScrollView) {
     let position = scrollView.contentOffset.y
     let threshold = collectionView.contentSize.height - scrollView.frame.size.height
 
-    if position > threshold * 0.95 && !isFetching {
+    if position == threshold && !isFetching {
       isFetching = true
       pageNumber += 1
       
       viewLoad.send(pageNumber)
+      print(pageNumber)
     }
   }
 }
