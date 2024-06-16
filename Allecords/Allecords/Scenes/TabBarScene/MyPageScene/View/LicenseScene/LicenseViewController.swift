@@ -5,8 +5,8 @@
 //  Created by 이숲 on 6/12/24.
 //
 
-import UIKit
 import Combine
+import UIKit
 
 protocol LicenseRoutingLogic: AnyObject {
   func dismiss()
