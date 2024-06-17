@@ -8,12 +8,12 @@
 import UIKit
 
 protocol TabBarBuilderProtocol {
-	func build() -> UITabBarController
+  func build() -> UITabBarController
 }
 
 struct TabBarBuilder: TabBarBuilderProtocol {
-	func build() -> UITabBarController {
-		let tabBarController = TabBarViewController(homeTabBuilder: HomeTabBuilder())
-		return tabBarController
-	}
+  func build() -> UITabBarController {
+    let tabBarController = TabBarViewController(homeTabBuilder: HomeTabBuilder(), myPageTabBuilder: MyPageTabBuilder())
+    return tabBarController
+  }
 }
