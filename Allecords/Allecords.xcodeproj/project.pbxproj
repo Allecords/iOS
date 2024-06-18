@@ -35,6 +35,11 @@
 		785262742C063EBE00425457 /* AllecordsProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262732C063EBE00425457 /* AllecordsProductDTO.swift */; };
 		785262762C06401000425457 /* AllecordsProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262752C06401000425457 /* AllecordsProduct.swift */; };
 		7872D73D2C1C5A5A0099048C /* AllecordsBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */; };
+		7872D75A2C213E8E0099048C /* ChatDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7552C213E8E0099048C /* ChatDetailBuilder.swift */; };
+		7872D75B2C213E8E0099048C /* ChatDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7562C213E8E0099048C /* ChatDetailRouter.swift */; };
+		7872D75C2C213E8E0099048C /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */; };
+		7872D75D2C213E8E0099048C /* ChatDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7582C213E8E0099048C /* ChatDetailAction.swift */; };
+		7872D75E2C213E8E0099048C /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7592C213E8E0099048C /* ChatDetailViewController.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -171,6 +176,11 @@
 		785262732C063EBE00425457 /* AllecordsProductDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsProductDTO.swift; sourceTree = "<group>"; };
 		785262752C06401000425457 /* AllecordsProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsProduct.swift; sourceTree = "<group>"; };
 		7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsBottomView.swift; sourceTree = "<group>"; };
+		7872D7552C213E8E0099048C /* ChatDetailBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailBuilder.swift; sourceTree = "<group>"; };
+		7872D7562C213E8E0099048C /* ChatDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailRouter.swift; sourceTree = "<group>"; };
+		7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
+		7872D7582C213E8E0099048C /* ChatDetailAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailAction.swift; sourceTree = "<group>"; };
+		7872D7592C213E8E0099048C /* ChatDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -300,6 +310,7 @@
 		7827F8092BDFF2B8008F6883 /* AllecordsScene */ = {
 			isa = PBXGroup;
 			children = (
+				7872D7542C213E660099048C /* ChatDetailScene */,
 				788EB6612BFE243800EECCBD /* AddScene */,
 				788EB65E2BFDD4D000EECCBD /* FloatingButton */,
 				85078D772BEA540800068060 /* AllecordsViewController.swift */,
@@ -388,6 +399,18 @@
 				7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7872D7542C213E660099048C /* ChatDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				7872D7582C213E8E0099048C /* ChatDetailAction.swift */,
+				7872D7552C213E8E0099048C /* ChatDetailBuilder.swift */,
+				7872D7562C213E8E0099048C /* ChatDetailRouter.swift */,
+				7872D7592C213E8E0099048C /* ChatDetailViewController.swift */,
+				7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */,
+			);
+			path = ChatDetailScene;
 			sourceTree = "<group>";
 		};
 		788EB6542BF34E6700EECCBD /* Cacher */ = {
@@ -981,9 +1004,12 @@
 				85078E192C20827A00068060 /* ChatTabViewController.swift in Sources */,
 				85078E1A2C20827A00068060 /* ChatTabBuilder.swift in Sources */,
 				85078E1B2C20827A00068060 /* ChatTabViewModel.swift in Sources */,
+				7872D75B2C213E8E0099048C /* ChatDetailRouter.swift in Sources */,
+				7872D75E2C213E8E0099048C /* ChatDetailViewController.swift in Sources */,
 				789D6B392BCA5CBC0088511B /* BetweenProduct.swift in Sources */,
 				789D6B3D2BCA5E6D0088511B /* ViewBindable.swift in Sources */,
 				7852625E2C05C08B00425457 /* UITextField+Combine.swift in Sources */,
+				7872D75A2C213E8E0099048C /* ChatDetailBuilder.swift in Sources */,
 				789EEAEB2BC00B2400B99871 /* AllecordsNavigationBar.swift in Sources */,
 				85078D7A2BEA540800068060 /* AllecordsInput.swift in Sources */,
 				85078D7B2BEA540800068060 /* AllecordsRouter.swift in Sources */,
@@ -993,6 +1019,7 @@
 				85078D7E2BEA540800068060 /* AllecordsViewModel.swift in Sources */,
 				7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */,
 				85078E222C20907E00068060 /* ChatList.swift in Sources */,
+				7872D75D2C213E8E0099048C /* ChatDetailAction.swift in Sources */,
 				789EEAE72BC00A7F00B99871 /* UIImage+Resize.swift in Sources */,
 				78BAFC5F2BF343FB008F900D /* AllecordsImageLoaderError.swift in Sources */,
 				789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */,
@@ -1011,6 +1038,7 @@
 				85078E202C20890E00068060 /* ChatCell.swift in Sources */,
 				8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */,
 				85078E1D2C20830500068060 /* ChatTopTabView.swift in Sources */,
+				7872D75C2C213E8E0099048C /* ChatDetailViewModel.swift in Sources */,
 				7852626C2C05F0F500425457 /* DefaultProductRepository.swift in Sources */,
 				7852626F2C062A1900425457 /* AccessTokenInterceptor.swift in Sources */,
 				788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */,

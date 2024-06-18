@@ -19,7 +19,7 @@ protocol AllecordsProductDetailBuilderProtocol {
 struct ProductDetailBuilder: AllecordsProductDetailBuilderProtocol {
   func build(router: AllecordsRouter, product: AllecordsProduct) -> UIViewController {
     let session = CustomSession()
-    let productDetailRouter = ProductDetailRouter()
+    let productDetailRouter = ProductDetailRouter(chatDetailBuilder: ChatDetailBuilder())
     
     let homeRepository = DefaultHomeRepository(session: session)
     let homeUseCase = DefaultHomeUseCase(homeRepository: homeRepository)

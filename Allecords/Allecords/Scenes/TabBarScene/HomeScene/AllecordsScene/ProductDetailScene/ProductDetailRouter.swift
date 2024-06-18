@@ -7,9 +7,15 @@
 
 import UIKit
 
-final class ProductDetailRouter {
+protocol ChatDetailRouteProtocol {}
+
+final class ProductDetailRouter: ChatDetailRouteProtocol {
   weak var viewController: UINavigationController?
-    // 이후에 여기엔 builder 들이 들어가야함
+	private var chatDetailBuilder: ChatDetailBuilder
+	
+	init(chatDetailBuilder: ChatDetailBuilder) {
+		self.chatDetailBuilder = chatDetailBuilder
+	}
 }
 
 // MARK: - RoutingLogic
@@ -21,6 +27,8 @@ extension ProductDetailRouter: ProductDetailRoutingLogic {
 	}
 	
 	func enterChat() {
+		let chatDetailViewController = chatDetailBuilder.build(router: self)
+		viewController?.pushViewController(chatDetailViewController, animated: true)
 	}
 	
 	func dismiss() {
