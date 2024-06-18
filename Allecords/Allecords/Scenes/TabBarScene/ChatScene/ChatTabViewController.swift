@@ -12,7 +12,7 @@ protocol ChatTabRoutingLogic: AnyObject {
   func showChatList()
   func showAlarm()
   func showSearch()
-	func showChatDetail()
+	func showChatDetail(with id: Int)
 }
 
 final class ChatTabViewController: UIViewController {
@@ -164,7 +164,8 @@ extension ChatTabViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-		router.showChatDetail()
+		let target = chatList[indexPath.row]
+		router.showChatDetail(with: target.chatRoomId)
   }
 }
 
