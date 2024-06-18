@@ -55,6 +55,11 @@ final class AllecordsViewController: UIViewController {
     bind()
     viewLoad.send(pageNumber)
   }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		viewLoad.send(pageNumber)
+	}
 }
 
 // MARK: - Bind Methods

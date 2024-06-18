@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		UIScene.ConnectionOptions
 	) {
 		// swiftlint:disable line_length
-		KeyChain.shared.create(key: AuthKey.accessToken, token: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MTIzNDUiLCJpYXQiOjE3MTY5MTI2OTksImV4cCI6MTcxNjk0ODY5OX0.Q0fi_HS6clKHXtf4gnVYilErMRfbJbegWi2zpFwMjIeNSssT9EThWqYqGw316XqWM0wM1EPwuRArjCbsX45Ogg")
+		KeyChain.shared.create(key: AuthKey.accessToken, token: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJra3kiLCJpYXQiOjE3MTg3MjMzNjUsImV4cCI6MTcxODc1OTM2NX0.c0oYa7Ub7R-imx58RVahT19FiFN6Yk0p1-vJqZxwBdnPkpiUx2eeHdcATLWTrd6QjJilFk8cxP_5qJaLgSE-Vg")
 		// swiftlint:enable line_length
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 		window = UIWindow(windowScene: windowScene)

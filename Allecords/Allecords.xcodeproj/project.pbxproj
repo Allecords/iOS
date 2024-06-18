@@ -35,6 +35,18 @@
 		785262742C063EBE00425457 /* AllecordsProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262732C063EBE00425457 /* AllecordsProductDTO.swift */; };
 		785262762C06401000425457 /* AllecordsProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262752C06401000425457 /* AllecordsProduct.swift */; };
 		7872D73D2C1C5A5A0099048C /* AllecordsBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */; };
+		7872D75A2C213E8E0099048C /* ChatDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7552C213E8E0099048C /* ChatDetailBuilder.swift */; };
+		7872D75B2C213E8E0099048C /* ChatDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7562C213E8E0099048C /* ChatDetailRouter.swift */; };
+		7872D75C2C213E8E0099048C /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */; };
+		7872D75D2C213E8E0099048C /* ChatDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7582C213E8E0099048C /* ChatDetailAction.swift */; };
+		7872D75E2C213E8E0099048C /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7592C213E8E0099048C /* ChatDetailViewController.swift */; };
+		7872D7882C2150940099048C /* AllecordsWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7872D7872C2150940099048C /* AllecordsWebSocket.framework */; };
+		7872D7892C2150940099048C /* AllecordsWebSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7872D7872C2150940099048C /* AllecordsWebSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7872D78C2C2160F90099048C /* ChatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D78B2C2160F90099048C /* ChatUseCase.swift */; };
+		7872D78E2C2161790099048C /* ChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D78D2C2161790099048C /* ChatList.swift */; };
+		7872D7902C2163B40099048C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D78F2C2163B40099048C /* Chat.swift */; };
+		7872D7932C217DFE0099048C /* ChatPartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7922C217DFE0099048C /* ChatPartnerTableViewCell.swift */; };
+		7872D7952C21872B0099048C /* ChatMyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7942C21872B0099048C /* ChatMyTableViewCell.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -138,6 +150,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7872D78A2C2150940099048C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7872D7892C2150940099048C /* AllecordsWebSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBuilder.swift; sourceTree = "<group>"; };
@@ -171,6 +197,17 @@
 		785262732C063EBE00425457 /* AllecordsProductDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsProductDTO.swift; sourceTree = "<group>"; };
 		785262752C06401000425457 /* AllecordsProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsProduct.swift; sourceTree = "<group>"; };
 		7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsBottomView.swift; sourceTree = "<group>"; };
+		7872D7552C213E8E0099048C /* ChatDetailBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailBuilder.swift; sourceTree = "<group>"; };
+		7872D7562C213E8E0099048C /* ChatDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailRouter.swift; sourceTree = "<group>"; };
+		7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
+		7872D7582C213E8E0099048C /* ChatDetailAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailAction.swift; sourceTree = "<group>"; };
+		7872D7592C213E8E0099048C /* ChatDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
+		7872D7872C2150940099048C /* AllecordsWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AllecordsWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7872D78B2C2160F90099048C /* ChatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUseCase.swift; sourceTree = "<group>"; };
+		7872D78D2C2161790099048C /* ChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatList.swift; sourceTree = "<group>"; };
+		7872D78F2C2163B40099048C /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		7872D7922C217DFE0099048C /* ChatPartnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPartnerTableViewCell.swift; sourceTree = "<group>"; };
+		7872D7942C21872B0099048C /* ChatMyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMyTableViewCell.swift; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -262,6 +299,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7872D7882C2150940099048C /* AllecordsWebSocket.framework in Frameworks */,
 				789EEAC22BB9A47D00B99871 /* libAllecordsNetwork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +338,7 @@
 		7827F8092BDFF2B8008F6883 /* AllecordsScene */ = {
 			isa = PBXGroup;
 			children = (
+				7872D7542C213E660099048C /* ChatDetailScene */,
 				788EB6612BFE243800EECCBD /* AddScene */,
 				788EB65E2BFDD4D000EECCBD /* FloatingButton */,
 				85078D772BEA540800068060 /* AllecordsViewController.swift */,
@@ -388,6 +427,28 @@
 				7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7872D7542C213E660099048C /* ChatDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				7872D7912C217DC60099048C /* ChatTableViewCell */,
+				7872D7582C213E8E0099048C /* ChatDetailAction.swift */,
+				7872D7552C213E8E0099048C /* ChatDetailBuilder.swift */,
+				7872D7562C213E8E0099048C /* ChatDetailRouter.swift */,
+				7872D7592C213E8E0099048C /* ChatDetailViewController.swift */,
+				7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */,
+			);
+			path = ChatDetailScene;
+			sourceTree = "<group>";
+		};
+		7872D7912C217DC60099048C /* ChatTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7872D7922C217DFE0099048C /* ChatPartnerTableViewCell.swift */,
+				7872D7942C21872B0099048C /* ChatMyTableViewCell.swift */,
+			);
+			path = ChatTableViewCell;
 			sourceTree = "<group>";
 		};
 		788EB6542BF34E6700EECCBD /* Cacher */ = {
@@ -493,6 +554,7 @@
 				785262672C05EF4C00425457 /* ProductUseCase.swift */,
 				85078E062C1DF58100068060 /* MyPageUseCase.swift */,
 				85F5D34E2C209D750076D369 /* ChatUseCase.swift */,
+				7872D78B2C2160F90099048C /* ChatUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -505,6 +567,8 @@
 				785262752C06401000425457 /* AllecordsProduct.swift */,
 				85078E212C20907E00068060 /* ChatList.swift */,
 				85F5D3502C2170C80076D369 /* Chat.swift */,
+				7872D78D2C2161790099048C /* ChatList.swift */,
+				7872D78F2C2163B40099048C /* Chat.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -625,6 +689,7 @@
 		789EEAC02BB9A47D00B99871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7872D7872C2150940099048C /* AllecordsWebSocket.framework */,
 				789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */,
 			);
 			name = Frameworks;
@@ -776,6 +841,7 @@
 				783656622BB8651A004FFA09 /* Frameworks */,
 				783656632BB8651A004FFA09 /* Resources */,
 				789EEADE2BB9CAD700B99871 /* ShellScript */,
+				7872D78A2C2150940099048C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -924,9 +990,11 @@
 				789EEAED2BC00B8B00B99871 /* UIDevice+SafeAreaHeight.swift in Sources */,
 				789EEAB52BB9977B00B99871 /* AppRouter.swift in Sources */,
 				789EEABB2BB99CFE00B99871 /* BetweenInput.swift in Sources */,
+				7872D78C2C2160F90099048C /* ChatUseCase.swift in Sources */,
 				7827F80B2BDFF310008F6883 /* HomeTabViewController.swift in Sources */,
 				85078D6F2BD40E4A00068060 /* ProductDetailInput.swift in Sources */,
 				7852625C2C05BF4F00425457 /* UIControl+Operator.swift in Sources */,
+				7872D78E2C2161790099048C /* ChatList.swift in Sources */,
 				85078D702BD40E4A00068060 /* ProductDetailRouter.swift in Sources */,
 				85078D712BD40E4A00068060 /* ProductDetailViewController.swift in Sources */,
 				788EB66A2BFE250C00EECCBD /* AddBuilder.swift in Sources */,
@@ -954,6 +1022,7 @@
 				789EEAB92BB99A8100B99871 /* BetweenBuilder.swift in Sources */,
 				785262662C05ED6300425457 /* ProductRegister.swift in Sources */,
 				78BAFC562BF33F3B008F900D /* AllecordsImageLoader.swift in Sources */,
+				7872D7952C21872B0099048C /* ChatMyTableViewCell.swift in Sources */,
 				789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */,
 				788EB66E2BFE37B800EECCBD /* AllecordsTextField.swift in Sources */,
 				785262562C05A7FA00425457 /* PhotoAddCollectionViewCell.swift in Sources */,
@@ -973,6 +1042,8 @@
 				7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */,
 				789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */,
 				785262642C05C5A400425457 /* Data+.swift in Sources */,
+				7872D7902C2163B40099048C /* Chat.swift in Sources */,
+				7872D7932C217DFE0099048C /* ChatPartnerTableViewCell.swift in Sources */,
 				788EB6682BFE250C00EECCBD /* AddRouter.swift in Sources */,
 				789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */,
 				85F5D3512C2170C80076D369 /* Chat.swift in Sources */,
@@ -981,9 +1052,12 @@
 				85078E192C20827A00068060 /* ChatTabViewController.swift in Sources */,
 				85078E1A2C20827A00068060 /* ChatTabBuilder.swift in Sources */,
 				85078E1B2C20827A00068060 /* ChatTabViewModel.swift in Sources */,
+				7872D75B2C213E8E0099048C /* ChatDetailRouter.swift in Sources */,
+				7872D75E2C213E8E0099048C /* ChatDetailViewController.swift in Sources */,
 				789D6B392BCA5CBC0088511B /* BetweenProduct.swift in Sources */,
 				789D6B3D2BCA5E6D0088511B /* ViewBindable.swift in Sources */,
 				7852625E2C05C08B00425457 /* UITextField+Combine.swift in Sources */,
+				7872D75A2C213E8E0099048C /* ChatDetailBuilder.swift in Sources */,
 				789EEAEB2BC00B2400B99871 /* AllecordsNavigationBar.swift in Sources */,
 				85078D7A2BEA540800068060 /* AllecordsInput.swift in Sources */,
 				85078D7B2BEA540800068060 /* AllecordsRouter.swift in Sources */,
@@ -993,6 +1067,7 @@
 				85078D7E2BEA540800068060 /* AllecordsViewModel.swift in Sources */,
 				7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */,
 				85078E222C20907E00068060 /* ChatList.swift in Sources */,
+				7872D75D2C213E8E0099048C /* ChatDetailAction.swift in Sources */,
 				789EEAE72BC00A7F00B99871 /* UIImage+Resize.swift in Sources */,
 				78BAFC5F2BF343FB008F900D /* AllecordsImageLoaderError.swift in Sources */,
 				789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */,
@@ -1011,6 +1086,7 @@
 				85078E202C20890E00068060 /* ChatCell.swift in Sources */,
 				8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */,
 				85078E1D2C20830500068060 /* ChatTopTabView.swift in Sources */,
+				7872D75C2C213E8E0099048C /* ChatDetailViewModel.swift in Sources */,
 				7852626C2C05F0F500425457 /* DefaultProductRepository.swift in Sources */,
 				7852626F2C062A1900425457 /* AccessTokenInterceptor.swift in Sources */,
 				788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */,

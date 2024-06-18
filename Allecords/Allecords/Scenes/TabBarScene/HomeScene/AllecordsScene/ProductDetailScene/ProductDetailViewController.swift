@@ -175,7 +175,7 @@ private extension ProductDetailViewController {
   }
   
   func setImageView() {
-    imageView.contentMode = .scaleAspectFit
+		imageView.contentMode = .scaleAspectFill
     imageView.backgroundColor = .lightGray
   }
   
