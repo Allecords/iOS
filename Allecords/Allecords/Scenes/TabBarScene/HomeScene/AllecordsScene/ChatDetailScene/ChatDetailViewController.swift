@@ -10,17 +10,20 @@ import Combine
 import UIKit
 
 protocol ChatDetailRoutingLogic: AnyObject {
-  func dismissChatScene()
+	func dismissChatScene()
 }
 
 final class ChatDetailViewController: UIViewController {
 	// MARK: - UI Components
+	private let navigationBar: AllecordsNavigationBar = .init(isBackButtonHidden: false)
+	private let tableView: UITableView = .init()
 	
 	// MARK: - Properties
 	private let router: ChatDetailRoutingLogic
 	private let viewModel: any ChatDetailViewModelable
 	private var cancellables: Set<AnyCancellable> = []
 	private var isOpenSocket: Bool = false
+	private var chat: [Chat] = .init()
 	
 	// Event Properties
 	private let viewLoad: PassthroughSubject<Void, Never> = .init()
@@ -44,8 +47,12 @@ final class ChatDetailViewController: UIViewController {
 	// MARK: - View Life Cycles
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = .systemBackground
-		self.bind()
+		setViewAttributes()
+		setViewHierachies()
+		setViewConstraints()
+		setWebSocket()
+		bind()
+		viewLoad.send()
 	}
 }
 
@@ -70,13 +77,96 @@ extension ChatDetailViewController: ViewBindable {
 
 	func render(_ state: State) {
 		switch state {
-			default: break
+		case .viewLoad(let chat):
+			self.chat = chat
+			tableView.reloadData()
+		default: break
 		}
 	}
 
 	func handleError(_ error: OutputError) {}
 }
 
+// MARK: - UI Configure
+
+extension ChatDetailViewController {
+	func setViewAttributes() {
+		view.backgroundColor = .systemBackground
+		setNavigationBar()
+		setTableView()
+	}
+	
+	func setViewHierachies() {
+		view.addSubview(navigationBar)
+		view.addSubview(tableView)
+	}
+	
+	func setViewConstraints() {
+		let safeArea = view.safeAreaLayoutGuide
+		NSLayoutConstraint.activate([
+			tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+			tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+			tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+			tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+		])
+	}
+	
+	func setTableView() {
+		tableView.delegate = self
+		tableView.dataSource = self
+		tableView.separatorStyle = .none
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.register(ChatPartnerTableViewCell.self, forCellReuseIdentifier: ChatPartnerTableViewCell.identifier)
+		tableView.register(ChatMyTableViewCell.self, forCellReuseIdentifier: ChatMyTableViewCell.identifier)
+		tableView.translatesAutoresizingMaskIntoConstraints = false
+	}
+	
+	func setNavigationBar() {
+		navigationBar.delegate = self
+	}
+}
+
+extension ChatDetailViewController: UITableViewDelegate {
+}
+
+extension ChatDetailViewController: UITableViewDataSource {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return chat.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let me = "Alice"
+		let targetChat = chat[indexPath.row]
+		
+		if targetChat.sender == me {
+			guard let cell = tableView.dequeueReusableCell(
+				withIdentifier: ChatMyTableViewCell.identifier,
+				for: indexPath
+			) as? ChatMyTableViewCell else {
+				return UITableViewCell()
+			}
+			let text = targetChat.content
+			let time = targetChat.time
+			cell.configure(text: text, time: "12:12")
+			
+			return cell
+		} else {
+			guard let cell = tableView.dequeueReusableCell(
+				withIdentifier: ChatPartnerTableViewCell.identifier,
+				for: indexPath
+			) as? ChatPartnerTableViewCell else {
+				return UITableViewCell()
+			}
+			let text = targetChat.content
+			let time = targetChat.time
+			cell.configure(text: text, time: "12:12")
+			
+			return cell
+		}
+	}
+}
+
+// MARK: - Web Socket
 extension ChatDetailViewController {
 	func setWebSocket() {
 		do {
@@ -134,4 +224,15 @@ extension ChatDetailViewController: ChatDetailRoutingLogic {
 	func dismissChatScene() {
 		router.dismissChatScene()
 	}
+}
+
+extension ChatDetailViewController: AllecordsNavigationBarDelegate {
+	func allecordsNavigationBar(_ navigationBar: AllecordsNavigationBar, didTapBackButton button: UIButton) {
+		router.dismissChatScene()
+	}
+	
+	func allecordsNavigationBar(
+		_ navigationBar: AllecordsNavigationBar,
+		didTapBarItem item: AllecordsNavigationBarItem
+	) {}
 }

@@ -39,7 +39,7 @@ extension DefaultChatUseCase: ChatUseCase {
 			let dateFormatter = DateFormatter()
 			dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
 			
-			return success([
+			return .success([
 				Chat(sender: "Alice", receiver: "Bob", content: "Hey Bob, how are you?", time: dateFormatter.date(from: "2023/06/18 09:00")!),
 				Chat(sender: "Bob", receiver: "Alice", content: "I'm good, thanks! How about you?", time: dateFormatter.date(from: "2023/06/18 09:01")!),
 				Chat(sender: "Alice", receiver: "Bob", content: "I'm doing well, working on the project.", time: dateFormatter.date(from: "2023/06/18 09:05")!),

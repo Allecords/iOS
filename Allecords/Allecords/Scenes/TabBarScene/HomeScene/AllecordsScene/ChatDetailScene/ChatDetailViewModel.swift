@@ -18,12 +18,22 @@ protocol ChatDetailDataSource {
 }
 
 final class ChatDetailViewModel {
-	// UseCase에서 채팅방 정보 다 가져 오는 로직이 필요함
+	private var id: Int
+	private let chatUseCase: ChatUseCase
+	
+	init(
+		id: Int,
+		chatUseCase: ChatUseCase
+	) {
+		self.id = id
+		self.chatUseCase = chatUseCase
+	}
 }
 
 extension ChatDetailViewModel: ChatDetailViewModelable {
   func transform(_ input: Input) -> Output {
     return Publishers.MergeMany<Output>(
+			updateTitle(input)
     ).eraseToAnyPublisher()
   }
 }
@@ -32,11 +42,20 @@ private extension ChatDetailViewModel {
 	func updateTitle(_ input: Input) -> Output {
 		return input.viewLoad
 			.withUnretained(self)
-			.flatMap { (owner, _) -> AnyPublisher<Void, Never> in
-				
-				return
+			.flatMap { (owner, _) -> AnyPublisher<Result<[Chat], Error>, Never> in
+				let future = Future(asyncFunc: {
+					try await owner.chatUseCase.fetchAllChat(with: owner.id)
+				})
+				return future.eraseToAnyPublisher()
 			}
-			.eraseToAnyPublisher()
+			.map { result in
+				switch result {
+				case let .success(chat):
+					return .viewLoad(chat)
+				case let .failure(error):
+					return .error(error)
+				}
+			}.eraseToAnyPublisher()
 	}
 }
 

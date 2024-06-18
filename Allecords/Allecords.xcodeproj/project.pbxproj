@@ -45,6 +45,8 @@
 		7872D78C2C2160F90099048C /* ChatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D78B2C2160F90099048C /* ChatUseCase.swift */; };
 		7872D78E2C2161790099048C /* ChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D78D2C2161790099048C /* ChatList.swift */; };
 		7872D7902C2163B40099048C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D78F2C2163B40099048C /* Chat.swift */; };
+		7872D7932C217DFE0099048C /* ChatPartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7922C217DFE0099048C /* ChatPartnerTableViewCell.swift */; };
+		7872D7952C21872B0099048C /* ChatMyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7942C21872B0099048C /* ChatMyTableViewCell.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -204,6 +206,8 @@
 		7872D78B2C2160F90099048C /* ChatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUseCase.swift; sourceTree = "<group>"; };
 		7872D78D2C2161790099048C /* ChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatList.swift; sourceTree = "<group>"; };
 		7872D78F2C2163B40099048C /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		7872D7922C217DFE0099048C /* ChatPartnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPartnerTableViewCell.swift; sourceTree = "<group>"; };
+		7872D7942C21872B0099048C /* ChatMyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMyTableViewCell.swift; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -428,6 +432,7 @@
 		7872D7542C213E660099048C /* ChatDetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				7872D7912C217DC60099048C /* ChatTableViewCell */,
 				7872D7582C213E8E0099048C /* ChatDetailAction.swift */,
 				7872D7552C213E8E0099048C /* ChatDetailBuilder.swift */,
 				7872D7562C213E8E0099048C /* ChatDetailRouter.swift */,
@@ -435,6 +440,15 @@
 				7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */,
 			);
 			path = ChatDetailScene;
+			sourceTree = "<group>";
+		};
+		7872D7912C217DC60099048C /* ChatTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7872D7922C217DFE0099048C /* ChatPartnerTableViewCell.swift */,
+				7872D7942C21872B0099048C /* ChatMyTableViewCell.swift */,
+			);
+			path = ChatTableViewCell;
 			sourceTree = "<group>";
 		};
 		788EB6542BF34E6700EECCBD /* Cacher */ = {
@@ -1008,6 +1022,7 @@
 				789EEAB92BB99A8100B99871 /* BetweenBuilder.swift in Sources */,
 				785262662C05ED6300425457 /* ProductRegister.swift in Sources */,
 				78BAFC562BF33F3B008F900D /* AllecordsImageLoader.swift in Sources */,
+				7872D7952C21872B0099048C /* ChatMyTableViewCell.swift in Sources */,
 				789D6B372BCA5CBC0088511B /* HomeRepository.swift in Sources */,
 				788EB66E2BFE37B800EECCBD /* AllecordsTextField.swift in Sources */,
 				785262562C05A7FA00425457 /* PhotoAddCollectionViewCell.swift in Sources */,
@@ -1028,6 +1043,7 @@
 				789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */,
 				785262642C05C5A400425457 /* Data+.swift in Sources */,
 				7872D7902C2163B40099048C /* Chat.swift in Sources */,
+				7872D7932C217DFE0099048C /* ChatPartnerTableViewCell.swift in Sources */,
 				788EB6682BFE250C00EECCBD /* AddRouter.swift in Sources */,
 				789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */,
 				85F5D3512C2170C80076D369 /* Chat.swift in Sources */,

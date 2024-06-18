@@ -13,5 +13,6 @@ struct ChatDetailInput {
 }
 
 enum ChatDetailState {
-  case viewLoad
+  case viewLoad([Chat])
+	case error(Error)
 }
