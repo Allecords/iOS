@@ -55,7 +55,6 @@
 		789D6B412BCC2AF80088511B /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789D6B3F2BCC29450088511B /* NotoSansCJKkr-Regular.otf */; };
 		789D6B422BCC2AFB0088511B /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789D6B402BCC29470088511B /* NotoSansCJKkr-Medium.otf */; };
 		789EEA962BB87F2D00B99871 /* BetweenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA952BB87F2D00B99871 /* BetweenViewController.swift */; };
-		789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA972BB87F4500B99871 /* ChatViewController.swift */; };
 		789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEA9B2BB8802600B99871 /* TabBarViewController.swift */; };
 		789EEAA12BB881EE00B99871 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAA02BB881EE00B99871 /* ViewModelable.swift */; };
 		789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789EEAA22BB8827000B99871 /* TabBarpage.swift */; };
@@ -108,7 +107,17 @@
 		85078E052C1DF50000068060 /* LicenseText.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 85078E042C1DF50000068060 /* LicenseText.rtf */; };
 		85078E072C1DF58100068060 /* MyPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E062C1DF58100068060 /* MyPageUseCase.swift */; };
 		85078E092C1DF5A400068060 /* MyPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E082C1DF5A400068060 /* MyPageRepository.swift */; };
+		85078E172C20827A00068060 /* ChatTabInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E122C20827A00068060 /* ChatTabInput.swift */; };
+		85078E182C20827A00068060 /* ChatTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E132C20827A00068060 /* ChatTabRouter.swift */; };
+		85078E192C20827A00068060 /* ChatTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E142C20827A00068060 /* ChatTabViewController.swift */; };
+		85078E1A2C20827A00068060 /* ChatTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E152C20827A00068060 /* ChatTabBuilder.swift */; };
+		85078E1B2C20827A00068060 /* ChatTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E162C20827A00068060 /* ChatTabViewModel.swift */; };
+		85078E1D2C20830500068060 /* ChatTopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E1C2C20830500068060 /* ChatTopTabView.swift */; };
+		85078E202C20890E00068060 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E1F2C20890E00068060 /* ChatCell.swift */; };
+		85078E222C20907E00068060 /* ChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85078E212C20907E00068060 /* ChatList.swift */; };
 		8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570F5AE2BBFE472009D1772 /* ProductCell.swift */; };
+		85F5D34F2C209D750076D369 /* ChatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F5D34E2C209D750076D369 /* ChatUseCase.swift */; };
+		85F5D3512C2170C80076D369 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F5D3502C2170C80076D369 /* Chat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,7 +190,6 @@
 		789D6B3F2BCC29450088511B /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		789D6B402BCC29470088511B /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		789EEA952BB87F2D00B99871 /* BetweenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetweenViewController.swift; sourceTree = "<group>"; };
-		789EEA972BB87F4500B99871 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		789EEA9B2BB8802600B99871 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		789EEAA02BB881EE00B99871 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		789EEAA22BB8827000B99871 /* TabBarpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarpage.swift; sourceTree = "<group>"; };
@@ -234,7 +242,17 @@
 		85078E042C1DF50000068060 /* LicenseText.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = LicenseText.rtf; sourceTree = "<group>"; };
 		85078E062C1DF58100068060 /* MyPageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUseCase.swift; sourceTree = "<group>"; };
 		85078E082C1DF5A400068060 /* MyPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRepository.swift; sourceTree = "<group>"; };
+		85078E122C20827A00068060 /* ChatTabInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabInput.swift; sourceTree = "<group>"; };
+		85078E132C20827A00068060 /* ChatTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabRouter.swift; sourceTree = "<group>"; };
+		85078E142C20827A00068060 /* ChatTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewController.swift; sourceTree = "<group>"; };
+		85078E152C20827A00068060 /* ChatTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabBuilder.swift; sourceTree = "<group>"; };
+		85078E162C20827A00068060 /* ChatTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewModel.swift; sourceTree = "<group>"; };
+		85078E1C2C20830500068060 /* ChatTopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTopTabView.swift; sourceTree = "<group>"; };
+		85078E1F2C20890E00068060 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		85078E212C20907E00068060 /* ChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatList.swift; sourceTree = "<group>"; };
 		8570F5AE2BBFE472009D1772 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		85F5D34E2C209D750076D369 /* ChatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUseCase.swift; sourceTree = "<group>"; };
+		85F5D3502C2170C80076D369 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +482,7 @@
 				789D6B342BCA5CBC0088511B /* HomeUseCase.swift */,
 				785262672C05EF4C00425457 /* ProductUseCase.swift */,
 				85078E062C1DF58100068060 /* MyPageUseCase.swift */,
+				85F5D34E2C209D750076D369 /* ChatUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -474,6 +493,8 @@
 				789D6B362BCA5CBC0088511B /* BetweenProduct.swift */,
 				785262652C05ED6300425457 /* ProductRegister.swift */,
 				785262752C06401000425457 /* AllecordsProduct.swift */,
+				85078E212C20907E00068060 /* ChatList.swift */,
+				85F5D3502C2170C80076D369 /* Chat.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -545,7 +566,13 @@
 		789EEA932BB87EE500B99871 /* ChatScene */ = {
 			isa = PBXGroup;
 			children = (
-				789EEA972BB87F4500B99871 /* ChatViewController.swift */,
+				85078E142C20827A00068060 /* ChatTabViewController.swift */,
+				85078E1C2C20830500068060 /* ChatTopTabView.swift */,
+				85078E162C20827A00068060 /* ChatTabViewModel.swift */,
+				85078E122C20827A00068060 /* ChatTabInput.swift */,
+				85078E132C20827A00068060 /* ChatTabRouter.swift */,
+				85078E152C20827A00068060 /* ChatTabBuilder.swift */,
+				85078E1E2C20890000068060 /* View */,
 			);
 			path = ChatScene;
 			sourceTree = "<group>";
@@ -717,6 +744,14 @@
 				85078DF82C1DF4B300068060 /* TermsOfServiceText.rtf */,
 			);
 			path = TermsOfServiceScene;
+			sourceTree = "<group>";
+		};
+		85078E1E2C20890000068060 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85078E1F2C20890E00068060 /* ChatCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -919,6 +954,7 @@
 				785262582C05BC7C00425457 /* AllecordsConfirmButton.swift in Sources */,
 				783656692BB8651A004FFA09 /* AppDelegate.swift in Sources */,
 				785262682C05EF4C00425457 /* ProductUseCase.swift in Sources */,
+				85F5D34F2C209D750076D369 /* ChatUseCase.swift in Sources */,
 				789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */,
 				789EEAE42BC0088900B99871 /* AllecordsNavigationItem.swift in Sources */,
 				789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */,
@@ -927,6 +963,12 @@
 				785262642C05C5A400425457 /* Data+.swift in Sources */,
 				788EB6682BFE250C00EECCBD /* AddRouter.swift in Sources */,
 				789EEAAF2BB993F600B99871 /* NavigationController.swift in Sources */,
+				85F5D3512C2170C80076D369 /* Chat.swift in Sources */,
+				85078E172C20827A00068060 /* ChatTabInput.swift in Sources */,
+				85078E182C20827A00068060 /* ChatTabRouter.swift in Sources */,
+				85078E192C20827A00068060 /* ChatTabViewController.swift in Sources */,
+				85078E1A2C20827A00068060 /* ChatTabBuilder.swift in Sources */,
+				85078E1B2C20827A00068060 /* ChatTabViewModel.swift in Sources */,
 				789D6B392BCA5CBC0088511B /* BetweenProduct.swift in Sources */,
 				789D6B3D2BCA5E6D0088511B /* ViewBindable.swift in Sources */,
 				7852625E2C05C08B00425457 /* UITextField+Combine.swift in Sources */,
@@ -938,6 +980,7 @@
 				788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */,
 				85078D7E2BEA540800068060 /* AllecordsViewModel.swift in Sources */,
 				7836566B2BB8651A004FFA09 /* SceneDelegate.swift in Sources */,
+				85078E222C20907E00068060 /* ChatList.swift in Sources */,
 				789EEAE72BC00A7F00B99871 /* UIImage+Resize.swift in Sources */,
 				78BAFC5F2BF343FB008F900D /* AllecordsImageLoaderError.swift in Sources */,
 				789EEAA32BB8827000B99871 /* TabBarpage.swift in Sources */,
@@ -953,7 +996,9 @@
 				85078DE82C1DF3A100068060 /* MyPageTabViewModel.swift in Sources */,
 				85078E092C1DF5A400068060 /* MyPageRepository.swift in Sources */,
 				789EEA9C2BB8802600B99871 /* TabBarViewController.swift in Sources */,
+				85078E202C20890E00068060 /* ChatCell.swift in Sources */,
 				8570F5AF2BBFE472009D1772 /* ProductCell.swift in Sources */,
+				85078E1D2C20830500068060 /* ChatTopTabView.swift in Sources */,
 				7852626C2C05F0F500425457 /* DefaultProductRepository.swift in Sources */,
 				7852626F2C062A1900425457 /* AccessTokenInterceptor.swift in Sources */,
 				788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */,
@@ -961,7 +1006,6 @@
 				789C810F2BFE663000760A16 /* UIResponder+.swift in Sources */,
 				789EEABF2BB99F8200B99871 /* Publisher+Operator.swift in Sources */,
 				7827F80D2BDFFFF0008F6883 /* HomeTabBuilder.swift in Sources */,
-				789EEA982BB87F4500B99871 /* ChatViewController.swift in Sources */,
 				788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */,
 				789D6B3B2BCA5D170088511B /* Future+.swift in Sources */,
 				788EB66B2BFE250C00EECCBD /* AddViewModel.swift in Sources */,
