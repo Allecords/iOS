@@ -13,7 +13,7 @@ final class ChatDetailRouter {
 
 // MARK: - RoutingLogic
 extension ChatDetailRouter: ChatDetailRoutingLogic {
-	func dismiss() {
+	func dismissChatScene() {
 		viewController?.popViewController(animated: true)
 	}
 }
