@@ -40,6 +40,8 @@
 		7872D75C2C213E8E0099048C /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */; };
 		7872D75D2C213E8E0099048C /* ChatDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7582C213E8E0099048C /* ChatDetailAction.swift */; };
 		7872D75E2C213E8E0099048C /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D7592C213E8E0099048C /* ChatDetailViewController.swift */; };
+		7872D7882C2150940099048C /* AllecordsWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7872D7872C2150940099048C /* AllecordsWebSocket.framework */; };
+		7872D7892C2150940099048C /* AllecordsWebSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7872D7872C2150940099048C /* AllecordsWebSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -143,6 +145,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7872D78A2C2150940099048C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7872D7892C2150940099048C /* AllecordsWebSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7827F80A2BDFF310008F6883 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		7827F80C2BDFFFF0008F6883 /* HomeTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBuilder.swift; sourceTree = "<group>"; };
@@ -181,6 +197,7 @@
 		7872D7572C213E8E0099048C /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		7872D7582C213E8E0099048C /* ChatDetailAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailAction.swift; sourceTree = "<group>"; };
 		7872D7592C213E8E0099048C /* ChatDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
+		7872D7872C2150940099048C /* AllecordsWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AllecordsWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -272,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7872D7882C2150940099048C /* AllecordsWebSocket.framework in Frameworks */,
 				789EEAC22BB9A47D00B99871 /* libAllecordsNetwork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,6 +666,7 @@
 		789EEAC02BB9A47D00B99871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7872D7872C2150940099048C /* AllecordsWebSocket.framework */,
 				789EEAC12BB9A47D00B99871 /* libAllecordsNetwork.a */,
 			);
 			name = Frameworks;
@@ -799,6 +818,7 @@
 				783656622BB8651A004FFA09 /* Frameworks */,
 				783656632BB8651A004FFA09 /* Resources */,
 				789EEADE2BB9CAD700B99871 /* ShellScript */,
+				7872D78A2C2150940099048C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

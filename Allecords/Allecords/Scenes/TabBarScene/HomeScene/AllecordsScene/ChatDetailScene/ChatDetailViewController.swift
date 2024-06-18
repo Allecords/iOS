@@ -20,6 +20,7 @@ final class ChatDetailViewController: UIViewController {
 	private let router: ChatDetailRoutingLogic
 	private let viewModel: any ChatDetailViewModelable
 	private var cancellables: Set<AnyCancellable> = []
+	private var isOpenSocket: Bool = false
 	
 	// Event Properties
 	private let viewLoad: PassthroughSubject<Void, Never> = .init()
@@ -74,4 +75,63 @@ extension ChatDetailViewController: ViewBindable {
 	}
 
 	func handleError(_ error: OutputError) {}
+}
+
+extension ChatDetailViewController {
+	func setWebSocket() {
+		do {
+			WebSocket.shared.delegate = self
+//			WebSocket.shared.url = viewModel.webSocketUrl
+			try WebSocket.shared.openWebSocket()
+		} catch {
+			dump(error)
+		}
+	}
+	
+	func webSocketReceive() {
+		if !isOpenSocket {
+			return
+		}
+		
+		DispatchQueue.global().async {
+			WebSocket.shared.receive { [weak self] string, data in
+				if let string {
+					print(string)
+//					self?.receive.send(string)
+					self?.webSocketReceive()
+				} else if let data {
+					guard let jsonString = String(data: data, encoding: .utf8) else { return }
+					print(jsonString)
+//					self?.receive.send(jsonString)
+					self?.webSocketReceive()
+				}
+			}
+		}
+	}
+}
+
+extension ChatDetailViewController: URLSessionWebSocketDelegate {
+	func urlSession(
+		_ session: URLSession,
+		webSocketTask: URLSessionWebSocketTask,
+		didOpenWithProtocol protocol: String?
+	) {
+		isOpenSocket = true
+		webSocketReceive()
+	}
+	
+	func urlSession(
+		_ session: URLSession,
+		webSocketTask: URLSessionWebSocketTask,
+		didCloseWith closeCode: URLSessionWebSocketTask.CloseCode,
+		reason: Data?
+	) {
+		isOpenSocket = false
+	}
+}
+
+extension ChatDetailViewController: ChatDetailRoutingLogic {
+	func dismissChatScene() {
+		router.dismissChatScene()
+	}
 }
