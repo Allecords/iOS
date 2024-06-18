@@ -9,13 +9,16 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
   private let homeTabBuilder: HomeTabBuilderProtocol
+  private let chatTabBuilder: ChatTabBuilderProtocol
   private let myPageTabBuilder: MyPageTabBuilderProtocol
   
   init(
     homeTabBuilder: HomeTabBuilderProtocol,
+    chatTabBuilder: ChatTabBuilderProtocol,
     myPageTabBuilder: MyPageTabBuilderProtocol
   ) {
     self.homeTabBuilder = homeTabBuilder
+    self.chatTabBuilder = chatTabBuilder
     self.myPageTabBuilder = myPageTabBuilder
     super.init(nibName: nil, bundle: nil)
   }
@@ -33,9 +36,8 @@ final class TabBarViewController: UITabBarController {
     homeTabViewController.tabBarItem = makeTabBarItem(of: .homeTab)
     
     // Chat Tab
-    let chatViewController = ChatViewController()
-    let chatTabNavigationController = makeTabNavigationController(of: chatViewController)
-    chatTabNavigationController.tabBarItem = makeTabBarItem(of: .chatTab)
+    let chatTabViewController = chatTabBuilder.build()
+    chatTabViewController.tabBarItem = makeTabBarItem(of: .chatTab)
     
     // MyPage Tab
     let myPageTabViewController = myPageTabBuilder.build()
@@ -43,7 +45,7 @@ final class TabBarViewController: UITabBarController {
     
     self.viewControllers = [
       homeTabViewController,
-      chatTabNavigationController,
+      chatTabViewController,
       myPageTabViewController
     ]
     selectedIndex = TabBarpage.homeTab.pageorderNumber()
