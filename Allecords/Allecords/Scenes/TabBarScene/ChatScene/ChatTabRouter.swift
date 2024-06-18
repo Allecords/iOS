@@ -9,8 +9,10 @@ import UIKit
 
 final class ChatTabRouter {
 	weak var viewController: UINavigationController?
+  private var chatDetailBuilder: ChatDetailBuilder
   
-  init() {
+	init(chatDetailBuilder: ChatDetailBuilder) {
+		self.chatDetailBuilder = chatDetailBuilder
   }
 }
 
@@ -27,4 +29,9 @@ extension ChatTabRouter: ChatTabRoutingLogic {
   func showAlarm() {
     debugPrint("Show Alarm View")
   }
+	
+	func showChatDetail() {
+		let chatDetailViewController = chatDetailBuilder.build(router: self)
+		viewController?.pushViewController(chatDetailViewController, animated: true)
+	}
 }

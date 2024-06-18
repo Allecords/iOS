@@ -12,6 +12,7 @@ protocol ChatTabRoutingLogic: AnyObject {
   func showChatList()
   func showAlarm()
   func showSearch()
+	func showChatDetail()
 }
 
 final class ChatTabViewController: UIViewController {
@@ -19,7 +20,7 @@ final class ChatTabViewController: UIViewController {
   private let router: ChatTabRoutingLogic
   private let viewModel: any ChatTabViewModelable
   private var cancellables: Set<AnyCancellable> = []
-  private let viewLoad: PassthroughSubject<Int, Never> = .init()
+  private let viewLoad: PassthroughSubject<Void, Never> = .init()
   private var chatList: [ChatList] = []
   
   // MARK: - UI Components
@@ -49,7 +50,7 @@ final class ChatTabViewController: UIViewController {
     setViewHierachies()
     setViewConstraints()
     bind()
-    viewLoad.send(1)
+    viewLoad.send()
 	}
 }
 
@@ -163,7 +164,7 @@ extension ChatTabViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    debugPrint(indexPath)
+		router.showChatDetail()
   }
 }
 

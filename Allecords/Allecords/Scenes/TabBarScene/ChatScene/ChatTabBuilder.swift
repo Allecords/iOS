@@ -14,8 +14,10 @@ protocol ChatTabBuilderProtocol {
 
 struct ChatTabBuilder: ChatTabBuilderProtocol {
   func build() -> UIViewController {
-    let chatUseCase = DefaultChatUseCase()
-    let chatTabRouter = ChatTabRouter()
+		let session = CustomSession()
+		let chatRepository = DefaultChatRepository(session: session)
+    let chatUseCase = DefaultChatUseCase(repository: chatRepository)
+    let chatTabRouter = ChatTabRouter(chatDetailBuilder: ChatDetailBuilder())
     let viewModel = ChatTabViewModel(chatUseCase: chatUseCase)
     let chatTabViewController = ChatTabViewController(
       router: chatTabRouter,

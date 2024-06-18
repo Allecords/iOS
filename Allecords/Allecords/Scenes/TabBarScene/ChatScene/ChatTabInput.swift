@@ -8,7 +8,7 @@
 import Combine
 
 struct ChatTabInput {
-  let viewLoad: PassthroughSubject<Int, Never>
+  let viewLoad: PassthroughSubject<Void, Never>
 }
 
 enum ChatTabState {

@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct ChatList {
-	let id: Int
-	let sender: String
-	let lastMessage: String
-	let lastDate: Date
-	let stackMessages: UInt
+struct ChatList: Codable {
+	let chatRoomId: Int
+	let participantUsername: String
+	let lastMessageContent: String
+	let lastMessageTimestamp: String
 }

@@ -32,13 +32,29 @@ final class ChatCell: UITableViewCell {
   }
   
   func configure(with chatList: ChatList) {
-    id = chatList.id
-    senderLabel.text = chatList.sender
-    lastMessageLabel.text = chatList.lastMessage
-    lastDateLabel.text = lastDateFormatter.string(from: chatList.lastDate)
-    stackMessagesLabel.text = chatList.stackMessages > 0 ? "\(chatList.stackMessages)" : ""
-    stackMessagesLabel.isHidden = chatList.stackMessages == 0
+		id = chatList.chatRoomId
+		senderLabel.text = chatList.participantUsername
+		lastMessageLabel.text = chatList.lastMessageContent
+		lastDateLabel.text = dateFormattted(input: chatList.lastMessageTimestamp)
+    stackMessagesLabel.isHidden = true
   }
+	
+	private func dateFormattted(input: String) -> String {
+		let inputDateFormatter = DateFormatter()
+		inputDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+		
+		// 출력 날짜 형식의 DateFormatter 생성
+		let outputDateFormatter = DateFormatter()
+		outputDateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
+		
+		if let date = inputDateFormatter.date(from: input) {
+			// Date 객체를 원하는 형식의 문자열로 변환
+			let formattedDateString = outputDateFormatter.string(from: date)
+			return formattedDateString
+		} else {
+			return "2024.06.19 14:22"
+		}
+	}
 }
 
 extension ChatCell {

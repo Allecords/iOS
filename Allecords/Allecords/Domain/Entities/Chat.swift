@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Chat: Hashable {
+struct Chat: Hashable, Codable {
 	let sender: String
-	let receiver: String
+	let chatRoomId: Int
 	let content: String
-	let time: Date
+	let timestamp: String
 }

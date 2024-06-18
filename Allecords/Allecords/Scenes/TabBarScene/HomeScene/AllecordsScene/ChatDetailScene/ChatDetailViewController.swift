@@ -245,7 +245,7 @@ extension ChatDetailViewController: UITableViewDataSource {
 				return UITableViewCell()
 			}
 			let text = targetChat.content
-			let time = targetChat.time
+			let time = targetChat.timestamp
 			cell.configure(text: text, time: "12:12")
 			
 			return cell
@@ -257,7 +257,7 @@ extension ChatDetailViewController: UITableViewDataSource {
 				return UITableViewCell()
 			}
 			let text = targetChat.content
-			let time = targetChat.time
+			let time = targetChat.timestamp
 			cell.configure(text: text, time: "12:12")
 			
 			return cell
