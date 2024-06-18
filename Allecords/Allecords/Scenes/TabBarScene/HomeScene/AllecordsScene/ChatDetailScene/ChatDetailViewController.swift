@@ -42,6 +42,8 @@ final class ChatDetailViewController: UIViewController {
 	private let socketConnect: PassthroughSubject<Void, Never> = .init()
 	private let receive: PassthroughSubject<Void, Never> = .init()
 	
+	var webSocketTask: URLSessionWebSocketTask?
+	
   // MARK: - Initializers
 	init(
 		router: ChatDetailRoutingLogic,
@@ -63,7 +65,7 @@ final class ChatDetailViewController: UIViewController {
 		setViewAttributes()
 		setViewHierachies()
 		setViewConstraints()
-		setWebSocket()
+		connect()
 		bind()
 		viewLoad.send()
 	}
@@ -98,6 +100,69 @@ extension ChatDetailViewController: ViewBindable {
 	}
 
 	func handleError(_ error: OutputError) {}
+}
+
+extension ChatDetailViewController {
+	func connect() {
+		// WebSocket 연결 설정
+		let url = URL(string: "wss://allecords.shop/ws/chat")!
+		webSocketTask = URLSession(configuration: .default).webSocketTask(with: url)
+		webSocketTask?.resume()
+		
+		// 실시간 메시지 수신 대기
+		receiveMessage()
+	}
+	
+	func sendMessage() {
+		guard let messageContent = keyboardTextField.text, !messageContent.isEmpty else {
+			return
+		}
+		
+		let chat = Chat(
+			sender: "jay",
+			chatRoomId: viewModel.getId(),
+			content: messageContent,
+			timestamp: ISO8601DateFormatter().string(from: Date())
+		)
+		
+		if let messageData = try? JSONEncoder().encode(chat) {
+			let message = URLSessionWebSocketTask.Message.data(messageData)
+			webSocketTask?.send(message) { error in
+				if let error = error {
+					print("WebSocket sending error: \(error)")
+				} else {
+					DispatchQueue.main.async {
+						self.keyboardTextField.text = ""
+					}
+				}
+			}
+		}
+	}
+	
+	func receiveMessage() {
+		webSocketTask?.receive { result in
+			switch result {
+				case .failure(let error):
+					print("WebSocket receiving error: \(error)")
+				case .success(let message):
+					switch message {
+						case .data(let data):
+							if let chatMessage = try? JSONDecoder().decode(Chat.self, from: data) {
+								DispatchQueue.main.async {
+									self.chat.append(chatMessage)
+									self.tableView.reloadData()
+								}
+							}
+						case .string(let text):
+							print("Received text message: \(text)")
+						@unknown default:
+							break
+					}
+					// 계속해서 메시지 수신 대기
+					self.receiveMessage()
+			}
+		}
+	}
 }
 
 // MARK: - UI Configure
@@ -180,13 +245,13 @@ extension ChatDetailViewController {
 	
 	func setNameLabel() {
 		nameLabel.translatesAutoresizingMaskIntoConstraints = false
-		nameLabel.text = "판매자"
+		nameLabel.text = "Ted"
 		nameLabel.font = .notoSansCJKkr(type: .bold, size: .large)
 		nameLabel.textColor = .primaryDark
 	}
 	
 	@objc func sendbuttonTapped() {
-		print("send")
+		sendMessage()
 	}
 	
 	func setUpNotification() {
@@ -234,7 +299,7 @@ extension ChatDetailViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let meIdentifier = "Alice"
+		let meIdentifier = "jay"
 		let targetChat = chat[indexPath.row]
 		
 		if targetChat.sender == meIdentifier {
@@ -245,8 +310,8 @@ extension ChatDetailViewController: UITableViewDataSource {
 				return UITableViewCell()
 			}
 			let text = targetChat.content
-			let time = targetChat.timestamp
-			cell.configure(text: text, time: "12:12")
+			let time = dateFormattted(input: targetChat.timestamp)
+			cell.configure(text: text, time: time)
 			
 			return cell
 		} else {
@@ -257,10 +322,27 @@ extension ChatDetailViewController: UITableViewDataSource {
 				return UITableViewCell()
 			}
 			let text = targetChat.content
-			let time = targetChat.timestamp
-			cell.configure(text: text, time: "12:12")
+			let time = dateFormattted(input: targetChat.timestamp)
+			cell.configure(text: text, time: time)
 			
 			return cell
+		}
+	}
+	
+	private func dateFormattted(input: String) -> String {
+		let inputDateFormatter = DateFormatter()
+		inputDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+		
+		// 출력 날짜 형식의 DateFormatter 생성
+		let outputDateFormatter = DateFormatter()
+		outputDateFormatter.dateFormat = "HH:mm"
+		
+		if let date = inputDateFormatter.date(from: input) {
+			// Date 객체를 원하는 형식의 문자열로 변환
+			let formattedDateString = outputDateFormatter.string(from: date)
+			return formattedDateString
+		} else {
+			return "2024.06.19 14:22"
 		}
 	}
 }
@@ -270,7 +352,7 @@ extension ChatDetailViewController {
 	func setWebSocket() {
 		do {
 			WebSocket.shared.delegate = self
-//			WebSocket.shared.url = viewModel.webSocketUrl
+			WebSocket.shared.url = URL(string: "wss://allecords.shop/ws/chat")!
 			try WebSocket.shared.openWebSocket()
 		} catch {
 			dump(error)

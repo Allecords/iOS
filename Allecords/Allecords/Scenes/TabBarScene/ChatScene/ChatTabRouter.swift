@@ -30,8 +30,8 @@ extension ChatTabRouter: ChatTabRoutingLogic {
     debugPrint("Show Alarm View")
   }
 	
-	func showChatDetail() {
-		let chatDetailViewController = chatDetailBuilder.build(router: self)
+	func showChatDetail(with id: Int) {
+		let chatDetailViewController = chatDetailBuilder.build(router: self, id: id)
 		viewController?.pushViewController(chatDetailViewController, animated: true)
 	}
 }

@@ -11,14 +11,16 @@ import Foundation
 protocol ChatDetailViewModelable: ViewModelable
 where Input == ChatDetailInput,
 State == ChatDetailState,
-Output == AnyPublisher<State, Never> { }
+Output == AnyPublisher<State, Never> {
+	func getId() -> Int
+}
 
 protocol ChatDetailDataSource {
 	var webSocketUrl: URL? { get }
 }
 
 final class ChatDetailViewModel {
-	private var id: Int
+	var id: Int
 	private let chatUseCase: ChatUseCase
 	
 	init(
@@ -36,6 +38,10 @@ extension ChatDetailViewModel: ChatDetailViewModelable {
 			updateTitle(input)
     ).eraseToAnyPublisher()
   }
+	
+	func getId() -> Int {
+		return id
+	}
 }
 
 private extension ChatDetailViewModel {
@@ -44,7 +50,7 @@ private extension ChatDetailViewModel {
 			.withUnretained(self)
 			.flatMap { (owner, _) -> AnyPublisher<Result<[Chat], Error>, Never> in
 				let future = Future(asyncFunc: {
-					try await owner.chatUseCase.fetchAllChat(with: owner.id)
+					await owner.chatUseCase.fetchAllChat(with: owner.id)
 				})
 				return future.eraseToAnyPublisher()
 			}
@@ -61,6 +67,6 @@ private extension ChatDetailViewModel {
 
 extension ChatDetailViewModel: ChatDetailDataSource {
 	var webSocketUrl: URL? {
-		URL(string: "ws://")
+		URL(string: "wss://allecords.shop/ws/chat")
 	}
 }

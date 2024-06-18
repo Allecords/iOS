@@ -10,7 +10,7 @@ import UIKit
 
 protocol ChatDetailProtocol {
 	func build(router: ProductDetailRouter) -> UIViewController
-	func build(router: ChatTabRouter) -> UIViewController
+	func build(router: ChatTabRouter, id: Int) -> UIViewController
 }
 
 struct ChatDetailBuilder: ChatDetailProtocol {
@@ -33,13 +33,11 @@ struct ChatDetailBuilder: ChatDetailProtocol {
 		return chatDetailViewController
 	}
 	
-	func build(router: ChatTabRouter) -> UIViewController {
+	func build(router: ChatTabRouter, id: Int) -> UIViewController {
 		let chatDetailRouter = ChatDetailRouter()
 		let session = CustomSession()
 		let chatRepository = DefaultChatRepository(session: session)
 		let chatUseCase = DefaultChatUseCase(repository: chatRepository)
-		// 임시 아이디
-		let id = 10000
 		
 		let viewModel = ChatDetailViewModel(
 			id: id, chatUseCase: chatUseCase
