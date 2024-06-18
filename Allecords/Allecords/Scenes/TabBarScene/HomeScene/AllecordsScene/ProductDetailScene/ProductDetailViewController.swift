@@ -24,6 +24,7 @@ final class ProductDetailViewController: UIViewController {
 	private let priceLabel: UILabel = .init()
 	private let productDescriptionLabel: UILabel = .init()
 	private let divisionLine: UIView = .init()
+	private let bottomButtonView: AllecordsBottomView = .init()
   
   // MARK: - Properties
   private var navigationBar = AllecordsNavigationBar(rightItems: [.search, .bell])
@@ -151,7 +152,12 @@ private extension ProductDetailViewController {
     setPriceLabel()
     setDivisionLine()
     setProductDescriptionLabel()
+		setBottomButton()
   }
+	
+	func setBottomButton() {
+		bottomButtonView.delegate = self
+	}
   
   func setNagivationBar() {
     navigationBar = AllecordsNavigationBar(
@@ -197,9 +203,10 @@ private extension ProductDetailViewController {
   }
   
   func setViewHierachies() {
-    view.addSubview(navigationBar)
+		view.addSubview(navigationBar)
     [
-      scrollView
+      scrollView,
+			bottomButtonView
     ].forEach { $0.translatesAutoresizingMaskIntoConstraints = false
       view.addSubview($0)
     }
@@ -222,16 +229,22 @@ private extension ProductDetailViewController {
   }
 	
 	func setScrollViewTopConstraints() {
+		let tabBarHeight = self.tabBarController?.tabBar.frame.height ?? 83
 		NSLayoutConstraint.activate([
 			scrollView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
 			scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabBarHeight * 2),
 			
 			imageView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
 			imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
+			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
+			
+			bottomButtonView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			bottomButtonView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			bottomButtonView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabBarHeight),
+			bottomButtonView.heightAnchor.constraint(equalToConstant: tabBarHeight)
 		])
 	}
 	
@@ -310,6 +323,13 @@ private extension ProductDetailViewController {
 		])
 	}
 	// swiftlint:enable function_body_length
+}
+
+// MARK: - Button Delegate
+extension ProductDetailViewController: AllecordsBottomButtonDelegate {
+	func didTapConfirmButton() {
+		router.enterChat()
+	}
 }
 
 // MARK: - UI Delegate

@@ -34,6 +34,7 @@
 		785262722C062AC600425457 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262712C062AC600425457 /* KeyChain.swift */; };
 		785262742C063EBE00425457 /* AllecordsProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262732C063EBE00425457 /* AllecordsProductDTO.swift */; };
 		785262762C06401000425457 /* AllecordsProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785262752C06401000425457 /* AllecordsProduct.swift */; };
+		7872D73D2C1C5A5A0099048C /* AllecordsBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */; };
 		788EB6582BF34EAC00EECCBD /* AllecordsImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */; };
 		788EB65A2BF351DF00EECCBD /* AllecordsImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */; };
 		788EB6602BFDD4FF00EECCBD /* AllecordsFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */; };
@@ -160,6 +161,7 @@
 		785262712C062AC600425457 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		785262732C063EBE00425457 /* AllecordsProductDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsProductDTO.swift; sourceTree = "<group>"; };
 		785262752C06401000425457 /* AllecordsProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsProduct.swift; sourceTree = "<group>"; };
+		7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsBottomView.swift; sourceTree = "<group>"; };
 		788EB6572BF34EAC00EECCBD /* AllecordsImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageCache.swift; sourceTree = "<group>"; };
 		788EB6592BF351DF00EECCBD /* AllecordsImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsImageService.swift; sourceTree = "<group>"; };
 		788EB65F2BFDD4FF00EECCBD /* AllecordsFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllecordsFloatingButton.swift; sourceTree = "<group>"; };
@@ -360,6 +362,14 @@
 				785262712C062AC600425457 /* KeyChain.swift */,
 			);
 			path = KeyChain;
+			sourceTree = "<group>";
+		};
+		7872D73B2C1C5A160099048C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7872D73C2C1C5A5A0099048C /* AllecordsBottomView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		788EB6542BF34E6700EECCBD /* Cacher */ = {
@@ -656,6 +666,7 @@
 		85078D692BD40DB000068060 /* ProductDetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				7872D73B2C1C5A160099048C /* View */,
 				85078D6C2BD40E4A00068060 /* ProductDetailViewController.swift */,
 				85078D6E2BD40E4A00068060 /* ProductDetailViewModel.swift */,
 				85078D6A2BD40E4A00068060 /* ProductDetailInput.swift */,
@@ -922,6 +933,7 @@
 				789EEAC42BB9A92600B99871 /* TabBarBuilder.swift in Sources */,
 				789EEAE42BC0088900B99871 /* AllecordsNavigationItem.swift in Sources */,
 				789EEAE92BC00A9700B99871 /* UIFont+.swift in Sources */,
+				7872D73D2C1C5A5A0099048C /* AllecordsBottomView.swift in Sources */,
 				7827F80F2BE00000008F6883 /* HomeTabRouter.swift in Sources */,
 				789EEAB32BB9957700B99871 /* DependencyContainer.swift in Sources */,
 				785262642C05C5A400425457 /* Data+.swift in Sources */,
