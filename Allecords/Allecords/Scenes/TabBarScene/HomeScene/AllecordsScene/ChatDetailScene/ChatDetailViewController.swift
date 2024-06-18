@@ -14,9 +14,21 @@ protocol ChatDetailRoutingLogic: AnyObject {
 }
 
 final class ChatDetailViewController: UIViewController {
+	typealias ChatRoomDataSource = UITableViewDiffableDataSource<Section, Chat>
+
+	enum Section {
+		case room
+	}
 	// MARK: - UI Components
 	private let navigationBar: AllecordsNavigationBar = .init(isBackButtonHidden: false)
 	private let tableView: UITableView = .init()
+	private let nameLabel: UILabel = .init()
+	private let keyboardStackView: UIStackView = .init()
+	private let keyboardTextField: UITextField = .init()
+	private let keyboardSendButton: UIButton = .init()
+	private lazy var keyBoardStackViewBottomConstraint = keyboardStackView.bottomAnchor.constraint(
+		equalTo: view.safeAreaLayoutGuide.bottomAnchor
+	)
 	
 	// MARK: - Properties
 	private let router: ChatDetailRoutingLogic
@@ -29,6 +41,7 @@ final class ChatDetailViewController: UIViewController {
 	private let viewLoad: PassthroughSubject<Void, Never> = .init()
 	private let socketConnect: PassthroughSubject<Void, Never> = .init()
 	private let receive: PassthroughSubject<Void, Never> = .init()
+	
   // MARK: - Initializers
 	init(
 		router: ChatDetailRoutingLogic,
@@ -94,21 +107,61 @@ extension ChatDetailViewController {
 		view.backgroundColor = .systemBackground
 		setNavigationBar()
 		setTableView()
+		setNameLabel()
+		setkeyboardButton()
+		setKeyboardStackView()
+		setKeyboardTextField()
+		setUpNotification()
 	}
 	
 	func setViewHierachies() {
 		view.addSubview(navigationBar)
+		view.addSubview(nameLabel)
 		view.addSubview(tableView)
+		view.addSubview(keyboardStackView)
+		keyboardStackView.addArrangedSubview(keyboardTextField)
+		keyboardStackView.addArrangedSubview(keyboardSendButton)
 	}
 	
 	func setViewConstraints() {
 		let safeArea = view.safeAreaLayoutGuide
 		NSLayoutConstraint.activate([
+			// NameLabel constraints
+			nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			nameLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 10),
+			
+			keyboardStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
+			keyboardStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+			keyBoardStackViewBottomConstraint,
+			
+			keyboardTextField.heightAnchor.constraint(equalToConstant: 40),
+			keyboardSendButton.widthAnchor.constraint(equalToConstant: 40),
+			
 			tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+			tableView.bottomAnchor.constraint(equalTo: keyboardStackView.topAnchor),
 			tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-			tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-			tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+			tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
 		])
+	}
+	
+	func setKeyboardStackView() {
+		keyboardStackView.axis = .horizontal
+		keyboardStackView.translatesAutoresizingMaskIntoConstraints = false
+	}
+	
+	func setkeyboardButton() {
+		keyboardSendButton.translatesAutoresizingMaskIntoConstraints = false
+		keyboardSendButton.setImage(UIImage(systemName: "paperplane"), for: .normal)
+		keyboardSendButton.addTarget(target, action: #selector(sendbuttonTapped), for: .touchUpInside)
+		keyboardSendButton.tintColor = .primary1
+	}
+	
+	func setKeyboardTextField() {
+		keyboardTextField.delegate = self
+		keyboardTextField.translatesAutoresizingMaskIntoConstraints = false
+		keyboardTextField.placeholder = "메시지를 입력해주세요."
+		keyboardTextField.borderStyle = .roundedRect
+		keyboardTextField.backgroundColor = .gray5
 	}
 	
 	func setTableView() {
@@ -124,9 +177,55 @@ extension ChatDetailViewController {
 	func setNavigationBar() {
 		navigationBar.delegate = self
 	}
+	
+	func setNameLabel() {
+		nameLabel.translatesAutoresizingMaskIntoConstraints = false
+		nameLabel.text = "판매자"
+		nameLabel.font = .notoSansCJKkr(type: .bold, size: .large)
+		nameLabel.textColor = .primaryDark
+	}
+	
+	@objc func sendbuttonTapped() {
+		print("send")
+	}
+	
+	func setUpNotification() {
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(keyboardWillShow),
+			name: UIResponder.keyboardWillShowNotification,
+			object: nil
+		)
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(keyboardWillHide),
+			name: UIResponder.keyboardWillHideNotification,
+			object: nil
+		)
+	}
+	
+	@objc func keyboardWillShow(_ notification: Notification) {
+		guard let userInfo = notification.userInfo as NSDictionary?,
+					var keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+			return
+		}
+		keyboardFrame = view.convert(keyboardFrame, from: nil)
+		keyBoardStackViewBottomConstraint.constant = -keyboardFrame.height + 60
+	}
+	
+	@objc func keyboardWillHide(_ notification: Notification) {
+		keyBoardStackViewBottomConstraint.constant = 0
+	}
 }
 
 extension ChatDetailViewController: UITableViewDelegate {
+}
+
+extension ChatDetailViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
+	}
 }
 
 extension ChatDetailViewController: UITableViewDataSource {
@@ -135,10 +234,10 @@ extension ChatDetailViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let me = "Alice"
+		let meIdentifier = "Alice"
 		let targetChat = chat[indexPath.row]
 		
-		if targetChat.sender == me {
+		if targetChat.sender == meIdentifier {
 			guard let cell = tableView.dequeueReusableCell(
 				withIdentifier: ChatMyTableViewCell.identifier,
 				for: indexPath
