@@ -6,14 +6,19 @@
 //
 
 import Combine
+import Foundation
 
-protocol ChatDetailViewModelable: ViewModelable 
+protocol ChatDetailViewModelable: ViewModelable
 where Input == ChatDetailInput,
 State == ChatDetailState,
 Output == AnyPublisher<State, Never> { }
 
-final class ChatDetailViewModel {
+protocol ChatDetailDataSource {
+	var webSocketUrl: URL? { get }
+}
 
+final class ChatDetailViewModel {
+	// UseCase에서 채팅방 정보 다 가져 오는 로직이 필요함
 }
 
 extension ChatDetailViewModel: ChatDetailViewModelable {
@@ -24,4 +29,19 @@ extension ChatDetailViewModel: ChatDetailViewModelable {
 }
 
 private extension ChatDetailViewModel {
+	func updateTitle(_ input: Input) -> Output {
+		return input.viewLoad
+			.withUnretained(self)
+			.flatMap { (owner, _) -> AnyPublisher<Void, Never> in
+				
+				return
+			}
+			.eraseToAnyPublisher()
+	}
+}
+
+extension ChatDetailViewModel: ChatDetailDataSource {
+	var webSocketUrl: URL? {
+		URL(string: "ws://")
+	}
 }
