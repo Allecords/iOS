@@ -13,3 +13,10 @@ struct Chat: Hashable, Codable {
 	let content: String
 	let timestamp: String
 }
+
+struct SChat: Hashable, Codable {
+	let sender: String
+	let chatRoomId: String
+	let content: String
+	let timestamp: String
+}

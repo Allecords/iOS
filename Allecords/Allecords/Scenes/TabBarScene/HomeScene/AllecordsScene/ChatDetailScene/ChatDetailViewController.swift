@@ -42,7 +42,9 @@ final class ChatDetailViewController: UIViewController {
 	private let socketConnect: PassthroughSubject<Void, Never> = .init()
 	private let receive: PassthroughSubject<Void, Never> = .init()
 	
+	let meIdentifier = "jay"
 	var webSocketTask: URLSessionWebSocketTask?
+	private var timer: Timer?
 	
   // MARK: - Initializers
 	init(
@@ -68,6 +70,11 @@ final class ChatDetailViewController: UIViewController {
 		connect()
 		bind()
 		viewLoad.send()
+	}
+	
+	deinit {
+		webSocketTask?.cancel(with: .goingAway, reason: nil)
+		timer?.invalidate()
 	}
 }
 
@@ -105,10 +112,11 @@ extension ChatDetailViewController: ViewBindable {
 extension ChatDetailViewController {
 	func connect() {
 		// WebSocket 연결 설정
-		let url = URL(string: "wss://allecords.shop/ws/chat")!
+		// wss://allecords.shop/ws/chat?username=' + username + '&chatRoomId=' + chatRoomId
+		let url = URL(string: "wss://allecords.shop/ws/chat?username=jay&chatRoomId=\(viewModel.getId())")!
 		webSocketTask = URLSession(configuration: .default).webSocketTask(with: url)
 		webSocketTask?.resume()
-		
+		startPing()
 		// 실시간 메시지 수신 대기
 		receiveMessage()
 	}
@@ -118,9 +126,9 @@ extension ChatDetailViewController {
 			return
 		}
 		
-		let chat = Chat(
+		let chat = SChat(
 			sender: "jay",
-			chatRoomId: viewModel.getId(),
+			chatRoomId: String(viewModel.getId()),
 			content: messageContent,
 			timestamp: ISO8601DateFormatter().string(from: Date())
 		)
@@ -132,6 +140,7 @@ extension ChatDetailViewController {
 					print("WebSocket sending error: \(error)")
 				} else {
 					DispatchQueue.main.async {
+//						self.chat.append(chat)
 						self.keyboardTextField.text = ""
 					}
 				}
@@ -154,12 +163,49 @@ extension ChatDetailViewController {
 								}
 							}
 						case .string(let text):
-							print("Received text message: \(text)")
+							print(text)
+							self.decodeAndAppendMessage(text)
 						@unknown default:
 							break
 					}
 					// 계속해서 메시지 수신 대기
 					self.receiveMessage()
+			}
+		}
+	}
+	
+	func decodeAndAppendMessage(_ jsonString: String) {
+		guard let jsonData = jsonString.data(using: .utf8) else {
+			print("Failed to convert JSON string to Data")
+			return
+		}
+		
+		do {
+			let chatMessage = try JSONDecoder().decode(SChat.self, from: jsonData)
+			DispatchQueue.main.async {
+				let chatt = Chat(
+					sender: chatMessage.sender,
+					chatRoomId: Int(chatMessage.chatRoomId)!,
+					content: chatMessage.content,
+					timestamp: chatMessage.timestamp
+				)
+				self.chat.append(chatt)
+				self.tableView.reloadData()
+			}
+		} catch {
+			print("Failed to decode JSON to Chat: \(error)")
+		}
+	}
+	
+	private func startPing() {
+		timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(ping), userInfo: nil, repeats: true)
+	}
+	
+	@objc private func ping() {
+		webSocketTask?.sendPing { error in
+			if let error = error {
+				print("Ping failed: \(error)")
+				self.timer?.invalidate()
 			}
 		}
 	}
@@ -254,6 +300,19 @@ extension ChatDetailViewController {
 		sendMessage()
 	}
 	
+	func fakeSend() {
+		guard let content = keyboardTextField.text else { return }
+		let chat = Chat(
+			sender: "jay",
+			chatRoomId: viewModel.getId(),
+			content: content,
+			timestamp: dateFormattted(input: ISO8601DateFormatter().string(from: Date()))
+		)
+		self.chat.append(chat)
+		keyboardTextField.text = ""
+		tableView.reloadData()
+	}
+	
 	func setUpNotification() {
 		NotificationCenter.default.addObserver(
 			self,
@@ -299,7 +358,7 @@ extension ChatDetailViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let meIdentifier = "jay"
+		
 		let targetChat = chat[indexPath.row]
 		
 		if targetChat.sender == meIdentifier {
@@ -342,7 +401,8 @@ extension ChatDetailViewController: UITableViewDataSource {
 			let formattedDateString = outputDateFormatter.string(from: date)
 			return formattedDateString
 		} else {
-			return "2024.06.19 14:22"
+			let formattedDateString = outputDateFormatter.string(from: Date.now)
+			return formattedDateString
 		}
 	}
 }
